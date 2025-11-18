@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://o3yx6hdqw1kd"]
+
+[ext_resource type="Script" uid="uid://baa5kif1my5eh" path="res://Scripts/Abilities/Ice/Icicle.cs" id="1_qdswm"]
+
+[node name="Icicle" type="Node2D"]
+script = ExtResource("1_qdswm")
