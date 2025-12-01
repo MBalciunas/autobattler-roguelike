@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://dlpifra67ncok"]
+
+[ext_resource type="Script" uid="uid://cqnwx27b3ivg5" path="res://Scripts/Enemies/BaseMeleeEnemy.cs" id="1_l5kn3"]
+[ext_resource type="Texture2D" uid="uid://bwnatcfx2mdo2" path="res://icon.svg" id="1_opt7k"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_l5kn3"]
+radius = 27.073973
+
+[node name="BaseMeleeEnemy" type="Area2D"]
+script = ExtResource("1_l5kn3")
+damage = 1.0
+
+[node name="Sprite" type="Sprite2D" parent="."]
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("1_opt7k")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_l5kn3")

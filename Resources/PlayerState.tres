@@ -1,0 +1,6 @@
+[gd_resource type="Resource" script_class="PlayerState" load_steps=2 format=3 uid="uid://bw5asxn2rpv7q"]
+
+[ext_resource type="Script" uid="uid://cpn7g5j05a6h0" path="res://Scripts/PlayerState.cs" id="1_ju47l"]
+
+[resource]
+script = ExtResource("1_ju47l")

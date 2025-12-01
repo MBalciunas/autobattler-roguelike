@@ -28,7 +28,6 @@ public partial class AbilityExecutor : Node2D
 
     private void StartAbilityCooldownTimer(Ability currentAbility)
     {
-        GD.Print("Starting cooldown timer");
         currentAbility.Finished -= StartAbilityCooldownTimer;
         abilityCooldownTimer.WaitTime = timeToLoop / activeAbilities.Count;
         abilityCooldownTimer.Start();
@@ -37,7 +36,6 @@ public partial class AbilityExecutor : Node2D
     private void NextAbilityReady()
     {
         abilityCooldownTimer.Stop();
-        GD.Print("Next Ability Ready");
         nextAbilityIndex = (nextAbilityIndex + 1) % activeAbilities.Count;
         isNextAbilityReady = true;
     }

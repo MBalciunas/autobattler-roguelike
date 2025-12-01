@@ -1,8 +1,25 @@
-[gd_scene load_steps=2 format=3 uid="uid://bd3n6dt1rhq1p"]
+[gd_scene load_steps=6 format=3 uid="uid://bd3n6dt1rhq1p"]
 
-[ext_resource type="PackedScene" uid="uid://dc0gbcacmyv4j" path="res://Scenes/player.tscn" id="1_r7jfx"]
+[ext_resource type="PackedScene" uid="uid://dc0gbcacmyv4j" path="res://Scenes/player.tscn" id="1_q2fht"]
+[ext_resource type="Script" uid="uid://dvsjkfldb4k3a" path="res://Scripts/Enemies/EnemySpawner.cs" id="2_5erdv"]
+[ext_resource type="Resource" uid="uid://bw5asxn2rpv7q" path="res://Resources/PlayerState.tres" id="2_qbrl8"]
+[ext_resource type="PackedScene" uid="uid://dlpifra67ncok" path="res://Scenes/base_melee_enemy.tscn" id="3_qbrl8"]
+[ext_resource type="Script" uid="uid://t0jdua7b6nth" path="res://Scripts/GameManager.cs" id="5_a2ia3"]
 
-[node name="MainLevel" type="Node2D"]
+[node name="MainLevel" type="Node"]
 
-[node name="Player" parent="." instance=ExtResource("1_r7jfx")]
+[node name="Player" parent="." instance=ExtResource("1_q2fht")]
 position = Vector2(950, 487)
+playerState = ExtResource("2_qbrl8")
+
+[node name="EnemySpawner" type="Node2D" parent="."]
+script = ExtResource("2_5erdv")
+enemyScene = ExtResource("3_qbrl8")
+
+[node name="SpawnTimer" type="Timer" parent="EnemySpawner"]
+autostart = true
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="GameManager" type="Node2D" parent="."]
+script = ExtResource("5_a2ia3")
