@@ -2,7 +2,7 @@ using Godot;
 
 public partial class Icicle : Ability
 {
-    [Export] private PackedScene fireboltProjectileScene;
+    [Export] private PackedScene icicleProjectileScene;
     public override void Execute()
     {
         ExecuteIcicle();
@@ -10,7 +10,9 @@ public partial class Icicle : Ability
 
     private async void ExecuteIcicle()
     {
-        await ToSignal(GetTree().CreateTimer(2f), SceneTreeTimer.SignalName.Timeout);
+        GD.Print("ExecuteIcicle");
+        await ToSignal(GetTree().CreateTimer(0.5f), SceneTreeTimer.SignalName.Timeout);
+        GD.Print("ExecuteIcicle finished");
         EmitSignal(Ability.SignalName.Finished, this);
     }
 }

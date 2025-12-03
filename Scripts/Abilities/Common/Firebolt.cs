@@ -10,7 +10,9 @@ public partial class Firebolt : Ability
 
     private async void ExecuteFirebolt()
     {
-        await ToSignal(GetTree().CreateTimer(2f), SceneTreeTimer.SignalName.Timeout);
+        GD.Print("ExecuteFirebolt");
+        await ToSignal(GetTree().CreateTimer(0.5f), SceneTreeTimer.SignalName.Timeout);
+        GD.Print("ExecuteFirebolt finished");
         EmitSignal(Ability.SignalName.Finished, this);
     }
 }

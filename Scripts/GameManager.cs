@@ -10,6 +10,7 @@ public partial class GameManager : Node
     {
         Instance = this;
         globalManager = GetNode<GlobalManager>("/root/Global");
+        GlobalManager.Player = GetTree().Root.GetNode<Player>("MainLevel/Player");
     }
     
     public void ReloadLevel()

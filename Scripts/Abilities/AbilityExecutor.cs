@@ -4,15 +4,15 @@ using Godot.Collections;
 public partial class AbilityExecutor : Node2D
 {
     [Export] private Array<Ability> activeAbilities = [];
-    private int nextAbilityIndex = 0;
+    public int nextAbilityIndex = 0;
     private bool isNextAbilityReady = true;
-    private float timeToLoop = 3.0f;
-    private Timer abilityCooldownTimer;
+    private float timeToLoop = 4.0f;
+    public Timer cooldownTimer;
 
     public override void _Ready()
     {
-        abilityCooldownTimer = GetNode<Timer>("CooldownTimer");
-        abilityCooldownTimer.Timeout += NextAbilityReady;
+        cooldownTimer = GetNode<Timer>("CooldownTimer");
+        cooldownTimer.Timeout += NextReady;
     }
 
     public override void _Process(double delta)
@@ -29,13 +29,13 @@ public partial class AbilityExecutor : Node2D
     private void StartAbilityCooldownTimer(Ability currentAbility)
     {
         currentAbility.Finished -= StartAbilityCooldownTimer;
-        abilityCooldownTimer.WaitTime = timeToLoop / activeAbilities.Count;
-        abilityCooldownTimer.Start();
+        cooldownTimer.WaitTime = timeToLoop / activeAbilities.Count;
+        cooldownTimer.Start();
     }
     
-    private void NextAbilityReady()
+    private void NextReady()
     {
-        abilityCooldownTimer.Stop();
+        cooldownTimer.Stop();
         nextAbilityIndex = (nextAbilityIndex + 1) % activeAbilities.Count;
         isNextAbilityReady = true;
     }

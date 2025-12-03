@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using Godot;
 
 namespace AutoBattlerRoguelike.Scripts;
@@ -8,6 +9,9 @@ public partial class PlayerState : Resource
     public PlayerStatFloat Health { get; private set; }
     public PlayerStatFloat MaxHealth { get; private set; }
     public PlayerStatFloat Damage { get; private set; }
+    public List<AbilityResource> AbilitiesInLoop { get; set; }
+
+    
 
     public PlayerState()
     {
@@ -21,15 +25,13 @@ public partial class PlayerState : Resource
         Health.SetMax(MaxHealth.Value);
         
         Damage = new PlayerStatFloat(0);
-    }
-
-    public void SetHealthWithMaxHealthIncrease(int health)
-    {
-        if (health > MaxHealth.Value)
-        {
-            MaxHealth.Value = health;
-        }
-        Health.Value = health;
+        
+        AbilitiesInLoop =
+        [
+            GlobalManager.Abilities[AbilityName.Firebolt],
+            GlobalManager.Abilities[AbilityName.Icicle],
+            GlobalManager.Abilities[AbilityName.Firebolt],
+        ];
     }
 
     public void Reset()
@@ -37,6 +39,7 @@ public partial class PlayerState : Resource
         MaxHealth.Value = 10;
         Health.Value = 10;
         Damage.Value = 0;
+
     }
 
     public void Heal(float amount) => Health.Add(amount);

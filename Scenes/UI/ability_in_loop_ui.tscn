@@ -1,0 +1,31 @@
+[gd_scene load_steps=3 format=3 uid="uid://d0gqn7jb7n3m5"]
+
+[ext_resource type="Texture2D" uid="uid://bwnatcfx2mdo2" path="res://icon.svg" id="1_ieg6h"]
+[ext_resource type="Script" uid="uid://dv823dp0vcnub" path="res://Scripts/UI/AbilityInLoopUI.cs" id="1_qv3jj"]
+
+[node name="AbilityInLoopUI" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_qv3jj")
+
+[node name="Icon" type="TextureRect" parent="."]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 0
+offset_left = -25.0
+offset_top = -25.0
+offset_right = 25.0
+offset_bottom = 25.0
+texture = ExtResource("1_ieg6h")
+expand_mode = 1
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = -25.0
+offset_top = -25.0
+offset_right = 25.0
+offset_bottom = 8.0
+theme_override_font_sizes/font_size = 12
+text = "Firebolt"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
