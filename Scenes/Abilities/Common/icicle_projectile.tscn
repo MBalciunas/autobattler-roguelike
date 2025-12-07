@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://dvwr341m775nc"]
+
+[ext_resource type="Script" uid="uid://cic5tqt225d6h" path="res://Scripts/Abilities/Projectile.cs" id="1_kp77l"]
+[ext_resource type="Texture2D" uid="uid://bwnatcfx2mdo2" path="res://icon.svg" id="2_nayp7"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_kp77l"]
+radius = 6.0
+height = 48.0
+
+[node name="Icicle" type="Area2D"]
+script = ExtResource("1_kp77l")
+speed = 400.0
+
+[node name="Icon" type="Sprite2D" parent="."]
+modulate = Color(0.35803756, 0.59113115, 1, 1)
+scale = Vector2(0.4, 0.1)
+texture = ExtResource("2_nayp7")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_kp77l")
+
+[connection signal="area_entered" from="." to="." method="OnAreaEntered"]

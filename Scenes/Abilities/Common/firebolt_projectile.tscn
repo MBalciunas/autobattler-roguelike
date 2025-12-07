@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://d2xfyd8u4242w"]
+
+[ext_resource type="Script" uid="uid://cic5tqt225d6h" path="res://Scripts/Abilities/Projectile.cs" id="1_8171e"]
+[ext_resource type="Texture2D" uid="uid://bwnatcfx2mdo2" path="res://icon.svg" id="2_8171e"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_8171e"]
+radius = 13.0
+
+[node name="Firebolt" type="Area2D"]
+script = ExtResource("1_8171e")
+speed = 500.0
+
+[node name="Icon" type="Sprite2D" parent="."]
+modulate = Color(1, 0.33546084, 0.36270458, 1)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("2_8171e")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_8171e")
+
+[connection signal="area_entered" from="." to="." method="OnAreaEntered"]

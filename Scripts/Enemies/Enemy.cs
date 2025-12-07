@@ -1,10 +1,11 @@
 using Godot;
 
-public abstract partial class Enemy : Node2D
+public abstract partial class Enemy : Area2D
 {
     [Export] private float moveSpeed = 50;
     [Export] private float attackCooldown = 2;
     [Export] private float attackRange = 100;
+    [Export] private float health = 2;
     protected Player player;
     private Timer attackTimer;
 
@@ -16,6 +17,8 @@ public abstract partial class Enemy : Node2D
         attackTimer.OneShot = true;
         attackTimer.Start();
         player = GetNode<Player>("../../Player");
+        
+        AddToGroup("Enemies");
     }
 
     public override void _Process(double delta)
@@ -36,5 +39,16 @@ public abstract partial class Enemy : Node2D
         }
     }
 
+    public void TakeDamage(float damage)
+    {
+        GD.Print("TakeDamage");
+        health -= damage;
+        if (health <= 0)
+        {
+            RemoveFromGroup("Enemies");
+            QueueFree();
+        }
+    }
+    
     public abstract void Attack();
 }

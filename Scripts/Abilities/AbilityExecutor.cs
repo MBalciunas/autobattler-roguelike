@@ -3,7 +3,7 @@ using Godot.Collections;
 
 public partial class AbilityExecutor : Node2D
 {
-    [Export] private Array<Ability> activeAbilities = [];
+    private Array<Ability> activeAbilities = [];
     public int nextAbilityIndex = 0;
     private bool isNextAbilityReady = true;
     private float timeToLoop = 4.0f;
@@ -13,6 +13,13 @@ public partial class AbilityExecutor : Node2D
     {
         cooldownTimer = GetNode<Timer>("CooldownTimer");
         cooldownTimer.Timeout += NextReady;
+        foreach (var abilityResource in GlobalManager.playerState.AbilitiesInLoop)
+        {
+            var ability = abilityResource.ability.Instantiate<Ability>();
+            activeAbilities.Add(ability);
+            AddChild(ability);
+            ability.GlobalPosition = GlobalPosition;
+        }
     }
 
     public override void _Process(double delta)

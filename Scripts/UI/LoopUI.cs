@@ -48,9 +48,6 @@ public partial class LoopUI : Control
         else
         {
             isRotationFinished = false;
-            GD.Print(rotateTimes);
-            // GD.Print((float)(abilityExecutor.cooldownTimer.TimeLeft / abilityExecutor.cooldownTimer.WaitTime *
-            //                                 rotationAngle) * rotateTimes);
             Rotation = (float)(rotateTimes * Mathf.DegToRad(rotationAngle) + Mathf.DegToRad((1 - abilityExecutor.cooldownTimer.TimeLeft / abilityExecutor.cooldownTimer.WaitTime) * rotationAngle));
         }
     }

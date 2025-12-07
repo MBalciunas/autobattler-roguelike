@@ -1,5 +1,6 @@
-[gd_resource type="Resource" load_steps=3 format=3 uid="uid://bjrjk8oeurlfb"]
+[gd_resource type="Resource" load_steps=4 format=3 uid="uid://bjrjk8oeurlfb"]
 
+[ext_resource type="PackedScene" uid="uid://o3yx6hdqw1kd" path="res://Scenes/Abilities/Common/icicle.tscn" id="1_g65p1"]
 [ext_resource type="Texture2D" uid="uid://bwnatcfx2mdo2" path="res://icon.svg" id="1_qvitq"]
 [ext_resource type="Script" uid="uid://jqyomo0najrn" path="res://Scripts/Abilities/AbilityResource.cs" id="2_05o5j"]
 
@@ -8,3 +9,4 @@ script = ExtResource("2_05o5j")
 name = "Icicle"
 price = 1
 icon = ExtResource("1_qvitq")
+ability = ExtResource("1_g65p1")

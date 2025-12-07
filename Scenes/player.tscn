@@ -13,9 +13,8 @@ script = ExtResource("1_cvnsp")
 scale = Vector2(0.12, 0.12)
 texture = ExtResource("2_cvnsp")
 
-[node name="AbilityExecutor" type="Node2D" parent="." node_paths=PackedStringArray("activeAbilities")]
+[node name="AbilityExecutor" type="Node2D" parent="."]
 script = ExtResource("3_6t5aa")
-activeAbilities = [NodePath("Firebolt"), NodePath("Icicle")]
 
 [node name="Firebolt" parent="AbilityExecutor" instance=ExtResource("4_vgqql")]
 

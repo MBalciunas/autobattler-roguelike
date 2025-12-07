@@ -8,6 +8,7 @@ public partial class AbilityResource : Resource
     [Export] public AbilityRarity rarity;
     [Export] public int price;
     [Export] public Texture2D icon;
+    [Export] public PackedScene ability;
 }
 
 public enum AbilityRarity

@@ -19,6 +19,7 @@ script = ExtResource("2_5erdv")
 enemyScene = ExtResource("3_qbrl8")
 
 [node name="SpawnTimer" type="Timer" parent="EnemySpawner"]
+wait_time = 3.0
 autostart = true
 
 [node name="GameManager" type="Node2D" parent="."]
@@ -48,9 +49,9 @@ offset_bottom = 1109.0
 
 [node name="LoopUI" type="Control" parent="UI/Control/PlayerUI"]
 anchors_preset = 0
-offset_left = -37.0
+offset_left = -36.0
 offset_top = -111.0
-offset_right = -37.0
+offset_right = -36.0
 offset_bottom = -111.0
 script = ExtResource("6_lwkuy")
 abilityInLoopScene = ExtResource("7_tqiex")

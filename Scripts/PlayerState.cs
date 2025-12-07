@@ -10,7 +10,6 @@ public partial class PlayerState : Resource
     public PlayerStatFloat MaxHealth { get; private set; }
     public PlayerStatFloat Damage { get; private set; }
     public List<AbilityResource> AbilitiesInLoop { get; set; }
-
     
 
     public PlayerState()
@@ -30,7 +29,6 @@ public partial class PlayerState : Resource
         [
             GlobalManager.Abilities[AbilityName.Firebolt],
             GlobalManager.Abilities[AbilityName.Icicle],
-            GlobalManager.Abilities[AbilityName.Firebolt],
         ];
     }
 
