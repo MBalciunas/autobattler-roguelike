@@ -32,12 +32,9 @@ public partial class PlayerState : Resource
         ];
     }
 
-    public void Reset()
+    public void ResetHealth()
     {
-        MaxHealth.Value = 10;
-        Health.Value = 10;
-        Damage.Value = 0;
-
+        Health.Value = MaxHealth.Value;
     }
 
     public void Heal(float amount) => Health.Add(amount);

@@ -1,3 +1,4 @@
+using System.Linq;
 using Godot;
 
 public abstract partial class Enemy : Area2D
@@ -41,12 +42,18 @@ public abstract partial class Enemy : Area2D
 
     public void TakeDamage(float damage)
     {
-        GD.Print("TakeDamage");
         health -= damage;
         if (health <= 0)
         {
             RemoveFromGroup("Enemies");
-            QueueFree();
+            GD.Print(GetTree().GetNodesInGroup("Enemies").Count);
+            GD.Print(GlobalManager.IsEnemiesSpawning);
+            if (GetTree().GetNodesInGroup("Enemies").Count == 0 && !GlobalManager.IsEnemiesSpawning)
+            {
+                GameManager.Instance.LoadNextLevel();
+            }
+
+            CallDeferred("queue_free");
         }
     }
     

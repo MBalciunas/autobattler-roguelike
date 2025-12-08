@@ -6,4 +6,4 @@
 [node name="Firebolt" type="Node2D"]
 script = ExtResource("1_pqakc")
 fireboltProjectileScene = ExtResource("2_bbhfe")
-damage = 1.0
+damage = 2.0

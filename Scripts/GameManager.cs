@@ -17,4 +17,9 @@ public partial class GameManager : Node
     {
         globalManager.ReloadLevel();
     } 
+    
+    public void LoadNextLevel()
+    {
+        globalManager.LoadNextLevel();
+    } 
 }

@@ -13,7 +13,6 @@ public partial class Projectile : Area2D
     
     private void OnAreaEntered(Area2D area)
     {
-        GD.Print("OnAreaEntered");
         if (area is Enemy enemy)
         {
             enemy.TakeDamage(damage);

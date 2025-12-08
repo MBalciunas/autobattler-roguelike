@@ -10,10 +10,12 @@ public partial class GlobalManager : Node
 
     public static Player Player;
 
+    public static int Level = 1;
+    public static bool IsEnemiesSpawning;
+
     public override void _EnterTree()
     {
         playerState = ResourceLoader.Load<PlayerState>("res://Resources/PlayerState.tres");
-        GD.Print("initialize stats");
         playerState.InitializeStats(); 
     }
     
@@ -27,7 +29,15 @@ public partial class GlobalManager : Node
     {
         playerState.InitializeStats();
         GetTree().ChangeSceneToFile("res://Scenes/main_level.tscn");
-    } 
+    }
+
+    public void LoadNextLevel()
+    {
+        Level++;
+        playerState.ResetHealth();
+        GD.Print("Loading level " + Level);
+        GetTree().CallDeferred("change_scene_to_file", "res://Scenes/main_level.tscn");
+    }
 }
 
 public enum AbilityName
