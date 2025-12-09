@@ -1,0 +1,76 @@
+[gd_scene load_steps=7 format=3 uid="uid://buqru3joibnoe"]
+
+[ext_resource type="Script" uid="uid://cxrbwkbig6js8" path="res://Scripts/UI/ShopUI.cs" id="1_uxpe5"]
+[ext_resource type="Script" uid="uid://cougl0p6pxm6x" path="res://Scripts/UI/AbilityLoopShopUI.cs" id="2_6rmb7"]
+[ext_resource type="Script" uid="uid://cbfgayhyoqxbt" path="res://Scripts/UI/GoldUI.cs" id="2_njw01"]
+[ext_resource type="PackedScene" uid="uid://cdcae3h324er8" path="res://Scenes/UI/shop_item.tscn" id="2_uxpe5"]
+[ext_resource type="Script" uid="uid://bbiobc88e7a2j" path="res://Scripts/UI/NextLevelButton.cs" id="3_6rmb7"]
+[ext_resource type="PackedScene" uid="uid://b60ipvscmxadc" path="res://Scenes/UI/shop_ability_in_loop_ui.tscn" id="3_jwdga"]
+
+[node name="ShopScene" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_top = -2.0
+offset_right = 1920.0
+offset_bottom = 1078.0
+color = Color(0.350671, 0.090552084, 0.07119059, 1)
+
+[node name="ShopUI" type="HBoxContainer" parent="." node_paths=PackedStringArray("shopItemUI1", "shopItemUI2", "shopItemUI3")]
+layout_mode = 0
+offset_left = 1053.0
+offset_top = 124.0
+offset_right = 2019.0
+offset_bottom = 1240.0
+script = ExtResource("1_uxpe5")
+shopItemUI1 = NodePath("ShopItem")
+shopItemUI2 = NodePath("ShopItem2")
+shopItemUI3 = NodePath("ShopItem3")
+
+[node name="ShopItem" parent="ShopUI" instance=ExtResource("2_uxpe5")]
+layout_mode = 2
+
+[node name="ShopItem2" parent="ShopUI" instance=ExtResource("2_uxpe5")]
+layout_mode = 2
+
+[node name="ShopItem3" parent="ShopUI" instance=ExtResource("2_uxpe5")]
+layout_mode = 2
+
+[node name="AbilityLoopUI" type="Control" parent="."]
+anchors_preset = 0
+offset_left = 245.0
+offset_top = 313.0
+offset_right = 285.0
+offset_bottom = 353.0
+script = ExtResource("2_6rmb7")
+abilityInLoopScene = ExtResource("3_jwdga")
+
+[node name="Gold" type="Label" parent="."]
+layout_mode = 0
+offset_left = 1053.0
+offset_top = 10.0
+offset_right = 1249.0
+offset_bottom = 79.0
+theme_override_font_sizes/font_size = 50
+text = "Gold: 10"
+script = ExtResource("2_njw01")
+
+[node name="NextLevelButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 761.0
+offset_top = 907.0
+offset_right = 1107.0
+offset_bottom = 1022.0
+theme_override_font_sizes/font_size = 50
+text = "Next Level"
+script = ExtResource("3_6rmb7")
+
+[node name="InfoPanel" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = 1059.0
+offset_top = 352.0
+offset_right = 1741.0
+offset_bottom = 875.0
+color = Color(0.1457363, 0.20321012, 0.23238409, 1)

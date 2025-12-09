@@ -31,10 +31,16 @@ public partial class GlobalManager : Node
         GetTree().ChangeSceneToFile("res://Scenes/main_level.tscn");
     }
 
+    public void FinishLevel()
+    {
+        playerState.AddGold(5);
+        playerState.ResetHealth();
+        GetTree().CallDeferred("change_scene_to_file", "res://Scenes/shop_scene.tscn");
+    }
+    
     public void LoadNextLevel()
     {
         Level++;
-        playerState.ResetHealth();
         GD.Print("Loading level " + Level);
         GetTree().CallDeferred("change_scene_to_file", "res://Scenes/main_level.tscn");
     }

@@ -50,7 +50,7 @@ public abstract partial class Enemy : Area2D
             GD.Print(GlobalManager.IsEnemiesSpawning);
             if (GetTree().GetNodesInGroup("Enemies").Count == 0 && !GlobalManager.IsEnemiesSpawning)
             {
-                GameManager.Instance.LoadNextLevel();
+                GameManager.Instance.FinishLevel();
             }
 
             CallDeferred("queue_free");

@@ -1,0 +1,39 @@
+[gd_scene load_steps=3 format=3 uid="uid://cdcae3h324er8"]
+
+[ext_resource type="Texture2D" uid="uid://bwnatcfx2mdo2" path="res://icon.svg" id="1_gd3nv"]
+[ext_resource type="Script" uid="uid://16pgfcypbbif" path="res://Scripts/UI/ShopItem.cs" id="1_tk2wa"]
+
+[node name="ShopItem" type="Control"]
+custom_minimum_size = Vector2(240, 240)
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_tk2wa")
+
+[node name="Icon" type="TextureRect" parent="."]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 0
+offset_top = -2.0
+offset_right = 200.0
+offset_bottom = 198.0
+texture = ExtResource("1_gd3nv")
+
+[node name="Title" type="Label" parent="."]
+layout_mode = 0
+offset_top = -44.0
+offset_right = 198.0
+offset_bottom = -2.0
+theme_override_font_sizes/font_size = 30
+text = "Title"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Price" type="Label" parent="."]
+layout_mode = 0
+offset_left = 2.0
+offset_top = 194.0
+offset_right = 200.0
+offset_bottom = 236.0
+theme_override_font_sizes/font_size = 30
+text = "6"
+horizontal_alignment = 1
+vertical_alignment = 1

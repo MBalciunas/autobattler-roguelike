@@ -29,8 +29,6 @@ script = ExtResource("5_a2ia3")
 [node name="Control" type="Control" parent="UI"]
 layout_mode = 3
 anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
 
 [node name="ColorRect" type="ColorRect" parent="UI/Control"]
 layout_mode = 0
