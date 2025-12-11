@@ -1,4 +1,5 @@
 using Godot;
+using Godot.Collections;
 
 public partial class AbilityLoopShopUI : Control
 {
@@ -7,12 +8,28 @@ public partial class AbilityLoopShopUI : Control
     
     public override void _Ready()
     {
+        GlobalManager.playerState.OnAbilitiesChanged += DisplayAbilities;
+        DisplayAbilities(GlobalManager.playerState.AbilitiesInLoop);
+    }
+
+    public override void _ExitTree()
+    {
+        GlobalManager.playerState.OnAbilitiesChanged -= DisplayAbilities;
+    }
+
+    private void DisplayAbilities(Array<AbilityResource> abilities)
+    {
+        foreach (var ability in GetChildren())
+        {
+            ability.QueueFree();
+        }
+        
         var radius = 160f;
 
-        var abilitiesCount = GlobalManager.playerState.AbilitiesInLoop.Count;
-        for (int i = 0; i < GlobalManager.playerState.AbilitiesInLoop.Count; i++)
+        var abilitiesCount = abilities.Count;
+        for (int i = 0; i < abilities.Count; i++)
         {
-            AbilityResource abilityResource = GlobalManager.playerState.AbilitiesInLoop[i];
+            AbilityResource abilityResource = abilities[i];
             var ability = abilityInLoopScene.Instantiate<Control>();
 
             float angle = -90 + i * 360f / abilitiesCount;

@@ -1,5 +1,5 @@
-using System.Collections.Generic;
 using Godot;
+using Godot.Collections;
 
 namespace AutoBattlerRoguelike.Scripts;
 
@@ -10,7 +10,10 @@ public partial class PlayerState : Resource
     public PlayerStatFloat MaxHealth { get; private set; }
     public PlayerStatFloat Damage { get; private set; }
     public PlayerStatInt Gold { get; private set; }
-    public List<AbilityResource> AbilitiesInLoop { get; set; }
+    public Array<AbilityResource> AbilitiesInLoop { get; private set; }
+    
+    [Signal]
+    public delegate void OnAbilitiesChangedEventHandler(Array<AbilityResource> AbilitiesInLoop);
     
 
     public PlayerState()
@@ -30,12 +33,6 @@ public partial class PlayerState : Resource
         [
             GlobalManager.Abilities[AbilityName.Firebolt],
             GlobalManager.Abilities[AbilityName.Icicle],
-            GlobalManager.Abilities[AbilityName.Icicle],
-            GlobalManager.Abilities[AbilityName.Icicle],
-            GlobalManager.Abilities[AbilityName.Icicle],
-            GlobalManager.Abilities[AbilityName.Icicle],
-            GlobalManager.Abilities[AbilityName.Icicle],
-            GlobalManager.Abilities[AbilityName.Icicle],
         ];
     }
 
@@ -51,4 +48,10 @@ public partial class PlayerState : Resource
     public void AddGold(int amount) {  Gold.Add(amount); }
 
     public void IncreaseDamage(float amount) => Damage.Add(amount);
+
+    public void AddAbility(AbilityResource abilityResource)
+    {
+        AbilitiesInLoop.Add(abilityResource);
+        EmitSignal(SignalName.OnAbilitiesChanged, AbilitiesInLoop);
+    }
 }
