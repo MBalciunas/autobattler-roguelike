@@ -3,8 +3,8 @@
 [ext_resource type="Script" uid="uid://bqjosv5n3shbw" path="res://Scripts/Player.cs" id="1_cvnsp"]
 [ext_resource type="Texture2D" uid="uid://b70jp7ayqd15x" path="res://Art/Player2.png" id="2_cvnsp"]
 [ext_resource type="Script" uid="uid://pr86ififl8qy" path="res://Scripts/Abilities/AbilityExecutor.cs" id="3_6t5aa"]
-[ext_resource type="PackedScene" uid="uid://bck7xxxe5ncmj" path="res://Scenes/Abilities/Common/firebolt.tscn" id="4_vgqql"]
-[ext_resource type="PackedScene" uid="uid://o3yx6hdqw1kd" path="res://Scenes/Abilities/Common/icicle.tscn" id="5_fkybt"]
+[ext_resource type="PackedScene" uid="uid://bck7xxxe5ncmj" path="res://Scenes/Abilities/Common/FireboltAbility.tscn" id="4_vgqql"]
+[ext_resource type="PackedScene" uid="uid://o3yx6hdqw1kd" path="res://Scenes/Abilities/Common/IcicleAbility.tscn" id="5_fkybt"]
 
 [node name="Player" type="Node2D"]
 script = ExtResource("1_cvnsp")

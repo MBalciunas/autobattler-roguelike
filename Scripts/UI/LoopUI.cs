@@ -19,7 +19,7 @@ public partial class LoopUI : Control
         rotationAngle = 360.0 / abilitiesCount;
         for (int i = 0; i < GlobalManager.playerState.AbilitiesInLoop.Count; i++)
         {
-            AbilityResource abilityResource = GlobalManager.playerState.AbilitiesInLoop[i];
+            var abilityResource = GlobalManager.playerState.AbilitiesInLoop[i];
             var ability = abilityInLoopScene.Instantiate<Control>();
 
             float angle = -90 + i * 360f / abilitiesCount;
@@ -30,8 +30,8 @@ public partial class LoopUI : Control
             ability.Position = pos;
             AddChild(ability);
 
-            ability.GetNode<Label>("Label").Text = abilityResource.name;
-            ability.GetNode<TextureRect>("Icon").Texture = abilityResource.icon;
+            ability.GetNode<Label>("Label").Text = abilityResource.AbilityResource.name;
+            ability.GetNode<TextureRect>("Icon").Texture = abilityResource.AbilityResource.icon;
         }
     }
 

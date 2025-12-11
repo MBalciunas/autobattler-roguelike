@@ -18,12 +18,8 @@ public partial class GlobalManager : Node
         playerState = ResourceLoader.Load<PlayerState>("res://Resources/PlayerState.tres");
         playerState.InitializeStats(); 
     }
-    
-    public static Dictionary<AbilityName, AbilityResource> Abilities = new()
-    {
-        { AbilityName.Firebolt, ResourceLoader.Load<AbilityResource>("res://Resources/Abilities/Common/FireboltAbility.tres") },
-        { AbilityName.Icicle, ResourceLoader.Load<AbilityResource>("res://Resources/Abilities/Common/IcicleAbility.tres") },
-    };
+
+    public static Dictionary<AbilityName, AbilityResource> Abilities = AbilityDatabase.Load();
     
     public void ReloadLevel()
     {
@@ -44,9 +40,4 @@ public partial class GlobalManager : Node
         GD.Print("Loading level " + Level);
         GetTree().CallDeferred("change_scene_to_file", "res://Scenes/main_level.tscn");
     }
-}
-
-public enum AbilityName
-{
-    Firebolt, Icicle
 }

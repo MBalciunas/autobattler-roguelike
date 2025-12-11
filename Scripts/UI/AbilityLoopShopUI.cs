@@ -17,7 +17,7 @@ public partial class AbilityLoopShopUI : Control
         GlobalManager.playerState.OnAbilitiesChanged -= DisplayAbilities;
     }
 
-    private void DisplayAbilities(Array<AbilityResource> abilities)
+    private void DisplayAbilities(Array<PlayerAbilityResource> abilities)
     {
         foreach (var ability in GetChildren())
         {
@@ -29,7 +29,7 @@ public partial class AbilityLoopShopUI : Control
         var abilitiesCount = abilities.Count;
         for (int i = 0; i < abilities.Count; i++)
         {
-            AbilityResource abilityResource = abilities[i];
+            var abilityResource = abilities[i];
             var ability = abilityInLoopScene.Instantiate<Control>();
 
             float angle = -90 + i * 360f / abilitiesCount;
@@ -40,8 +40,11 @@ public partial class AbilityLoopShopUI : Control
             ability.Position = pos;
             AddChild(ability);
 
-            ability.GetNode<Label>("Label").Text = abilityResource.name;
-            ability.GetNode<TextureRect>("Icon").Texture = abilityResource.icon;
+            ability.GetNode<Label>("Label").Text = abilityResource.AbilityResource.name;
+            ability.GetNode<Label>("Level").Text = abilityResource.Level.ToString();
+            ability.GetNode<Label>("Copies").Text = new string('-', abilityResource.Copies);
+            ability.GetNode<TextureRect>("Icon").Texture = abilityResource.AbilityResource.icon;
+            
         }
     }
 }

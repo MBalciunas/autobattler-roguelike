@@ -13,9 +13,9 @@ public partial class AbilityExecutor : Node2D
     {
         cooldownTimer = GetNode<Timer>("CooldownTimer");
         cooldownTimer.Timeout += NextReady;
-        foreach (var abilityResource in GlobalManager.playerState.AbilitiesInLoop)
+        foreach (var playerAbility in GlobalManager.playerState.AbilitiesInLoop)
         {
-            var ability = abilityResource.ability.Instantiate<Ability>();
+            var ability = playerAbility.AbilityResource.abilityScene.Instantiate<Ability>();
             activeAbilities.Add(ability);
             AddChild(ability);
             ability.GlobalPosition = GlobalPosition;

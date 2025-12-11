@@ -1,3 +1,4 @@
+using System.Linq;
 using Godot;
 using Godot.Collections;
 
@@ -10,11 +11,11 @@ public partial class PlayerState : Resource
     public PlayerStatFloat MaxHealth { get; private set; }
     public PlayerStatFloat Damage { get; private set; }
     public PlayerStatInt Gold { get; private set; }
-    public Array<AbilityResource> AbilitiesInLoop { get; private set; }
-    
+    public Array<PlayerAbilityResource> AbilitiesInLoop { get; private set; }
+
     [Signal]
-    public delegate void OnAbilitiesChangedEventHandler(Array<AbilityResource> AbilitiesInLoop);
-    
+    public delegate void OnAbilitiesChangedEventHandler(Array<PlayerAbilityResource> AbilitiesInLoop);
+
 
     public PlayerState()
     {
@@ -28,11 +29,11 @@ public partial class PlayerState : Resource
         Health.SetMax(MaxHealth.Value);
         Gold = new PlayerStatInt(0);
         Damage = new PlayerStatFloat(0);
-        
+
         AbilitiesInLoop =
         [
-            GlobalManager.Abilities[AbilityName.Firebolt],
-            GlobalManager.Abilities[AbilityName.Icicle],
+            new PlayerAbilityResource(GlobalManager.Abilities[AbilityName.Firebolt]),
+            new PlayerAbilityResource(GlobalManager.Abilities[AbilityName.Icicle]),
         ];
     }
 
@@ -43,15 +44,32 @@ public partial class PlayerState : Resource
 
     public void Heal(float amount) => Health.Add(amount);
 
-    public void TakeDamage(float amount) { Health.Add(-amount); }
-    
-    public void AddGold(int amount) {  Gold.Add(amount); }
+    public void TakeDamage(float amount)
+    {
+        Health.Add(-amount);
+    }
+
+    public void AddGold(int amount)
+    {
+        Gold.Add(amount);
+    }
 
     public void IncreaseDamage(float amount) => Damage.Add(amount);
 
     public void AddAbility(AbilityResource abilityResource)
     {
-        AbilitiesInLoop.Add(abilityResource);
+        var currentAbility = AbilitiesInLoop.ToList()
+            .FirstOrDefault(a => a.AbilityResource.abilityName == abilityResource.abilityName);
+
+        if (currentAbility == null)
+        {
+            AbilitiesInLoop.Add(new PlayerAbilityResource(abilityResource));
+        }
+        else
+        {
+            currentAbility.AddCopy();
+        }
+
         EmitSignal(SignalName.OnAbilitiesChanged, AbilitiesInLoop);
     }
 }

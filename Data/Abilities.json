@@ -1,0 +1,14 @@
+{
+  "Firebolt": {
+    "name": "Firebolt",
+    "description": "Shoots a fast fire projectile.",
+    "rarity": "Common",
+    "price": 2
+  },
+  "Icicle": {
+    "name": "Icicle",
+    "description": "Launches a freezing shard that slows enemies.",
+    "rarity": "Common",
+    "price": 2
+  }
+}

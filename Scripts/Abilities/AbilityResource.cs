@@ -8,10 +8,16 @@ public partial class AbilityResource : Resource
     [Export] public AbilityRarity rarity;
     [Export] public int price;
     [Export] public Texture2D icon;
-    [Export] public PackedScene ability;
+    [Export] public PackedScene abilityScene;
+    [Export] public AbilityName abilityName;
 }
 
 public enum AbilityRarity
 {
     Common, Uncommon, Rare, Epic, Legendary
+}
+
+public enum AbilityName
+{
+    Firebolt, Icicle
 }

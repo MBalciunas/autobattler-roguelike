@@ -5,4 +5,7 @@
     <EnableDynamicLoading>true</EnableDynamicLoading>
     <RootNamespace>AutoBattlerRoguelike</RootNamespace>
   </PropertyGroup>
+  <ItemGroup>
+    <Content Include="Data\Abilities.json" />
+  </ItemGroup>
 </Project>
