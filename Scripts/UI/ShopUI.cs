@@ -6,10 +6,12 @@ public partial class ShopUI : Node
     [Export] private ShopItem shopItemUI1;
     [Export] private ShopItem shopItemUI2;
     [Export] private ShopItem shopItemUI3;
+    
 
     public override void _Ready()
     {
         PrepareShopItems();
+        GetNode<ShopReroll>("Reroll").OnRerollShop +=  PrepareShopItems;
     }
 
     private void PrepareShopItems()
@@ -28,5 +30,6 @@ public partial class ShopUI : Node
         shopItemUI.GetNode<Label>("Price").Text = ability.price.ToString();
         shopItemUI.GetNode<TextureRect>("Icon").Texture = ability.icon;
         shopItemUI.abilityResource = ability;
+        shopItemUI.Show();
     }
 }

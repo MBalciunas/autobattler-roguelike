@@ -4,7 +4,7 @@
 [ext_resource type="Script" uid="uid://16pgfcypbbif" path="res://Scripts/UI/ShopItem.cs" id="1_tk2wa"]
 
 [node name="ShopItem" type="Control"]
-custom_minimum_size = Vector2(240, 240)
+custom_minimum_size = Vector2(240, 0)
 layout_mode = 3
 anchors_preset = 0
 script = ExtResource("1_tk2wa")
