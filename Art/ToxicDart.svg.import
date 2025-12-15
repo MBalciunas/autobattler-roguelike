@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cwvodmvpgf1q0"
-path="res://.godot/imported/Icicle.svg-1eb5b3852e28cff1b4a543f61b30a791.ctex"
+uid="uid://cam22ldcrtt85"
+path="res://.godot/imported/ToxicDart.svg-a2f35a40544d198792971e73ccd109fa.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/Icicle.svg"
-dest_files=["res://.godot/imported/Icicle.svg-1eb5b3852e28cff1b4a543f61b30a791.ctex"]
+source_file="res://Art/ToxicDart.svg"
+dest_files=["res://.godot/imported/ToxicDart.svg-a2f35a40544d198792971e73ccd109fa.ctex"]
 
 [params]
 

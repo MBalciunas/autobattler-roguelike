@@ -1,14 +1,12 @@
 {
-  "Firebolt": {
-    "name": "Firebolt",
-    "description": "Shoots a fast fire projectile.",
+  "ToxicDart": {
+    "name": "Toxic Dart",
+    "description": "Projectile that deals damage and applies poison over time. Shoots closest unpoisoned enemy.",
+    "level1": "1 dart, 100% damage + 20% damage/s poison for 4s",
+    "level2": "2 darts, 180% damage + 40% damage/s poison for 5s",
+    "level3": "3 darts, 324% damage + 75% damage/s poison for 6s",
     "rarity": "Common",
-    "price": 2
-  },
-  "Icicle": {
-    "name": "Icicle",
-    "description": "Launches a freezing shard that slows enemies.",
-    "rarity": "Common",
-    "price": 2
+    "price": 2,
+    "traits": ["WitchDoctor", "Huntsman"]
   }
 }

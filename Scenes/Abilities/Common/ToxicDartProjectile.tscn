@@ -1,20 +1,19 @@
 [gd_scene load_steps=4 format=3 uid="uid://dvwr341m775nc"]
 
-[ext_resource type="Script" uid="uid://cic5tqt225d6h" path="res://Scripts/Abilities/Projectile.cs" id="1_kp77l"]
-[ext_resource type="Texture2D" uid="uid://bwnatcfx2mdo2" path="res://icon.svg" id="2_nayp7"]
+[ext_resource type="Script" uid="uid://ch78wir6pv0rc" path="res://Scripts/Abilities/Common/ToxicDartProjectile.cs" id="1_7305s"]
+[ext_resource type="Texture2D" uid="uid://bwnatcfx2mdo2" path="res://icon.svg" id="2_kb6ot"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_kp77l"]
 radius = 6.0
 height = 48.0
 
-[node name="Icicle" type="Area2D"]
-script = ExtResource("1_kp77l")
-speed = 400.0
+[node name="ToxicDart" type="Area2D"]
+script = ExtResource("1_7305s")
 
 [node name="Icon" type="Sprite2D" parent="."]
-modulate = Color(0.35803756, 0.59113115, 1, 1)
+modulate = Color(0.1833533, 0.72280383, 0.09263309, 1)
 scale = Vector2(0.4, 0.1)
-texture = ExtResource("2_nayp7")
+texture = ExtResource("2_kb6ot")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 rotation = 1.5707964

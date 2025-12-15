@@ -1,10 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://dc0gbcacmyv4j"]
+[gd_scene load_steps=4 format=3 uid="uid://dc0gbcacmyv4j"]
 
 [ext_resource type="Script" uid="uid://bqjosv5n3shbw" path="res://Scripts/Player.cs" id="1_cvnsp"]
 [ext_resource type="Texture2D" uid="uid://b70jp7ayqd15x" path="res://Art/Player2.png" id="2_cvnsp"]
 [ext_resource type="Script" uid="uid://pr86ififl8qy" path="res://Scripts/Abilities/AbilityExecutor.cs" id="3_6t5aa"]
-[ext_resource type="PackedScene" uid="uid://bck7xxxe5ncmj" path="res://Scenes/Abilities/Common/FireboltAbility.tscn" id="4_vgqql"]
-[ext_resource type="PackedScene" uid="uid://o3yx6hdqw1kd" path="res://Scenes/Abilities/Common/IcicleAbility.tscn" id="5_fkybt"]
 
 [node name="Player" type="Node2D"]
 script = ExtResource("1_cvnsp")
@@ -15,9 +13,5 @@ texture = ExtResource("2_cvnsp")
 
 [node name="AbilityExecutor" type="Node2D" parent="."]
 script = ExtResource("3_6t5aa")
-
-[node name="Firebolt" parent="AbilityExecutor" instance=ExtResource("4_vgqql")]
-
-[node name="Icicle" parent="AbilityExecutor" instance=ExtResource("5_fkybt")]
 
 [node name="CooldownTimer" type="Timer" parent="AbilityExecutor"]

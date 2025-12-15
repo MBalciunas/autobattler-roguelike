@@ -1,6 +1,7 @@
+using System.Collections.Generic;
+using System.Linq;
 using AutoBattlerRoguelike.Scripts;
 using Godot;
-using Godot.Collections;
 
 
 [GlobalClass]
@@ -16,11 +17,11 @@ public partial class GlobalManager : Node
     public override void _EnterTree()
     {
         playerState = ResourceLoader.Load<PlayerState>("res://Resources/PlayerState.tres");
-        playerState.InitializeStats(); 
+        playerState.InitializeStats();
     }
 
-    public static Dictionary<AbilityName, AbilityResource> Abilities = AbilityDatabase.Load();
-    
+    public static Godot.Collections.Dictionary<AbilityName, AbilityResource> Abilities = AbilityDatabase.Load();
+
     public void ReloadLevel()
     {
         playerState.InitializeStats();
@@ -33,11 +34,19 @@ public partial class GlobalManager : Node
         playerState.ResetHealth();
         GetTree().CallDeferred("change_scene_to_file", "res://Scenes/shop_scene.tscn");
     }
-    
+
     public void LoadNextLevel()
     {
         Level++;
         GD.Print("Loading level " + Level);
         GetTree().CallDeferred("change_scene_to_file", "res://Scenes/main_level.tscn");
+    }
+
+    public static List<Enemy> GetEnemiesSortedByClosest()
+    {
+        return Player.GetTree().GetNodesInGroup("Enemies")
+            .Cast<Enemy>()
+            .OrderBy(e => e.GlobalPosition.DistanceTo(Player.GlobalPosition))
+            .ToList();
     }
 }

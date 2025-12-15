@@ -17,6 +17,7 @@ public partial class AbilityExecutor : Node2D
         {
             var ability = playerAbility.AbilityResource.abilityScene.Instantiate<Ability>();
             activeAbilities.Add(ability);
+            ability.Level = playerAbility.Level;
             AddChild(ability);
             ability.GlobalPosition = GlobalPosition;
         }

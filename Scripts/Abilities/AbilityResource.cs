@@ -1,5 +1,6 @@
 using Godot;
 using System;
+using Godot.Collections;
 
 public partial class AbilityResource : Resource
 {
@@ -10,6 +11,7 @@ public partial class AbilityResource : Resource
     [Export] public Texture2D icon;
     [Export] public PackedScene abilityScene;
     [Export] public AbilityName abilityName;
+    [Export] public Array<AbilityTrait> Traits;
 }
 
 public enum AbilityRarity
@@ -19,5 +21,15 @@ public enum AbilityRarity
 
 public enum AbilityName
 {
-    Firebolt, Icicle
+    ToxicDart
+}
+
+public enum AbilityTrait
+{
+    WitchDoctor, Butcher, Stalker, Huntsman, Warden, Arcanist
+}
+
+public enum DamageType
+{
+    Poison, Physical, Fire, Bleed
 }

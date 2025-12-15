@@ -1,9 +1,0 @@
-[gd_scene load_steps=3 format=3 uid="uid://bck7xxxe5ncmj"]
-
-[ext_resource type="Script" uid="uid://b7afb14ur1gql" path="res://Scripts/Abilities/Common/Firebolt.cs" id="1_mpt5t"]
-[ext_resource type="PackedScene" uid="uid://d2xfyd8u4242w" path="res://Scenes/Abilities/Common/firebolt_projectile.tscn" id="2_l1p1h"]
-
-[node name="Firebolt" type="Node2D"]
-script = ExtResource("1_mpt5t")
-fireboltProjectileScene = ExtResource("2_l1p1h")
-damage = 2.0

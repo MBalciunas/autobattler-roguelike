@@ -1,4 +1,5 @@
-using System.Linq;
+using System.Collections.Generic;
+using AutoBattlerRoguelike.Scripts.Abilities;
 using Godot;
 
 public abstract partial class Enemy : Area2D
@@ -7,12 +8,20 @@ public abstract partial class Enemy : Area2D
     [Export] private float attackCooldown = 2;
     [Export] private float attackRange = 100;
     [Export] private float health = 2;
+    public List<DamageOverTime> activeDots = new();
     protected Player player;
     private Timer attackTimer;
+    private Timer dotsTimer;
 
     public override void _Ready()
     {
         attackTimer = new Timer();
+        dotsTimer = new Timer();
+        AddChild(dotsTimer);
+        dotsTimer.WaitTime = 1f;
+        dotsTimer.OneShot = false;
+        dotsTimer.Timeout += TakeDotsDamage;
+        dotsTimer.Start();
         AddChild(attackTimer);
         attackTimer.WaitTime = attackCooldown;
         attackTimer.OneShot = true;
@@ -40,8 +49,23 @@ public abstract partial class Enemy : Area2D
         }
     }
 
+    private void TakeDotsDamage()
+    {
+        GD.Print(activeDots.Count);
+        var dotsToRemove = new List<DamageOverTime>();
+        foreach (var damageOverTime in activeDots)
+        {
+            damageOverTime.durationLeft -= 1f;
+            TakeDamage(damageOverTime.damage);
+            if (damageOverTime.durationLeft <= 0) dotsToRemove.Add(damageOverTime);
+        }
+
+        dotsToRemove.ForEach(dot => activeDots.Remove(dot));
+    }
+    
     public void TakeDamage(float damage)
     {
+        GD.Print("take damage" + damage);
         health -= damage;
         if (health <= 0)
         {
@@ -58,4 +82,9 @@ public abstract partial class Enemy : Area2D
     }
     
     public abstract void Attack();
+
+    public void AddActiveDot(DamageOverTime damageOverTime)
+    {
+        activeDots.Add(damageOverTime);
+    }
 }
