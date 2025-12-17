@@ -4,13 +4,13 @@ using Godot.Collections;
 
 public partial class AbilityResource : Resource
 {
-    [Export] public String name;
-    [Export] public String description;
-    [Export] public AbilityRarity rarity;
-    [Export] public int price;
-    [Export] public Texture2D icon;
-    [Export] public PackedScene abilityScene;
-    [Export] public AbilityName abilityName;
+    [Export] public String Name;
+    [Export] public String Description;
+    [Export] public AbilityRarity Rarity;
+    [Export] public int Price;
+    [Export] public Texture2D Icon;
+    [Export] public PackedScene AbilityScene;
+    [Export] public AbilityName AbilityName;
     [Export] public Array<AbilityTrait> Traits;
 }
 
@@ -21,7 +21,7 @@ public enum AbilityRarity
 
 public enum AbilityName
 {
-    ToxicDart
+    ToxicDart, ShadowStep
 }
 
 public enum AbilityTrait

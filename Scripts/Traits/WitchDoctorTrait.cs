@@ -6,9 +6,8 @@ public static class WitchDoctorEffect
 {
     public static void ApplyToDot(DamageOverTime dot)
     {
-        // var traitCount = GlobalManager.playerState.GetTraitCount(AbilityTrait.WitchDoctor);
+        var traitCount = GlobalManager.playerState.GetTraitCount(AbilityTrait.WitchDoctor);
 
-        var traitCount = GlobalManager.Level * 3;
         float damageMultiplier = traitCount switch
         {
             >= 6 => 2.5f,

@@ -15,7 +15,8 @@ public partial class AbilityExecutor : Node2D
         cooldownTimer.Timeout += NextReady;
         foreach (var playerAbility in GlobalManager.playerState.AbilitiesInLoop)
         {
-            var ability = playerAbility.AbilityResource.abilityScene.Instantiate<Ability>();
+            GD.Print(playerAbility.AbilityResource.AbilityName);
+            var ability = playerAbility.AbilityResource.AbilityScene.Instantiate<Ability>();
             activeAbilities.Add(ability);
             ability.Level = playerAbility.Level;
             AddChild(ability);
@@ -27,8 +28,12 @@ public partial class AbilityExecutor : Node2D
     {
         if (isNextAbilityReady)
         {
+            GD.Print("execute");
+            GD.Print(nextAbilityIndex);
             isNextAbilityReady = false;
             var currentAbility = activeAbilities[nextAbilityIndex];
+            
+            GD.Print(currentAbility.Name);
             currentAbility.Finished += StartAbilityCooldownTimer;
             currentAbility.Execute();
         }
@@ -43,6 +48,7 @@ public partial class AbilityExecutor : Node2D
     
     private void NextReady()
     {
+        GD.Print("NextReady");
         cooldownTimer.Stop();
         nextAbilityIndex = (nextAbilityIndex + 1) % activeAbilities.Count;
         isNextAbilityReady = true;

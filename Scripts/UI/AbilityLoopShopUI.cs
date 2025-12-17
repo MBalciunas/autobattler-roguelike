@@ -40,10 +40,10 @@ public partial class AbilityLoopShopUI : Control
             ability.Position = pos;
             AddChild(ability);
 
-            ability.GetNode<Label>("Label").Text = abilityResource.AbilityResource.name;
+            ability.GetNode<Label>("Label").Text = abilityResource.AbilityResource.Name;
             ability.GetNode<Label>("Level").Text = abilityResource.Level.ToString();
             ability.GetNode<Label>("Copies").Text = new string('-', abilityResource.Copies);
-            ability.GetNode<TextureRect>("Icon").Texture = abilityResource.AbilityResource.icon;
+            ability.GetNode<TextureRect>("Icon").Texture = abilityResource.AbilityResource.Icon;
             
         }
     }

@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://cj1dswlpe6s6o"]
+
+[ext_resource type="Script" uid="uid://d8yw1do6pk70" path="res://Scripts/Abilities/Common/ShadowStep.cs" id="1_rilvt"]
+
+[node name="ToxicDart" type="Node2D"]
+script = ExtResource("1_rilvt")

@@ -8,5 +8,15 @@
     "rarity": "Common",
     "price": 2,
     "traits": ["WitchDoctor", "Huntsman"]
+  },
+  "ShadowStep": {
+    "name": "Shadow Step",
+    "description": "Teleport behind furthest enemy and deal 300% damage",
+    "level1": "300% damage",
+    "level2": "450% damage",
+    "level3": "600% and it explodes for additional 150% AoE Damage",
+    "rarity": "Common",
+    "price": 2,
+    "traits": ["Stalker", "Huntsman"]
   }
 }

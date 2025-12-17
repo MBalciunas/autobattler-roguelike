@@ -9,7 +9,7 @@ public partial class EnemySpawner : Node
 
     private Dictionary<int, int> enemiesToSpawn = new()
     {
-        { 1, 1 },
+        { 1, 10 },
         { 2, 1 },
         { 3, 5 },
         { 4, 20 },

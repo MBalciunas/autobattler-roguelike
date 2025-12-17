@@ -1,3 +1,6 @@
+using System.Text.Json.Serialization;
+using Godot.Collections;
+
 namespace AutoBattlerRoguelike.Scripts;
 
 using Godot;
@@ -16,7 +19,13 @@ public static class AbilityDatabase
         using var file = FileAccess.Open("res://Data/Abilities.json", FileAccess.ModeFlags.Read);
         var jsonText = file.GetAsText();
 
-        var raw = JsonSerializer.Deserialize<Dictionary<string, AbilityJson>>(jsonText);
+        var options = new JsonSerializerOptions
+        {
+            Converters = { new JsonStringEnumConverter() },
+            PropertyNameCaseInsensitive = true
+        };
+
+        var raw = JsonSerializer.Deserialize<Dictionary<string, AbilityJson>>(jsonText, options);
 
         foreach (var kv in raw)
         {
@@ -24,21 +33,19 @@ public static class AbilityDatabase
             var data = kv.Value;
 
             var abilityName = Enum.Parse<AbilityName>(key);
-
-            var id = key; 
-
-            var iconPath = GetIconPath(id);
-            var scenePath = GetScenePath(id, data.rarity);
+            var iconPath = GetIconPath(key);
+            var scenePath = GetScenePath(key, data.rarity.ToString());
 
             AllAbilities[abilityName] = new AbilityResource
             {
-                abilityName = abilityName,
-                name = data.name,
-                description = data.description,
-                rarity = Enum.Parse<AbilityRarity>(data.rarity),
-                price = data.price,
-                icon = GD.Load<Texture2D>(iconPath),
-                abilityScene = GD.Load<PackedScene>(scenePath),
+                AbilityName = abilityName,
+                Name = data.name,
+                Description = data.description,
+                Rarity = data.rarity, 
+                Price = data.price,
+                Icon = GD.Load<Texture2D>(iconPath),
+                AbilityScene = GD.Load<PackedScene>(scenePath),
+                Traits = new Array<AbilityTrait>(data.traits)
             };
         }
 
@@ -56,6 +63,10 @@ public class AbilityJson
 {
     public string name { get; set; }
     public string description { get; set; }
-    public string rarity { get; set; }
+
+    public AbilityRarity rarity { get; set; }
+
     public int price { get; set; }
+
+    public List<AbilityTrait> traits { get; set; }
 }

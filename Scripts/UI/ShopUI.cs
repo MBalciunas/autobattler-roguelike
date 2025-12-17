@@ -26,9 +26,9 @@ public partial class ShopUI : Node
         var abilityName = GlobalManager.Abilities.Keys.ToArray()[GD.Randi() % GlobalManager.Abilities.Count];
 
         var ability = GlobalManager.Abilities[abilityName];
-        shopItemUI.GetNode<Label>("Title").Text = ability.name;
-        shopItemUI.GetNode<Label>("Price").Text = ability.price.ToString();
-        shopItemUI.GetNode<TextureRect>("Icon").Texture = ability.icon;
+        shopItemUI.GetNode<Label>("Title").Text = ability.Name;
+        shopItemUI.GetNode<Label>("Price").Text = ability.Price.ToString();
+        shopItemUI.GetNode<TextureRect>("Icon").Texture = ability.Icon;
         shopItemUI.abilityResource = ability;
         shopItemUI.Show();
     }

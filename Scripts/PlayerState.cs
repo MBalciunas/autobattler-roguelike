@@ -33,6 +33,9 @@ public partial class PlayerState : Resource
         AbilitiesInLoop =
         [
             new PlayerAbilityResource(GlobalManager.Abilities[AbilityName.ToxicDart]),
+            new PlayerAbilityResource(GlobalManager.Abilities[AbilityName.ShadowStep]),
+            new PlayerAbilityResource(GlobalManager.Abilities[AbilityName.ToxicDart]),
+            new PlayerAbilityResource(GlobalManager.Abilities[AbilityName.ShadowStep]),
         ];
     }
 
@@ -55,7 +58,7 @@ public partial class PlayerState : Resource
 
     public int GetTraitCount(AbilityTrait trait)
     {
-        return AbilitiesInLoop.Count(a => a.AbilityResource.Traits.Contains(AbilityTrait.WitchDoctor));    
+        return AbilitiesInLoop.Count(a => a.AbilityResource.Traits.Contains(trait));    
     }
     
     public void IncreaseDamage(float amount) => Damage.Add(amount);
@@ -63,7 +66,7 @@ public partial class PlayerState : Resource
     public void AddAbility(AbilityResource abilityResource)
     {
         var currentAbility = AbilitiesInLoop.ToList()
-            .FirstOrDefault(a => a.AbilityResource.abilityName == abilityResource.abilityName);
+            .FirstOrDefault(a => a.AbilityResource.AbilityName == abilityResource.AbilityName);
 
         if (currentAbility == null)
         {

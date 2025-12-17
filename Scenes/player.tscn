@@ -8,7 +8,7 @@
 script = ExtResource("1_cvnsp")
 
 [node name="Sprite" type="Sprite2D" parent="."]
-scale = Vector2(0.12, 0.12)
+scale = Vector2(0.05078125, 0.05078125)
 texture = ExtResource("2_cvnsp")
 
 [node name="AbilityExecutor" type="Node2D" parent="."]

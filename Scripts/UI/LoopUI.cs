@@ -6,9 +6,7 @@ public partial class LoopUI : Control
 
     private AbilityExecutor abilityExecutor;
 
-    private bool isRotationFinished;
     private double rotationAngle;
-    private int rotateTimes = 0;
 
     public override void _Ready()
     {
@@ -30,25 +28,16 @@ public partial class LoopUI : Control
             ability.Position = pos;
             AddChild(ability);
 
-            ability.GetNode<Label>("Label").Text = abilityResource.AbilityResource.name;
-            ability.GetNode<TextureRect>("Icon").Texture = abilityResource.AbilityResource.icon;
+            ability.GetNode<Label>("Label").Text = abilityResource.AbilityResource.Name;
+            ability.GetNode<TextureRect>("Icon").Texture = abilityResource.AbilityResource.Icon;
         }
     }
 
     public override void _Process(double delta)
     {
-        if (abilityExecutor.cooldownTimer.TimeLeft == 0)
-        {
-            if (!isRotationFinished)
-            {
-                isRotationFinished = true;
-                rotateTimes += 1;
-            }
-        }
-        else
-        {
-            isRotationFinished = false;
-            Rotation = (float)(rotateTimes * Mathf.DegToRad(rotationAngle) + Mathf.DegToRad((1 - abilityExecutor.cooldownTimer.TimeLeft / abilityExecutor.cooldownTimer.WaitTime) * rotationAngle));
-        }
+        if (abilityExecutor.cooldownTimer.TimeLeft == 0) return;
+        
+        float progress = 1 - (float)(abilityExecutor.cooldownTimer.TimeLeft / abilityExecutor.cooldownTimer.WaitTime);
+        Rotation = (float)(abilityExecutor.nextAbilityIndex * Mathf.DegToRad(rotationAngle) + Mathf.DegToRad(progress * rotationAngle));
     }
 }
