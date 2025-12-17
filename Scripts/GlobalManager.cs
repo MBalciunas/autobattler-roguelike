@@ -22,9 +22,10 @@ public partial class GlobalManager : Node
 
     public static Godot.Collections.Dictionary<AbilityName, AbilityResource> Abilities = AbilityDatabase.Load();
 
-    public void ReloadLevel()
+    public void RestartGame()
     {
         playerState.InitializeStats();
+        Level = 1;
         GetTree().ChangeSceneToFile("res://Scenes/main_level.tscn");
     }
 

@@ -25,7 +25,7 @@ public partial class PlayerState : Resource
     public void InitializeStats()
     {
         MaxHealth = new PlayerStatFloat(10);
-        Health = new PlayerStatFloat(10).OnMin(_ => GameManager.Instance.ReloadLevel());
+        Health = new PlayerStatFloat(10).OnMin(_ => GameManager.Instance.RestartGame());
         Health.SetMax(MaxHealth.Value);
         Gold = new PlayerStatInt(0);
         Damage = new PlayerStatFloat(0);
@@ -53,6 +53,11 @@ public partial class PlayerState : Resource
         Gold.Add(amount);
     }
 
+    public int GetTraitCount(AbilityTrait trait)
+    {
+        return AbilitiesInLoop.Count(a => a.AbilityResource.Traits.Contains(AbilityTrait.WitchDoctor));    
+    }
+    
     public void IncreaseDamage(float amount) => Damage.Add(amount);
 
     public void AddAbility(AbilityResource abilityResource)

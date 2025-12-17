@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using AutoBattlerRoguelike.Scripts.Abilities;
+using AutoBattlerRoguelike.Scripts.Traits;
 using Godot;
 
 public abstract partial class Enemy : Area2D
@@ -51,7 +52,6 @@ public abstract partial class Enemy : Area2D
 
     private void TakeDotsDamage()
     {
-        GD.Print(activeDots.Count);
         var dotsToRemove = new List<DamageOverTime>();
         foreach (var damageOverTime in activeDots)
         {
@@ -65,13 +65,10 @@ public abstract partial class Enemy : Area2D
     
     public void TakeDamage(float damage)
     {
-        GD.Print("take damage" + damage);
         health -= damage;
         if (health <= 0)
         {
             RemoveFromGroup("Enemies");
-            GD.Print(GetTree().GetNodesInGroup("Enemies").Count);
-            GD.Print(GlobalManager.IsEnemiesSpawning);
             if (GetTree().GetNodesInGroup("Enemies").Count == 0 && !GlobalManager.IsEnemiesSpawning)
             {
                 GameManager.Instance.FinishLevel();
@@ -85,6 +82,9 @@ public abstract partial class Enemy : Area2D
 
     public void AddActiveDot(DamageOverTime damageOverTime)
     {
+        WitchDoctorEffect.ApplyToDot(damageOverTime);
         activeDots.Add(damageOverTime);
+        GD.Print("Dots damage: " + damageOverTime.damage);
+        GD.Print("Dots durations: " + damageOverTime.durationLeft);
     }
 }

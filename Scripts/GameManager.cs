@@ -13,9 +13,9 @@ public partial class GameManager : Node
         GlobalManager.Player = GetTree().Root.GetNode<Player>("MainLevel/Player");
     }
     
-    public void ReloadLevel()
+    public void RestartGame()
     {
-        globalManager.ReloadLevel();
+        globalManager.RestartGame();
     } 
     
     public void FinishLevel()
