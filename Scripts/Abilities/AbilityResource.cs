@@ -21,7 +21,7 @@ public enum AbilityRarity
 
 public enum AbilityName
 {
-    ToxicDart, ShadowStep, Cleave
+    ToxicDart, ShadowStep, Cleave, Stomp
 }
 
 public enum AbilityTrait

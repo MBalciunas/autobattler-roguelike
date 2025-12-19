@@ -32,7 +32,7 @@ public partial class PlayerState : Resource
 
         AbilitiesInLoop =
         [
-            new PlayerAbilityResource(GlobalManager.Abilities[AbilityName.Cleave]),
+            new PlayerAbilityResource(GlobalManager.Abilities[AbilityName.Stomp]),
         ];
     }
 

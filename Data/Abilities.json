@@ -27,6 +27,16 @@
     "level3": "300% damage + 100% damage/s bleed for 6s",
     "rarity": "Common",
     "price": 2,
-    "traits": ["Stalker", "Huntsman", "Butcher"]
+    "traits": ["Stalker", "Butcher"]
+  },
+  "Stomp": {
+    "name": "Stomp",
+    "description": "Stomps the ground, dealing damage to nearby enemies and knocking them back",
+    "level1": "50% damage, small knockback",
+    "level2": "100% damage, medium knockback",
+    "level3": "200% damage, strong knockback",
+    "rarity": "Common",
+    "price": 2,
+    "traits": ["Warden", "Huntsman"]
   }
 }

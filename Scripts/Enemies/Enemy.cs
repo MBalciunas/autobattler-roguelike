@@ -13,6 +13,7 @@ public abstract partial class Enemy : Area2D
     protected Player player;
     private Timer attackTimer;
     private Timer dotsTimer;
+    private bool isMoving = true;
 
     public override void _Ready()
     {
@@ -34,6 +35,8 @@ public abstract partial class Enemy : Area2D
 
     public override void _Process(double delta)
     {
+        if(!isMoving) return;
+        
         if (attackRange >= GlobalPosition.DistanceTo(player.GlobalPosition))
         {
             if (attackTimer.TimeLeft <= 0)
@@ -76,6 +79,21 @@ public abstract partial class Enemy : Area2D
 
             CallDeferred("queue_free");
         }
+    }
+
+    public void Knockback(float knockbackStrength, Vector2 direction)
+    {
+        isMoving = false;
+        var tween = GetTree().CreateTween();
+        var targetPosition = GlobalPosition + direction * knockbackStrength;
+
+        tween.TweenProperty(this, "global_position", targetPosition, 0.3f).SetEase(Tween.EaseType.Out);
+        tween.Finished += EnableMovement;
+    }
+
+    private void EnableMovement()
+    {
+        isMoving = true;
     }
     
     public abstract void Attack();
