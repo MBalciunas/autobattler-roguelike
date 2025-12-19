@@ -6,8 +6,8 @@ public abstract partial class Ability : Node2D
 
     public async void Execute()
     {
-        await ToSignal(GetTree().CreateTimer(0.1f), SceneTreeTimer.SignalName.Timeout);
         ExecuteAbility();
+        await ToSignal(GetTree().CreateTimer(0.1f), SceneTreeTimer.SignalName.Timeout);
         EmitSignal(SignalName.Finished, this);
     }
 

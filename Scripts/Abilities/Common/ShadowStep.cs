@@ -10,7 +10,7 @@ public partial class ShadowStep : Ability
         if (enemies.Count >= 1)
         {
             var enemy = enemies[^1];
-
+            
             var direction = (enemy.GlobalPosition - GlobalPosition).Normalized();
 
             GlobalManager.Player.GlobalPosition = enemy.GlobalPosition + direction * 120;

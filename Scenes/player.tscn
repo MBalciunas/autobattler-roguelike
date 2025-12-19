@@ -1,11 +1,16 @@
-[gd_scene load_steps=4 format=3 uid="uid://dc0gbcacmyv4j"]
+[gd_scene load_steps=6 format=3 uid="uid://dc0gbcacmyv4j"]
 
 [ext_resource type="Script" uid="uid://bqjosv5n3shbw" path="res://Scripts/Player.cs" id="1_cvnsp"]
 [ext_resource type="Texture2D" uid="uid://b70jp7ayqd15x" path="res://Art/Player2.png" id="2_cvnsp"]
+[ext_resource type="Resource" uid="uid://bw5asxn2rpv7q" path="res://Resources/PlayerState.tres" id="2_vgqql"]
 [ext_resource type="Script" uid="uid://pr86ififl8qy" path="res://Scripts/Abilities/AbilityExecutor.cs" id="3_6t5aa"]
 
-[node name="Player" type="Node2D"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_6t5aa"]
+radius = 19.235384
+
+[node name="Player" type="Area2D"]
 script = ExtResource("1_cvnsp")
+playerState = ExtResource("2_vgqql")
 
 [node name="Sprite" type="Sprite2D" parent="."]
 scale = Vector2(0.05078125, 0.05078125)
@@ -15,3 +20,8 @@ texture = ExtResource("2_cvnsp")
 script = ExtResource("3_6t5aa")
 
 [node name="CooldownTimer" type="Timer" parent="AbilityExecutor"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_6t5aa")
+
+[connection signal="area_entered" from="." to="." method="OnAreaEntered"]

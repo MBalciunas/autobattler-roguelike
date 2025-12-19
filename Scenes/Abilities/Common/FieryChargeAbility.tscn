@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://802bng87dwrh"]
+
+[ext_resource type="Script" uid="uid://bgtxcn7vs8ujs" path="res://Scripts/Abilities/Common/FieryCharge.cs" id="1_tkvg5"]
+
+[node name="FieryCharge" type="Node2D"]
+script = ExtResource("1_tkvg5")

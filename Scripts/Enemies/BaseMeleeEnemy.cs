@@ -12,7 +12,7 @@ public partial class BaseMeleeEnemy : Enemy
         tweener.TweenProperty(this, "position", player.GlobalPosition, 0.05f);
         tweener.Parallel().TweenProperty(this, "scale", new Vector2(0.25f, 0.25f), 0.05f);
         
-        player.playerState.TakeDamage(damage);
+        player.TakeDamage(damage);
         
         tweener.TweenProperty(this, "position", originalPos, 0.1f);
         tweener.Parallel().TweenProperty(this, "scale", new Vector2(1f, 1f), 0.1f);

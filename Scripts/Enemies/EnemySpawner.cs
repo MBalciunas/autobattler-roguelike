@@ -9,7 +9,7 @@ public partial class EnemySpawner : Node
 
     private Dictionary<int, int> enemiesToSpawn = new()
     {
-        { 1, 10 },
+        { 1, 200 },
         { 2, 1 },
         { 3, 5 },
         { 4, 20 },
@@ -28,8 +28,6 @@ public partial class EnemySpawner : Node
 
     private void SpawnEnemies()
     {
-
-
         var enemy = enemyScene.Instantiate() as Enemy;
         AddChild(enemy);
         var playerPos = GetNode<Node2D>("../Player").GlobalPosition;

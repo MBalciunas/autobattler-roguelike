@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://fd0bb3duibt1" path="res://Scripts/Abilities/Common/Stomp.cs" id="1_004aa"]
 [ext_resource type="Texture2D" uid="uid://dpmdjijj1ermm" path="res://Art/Stomp.svg" id="2_u4omt"]
 
-[node name="CleaveAbility" type="Node2D"]
+[node name="Stomp" type="Node2D"]
 script = ExtResource("1_004aa")
 
 [node name="Sprite" type="Sprite2D" parent="."]
