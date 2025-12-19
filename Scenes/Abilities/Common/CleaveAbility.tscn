@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://hj5ietgmsvxe"]
+
+[ext_resource type="Script" uid="uid://conk0s6h5q8wd" path="res://Scripts/Abilities/Common/Cleave.cs" id="1_puapx"]
+[ext_resource type="PackedScene" uid="uid://c7s22i6bghupy" path="res://Scenes/Abilities/Common/CleaveEffect.tscn" id="2_dw0uq"]
+
+[node name="CleaveAbility" type="Node2D"]
+script = ExtResource("1_puapx")
+cleaveEffectScene = ExtResource("2_dw0uq")

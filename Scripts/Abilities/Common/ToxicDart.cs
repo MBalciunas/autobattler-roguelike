@@ -7,15 +7,8 @@ public partial class ToxicDart : Ability
 {
     [Export] private PackedScene toxicDartProjectileScene;
 
-    public override void Execute()
+    protected override void ExecuteAbility()
     {
-        ExecuteToxicDart();
-    }
-
-    private async void ExecuteToxicDart()
-    {
-        await ToSignal(GetTree().CreateTimer(0.1f), SceneTreeTimer.SignalName.Timeout);
-
         var enemy = GlobalManager.GetEnemiesSortedByClosest().FirstOrDefault();
 
         if (enemy != null)
@@ -27,18 +20,16 @@ public partial class ToxicDart : Ability
             toxicDart.Rotation = direction.Angle();
             GetTree().Root.GetNode("MainLevel").AddChild(toxicDart);
         }
-
-        EmitSignal(Ability.SignalName.Finished, this);
     }
-    
-    private (float projectileDamage, float poisonDamage, int poisonDuration) GetStatsForLevel(int level)
+
+    private (float cleaveDamage, float bleedDamage, int bleedDuration) GetStatsForLevel(int level)
     {
         return level switch
         {
-            1 => (projectileDamage: 1.0f, poisonDamage: 0.2f, poisonDuration: 4),
-            2 => (projectileDamage: 1.8f, poisonDamage: 0.4f, poisonDuration: 5),
-            3 => (projectileDamage: 3.24f, poisonDamage: 0.75f, poisonDuration: 6),
-            _ => (projectileDamage: 1.0f, poisonDamage: 0.2f, poisonDuration: 4)
+            1 => (cleaveDamage: 1.0f, bleedDamage: 0.2f, bleedDuration: 4),
+            2 => (cleaveDamage: 1.8f, bleedDamage: 0.4f, bleedDuration: 5),
+            3 => (cleaveDamage: 3.24f, bleedDamage: 0.75f, bleedDuration: 6),
+            _ => (cleaveDamage: 1.0f, bleedDamage: 0.2f, bleedDuration: 4)
         };
     }
 }

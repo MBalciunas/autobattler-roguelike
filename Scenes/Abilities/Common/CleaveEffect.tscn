@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://c7s22i6bghupy"]
+
+[ext_resource type="Script" uid="uid://dy53bmjg1klii" path="res://Scripts/Abilities/Common/CleaveEffect.cs" id="1_rjup2"]
+[ext_resource type="Texture2D" uid="uid://bwnatcfx2mdo2" path="res://icon.svg" id="2_838go"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_kp77l"]
+radius = 6.0
+height = 184.0
+
+[node name="CleaveEffect" type="Area2D"]
+script = ExtResource("1_rjup2")
+
+[node name="Icon" type="Sprite2D" parent="."]
+modulate = Color(0.70245534, 0, 0.11799952, 1)
+position = Vector2(69.2, 0)
+scale = Vector2(1.4812499, 0.1)
+texture = ExtResource("2_838go")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(70, 0)
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_kp77l")
+
+[connection signal="area_entered" from="." to="." method="OnAreaEntered"]
