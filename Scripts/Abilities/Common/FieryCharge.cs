@@ -15,7 +15,7 @@ public partial class FieryCharge : Ability
         {
             var (fireDamage, fireDuration, chargeDistance) = GetStatsForLevel(Level);
             var direction = GlobalPosition.DirectionTo(enemy.GlobalPosition);
-            var dot = new DamageOverTime(fireDamage, fireDuration, DamageType.Fire);
+            var dot = new DamageOverTime(fireDamage, fireDuration, ElementType.Fire);
             GlobalManager.Player.StartCharging(direction, chargeDistance, 0, 0, dot);
         }
     }

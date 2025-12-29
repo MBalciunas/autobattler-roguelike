@@ -29,7 +29,12 @@ public enum AbilityTrait
     Serpent, Dragon, Bear, Tiger, Ox, Mantis, Eagle, Monkey, Scorpion, Leopard
 }
 
-public enum DamageType
+public enum ElementType
 {
     Poison, Fire, Bleed
+}
+
+public enum DamageType
+{
+    DoT, Direct
 }

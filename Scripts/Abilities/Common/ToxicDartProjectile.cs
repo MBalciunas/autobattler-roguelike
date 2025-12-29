@@ -19,7 +19,7 @@ public partial class ToxicDartProjectile : Area2D
         if (area is Enemy enemy)
         {
             enemy.TakeDamage(damage);
-            enemy.AddActiveDot(new DamageOverTime(poisonDamage, poisonDuration, DamageType.Poison));
+            enemy.AddActiveDot(new DamageOverTime(poisonDamage, poisonDuration, ElementType.Poison));
             QueueFree();
         }
     }

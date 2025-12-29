@@ -13,7 +13,7 @@ public partial class CleaveEffect : Area2D
         if (area is Enemy enemy)
         {
             enemy.TakeDamage(damage);
-            enemy.AddActiveDot(new DamageOverTime(bleedDamage, bleedDuration, DamageType.Bleed));
+            enemy.AddActiveDot(new DamageOverTime(bleedDamage, bleedDuration, ElementType.Bleed));
         }
     }
 

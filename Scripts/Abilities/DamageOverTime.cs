@@ -1,8 +1,8 @@
 namespace AutoBattlerRoguelike.Scripts.Abilities;
 
-public class DamageOverTime(float damage, float duration, DamageType damageType)
+public class DamageOverTime(float damage, float duration, ElementType damageType)
 {
     public float damage = damage;
     public float durationLeft = duration;
-    public DamageType damageType = damageType;
+    public ElementType damageType = damageType;
 }

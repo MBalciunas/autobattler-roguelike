@@ -83,7 +83,17 @@ public partial class Player : Area2D
     public void TakeDamage(float damage)
     {
         if (isInvulnerable) return;
-        playerState.TakeDamage(damage);
+
+        float armor = playerState.Armor.Value;
+        float percentReduced = damage * (100f / (100f + armor));
+        float finalDamage = Mathf.Max(1f, percentReduced - armor * 0.05f); // Mix of % and flat reduction
+
+        playerState.TakeDamage(finalDamage);
+    }
+
+    public void Heal(float healAmount)
+    {
+        playerState.Heal(healAmount);
     }
 }
 

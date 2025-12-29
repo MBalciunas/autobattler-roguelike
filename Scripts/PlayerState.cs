@@ -10,6 +10,10 @@ public partial class PlayerState : Resource
     public PlayerStatFloat Health { get; private set; }
     public PlayerStatFloat MaxHealth { get; private set; }
     public PlayerStatFloat Damage { get; private set; }
+    public PlayerStatFloat CritChance { get; private set; }
+    public PlayerStatFloat CritDamage { get; private set; }
+    public PlayerStatFloat Armor { get; private set; }
+    public PlayerStatFloat Lifesteal { get; private set; }
     public PlayerStatInt Gold { get; private set; }
     public Array<PlayerAbilityResource> AbilitiesInLoop { get; private set; }
 
@@ -29,6 +33,10 @@ public partial class PlayerState : Resource
         Health.SetMax(MaxHealth.Value);
         Gold = new PlayerStatInt(0);
         Damage = new PlayerStatFloat(0);
+        CritChance = new PlayerStatFloat(10);
+        CritDamage = new PlayerStatFloat(1.5f);
+        Armor = new PlayerStatFloat(0);
+        Lifesteal = new PlayerStatFloat(0);
 
         AbilitiesInLoop =
         [

@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using AutoBattlerRoguelike.Scripts.Abilities;
 using AutoBattlerRoguelike.Scripts.Traits;
@@ -59,15 +60,30 @@ public abstract partial class Enemy : Area2D
         foreach (var damageOverTime in activeDots)
         {
             damageOverTime.durationLeft -= 1f;
-            TakeDamage(damageOverTime.damage);
+            TakeDamage(damageOverTime.damage, DamageType.DoT);
             if (damageOverTime.durationLeft <= 0) dotsToRemove.Add(damageOverTime);
         }
 
         dotsToRemove.ForEach(dot => activeDots.Remove(dot));
     }
     
-    public void TakeDamage(float damage)
+    public void TakeDamage(float damage, DamageType damageType = DamageType.Direct)
     {
+        if (damageType == DamageType.Direct)
+        {
+            var critRoll = GD.Randf() * 100;
+            if (critRoll <= player.playerState.CritChance.Value)
+            {
+                damage *= player.playerState.CritDamage.Value;
+            }
+
+            if (player.playerState.Lifesteal.Value > 0)
+            {
+                var healAmount = player.playerState.Lifesteal.Value * damage;
+                player.Heal(healAmount);
+            }
+        }
+        
         health -= damage;
         if (health <= 0)
         {
