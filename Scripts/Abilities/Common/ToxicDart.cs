@@ -14,6 +14,7 @@ public partial class ToxicDart : Ability
         if (enemy != null)
         {
             var toxicDart = toxicDartProjectileScene.Instantiate<ToxicDartProjectile>();
+            //TODO shoot toxic darts amount based on level 
             toxicDart.Init(GetStatsForLevel(Level));
             toxicDart.GlobalPosition = GlobalPosition;
             var direction = (enemy.GlobalPosition - GlobalPosition).Normalized();
@@ -22,14 +23,14 @@ public partial class ToxicDart : Ability
         }
     }
 
-    private (float cleaveDamage, float bleedDamage, int bleedDuration) GetStatsForLevel(int level)
+    private (float damage, float poisonDamage, int poisonDuration) GetStatsForLevel(int level)
     {
         return level switch
         {
-            1 => (cleaveDamage: 1.0f, bleedDamage: 0.2f, bleedDuration: 4),
-            2 => (cleaveDamage: 1.8f, bleedDamage: 0.4f, bleedDuration: 5),
-            3 => (cleaveDamage: 3.24f, bleedDamage: 0.75f, bleedDuration: 6),
-            _ => (cleaveDamage: 1.0f, bleedDamage: 0.2f, bleedDuration: 4)
+            1 => (damage: 1.0f, poisonDamage: 0.5f, poisonDuration: 4),
+            2 => (damage: 1.8f, poisonDamage: 0.1f, poisonDuration: 5),
+            3 => (damage: 3.24f, poisonDamage: 0.2f, poisonDuration: 6),
+            _ => (damage: 1.0f, poisonDamage: 0.2f, poisonDuration: 4)
         };
     }
 }

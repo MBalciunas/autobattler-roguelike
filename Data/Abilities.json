@@ -7,7 +7,7 @@
     "level3": "3 darts, 324% damage + 75% damage/s poison for 6s",
     "rarity": "Common",
     "price": 2,
-    "traits": ["WitchDoctor", "Huntsman"]
+    "traits": ["Serpent", "Scorpion"]
   },
   "ShadowStep": {
     "name": "Shadow Step",
@@ -17,7 +17,7 @@
     "level3": "600% and it explodes for additional 150% AoE Damage",
     "rarity": "Common",
     "price": 2,
-    "traits": ["Stalker", "Huntsman"]
+    "traits": ["Tiger", "Eagle"]
   },
   "Cleave": {
     "name": "Cleave",
@@ -27,7 +27,7 @@
     "level3": "300% damage + 100% damage/s bleed for 6s",
     "rarity": "Common",
     "price": 2,
-    "traits": ["Stalker", "Butcher"]
+    "traits": ["Bear", "Mantis"]
   },
   "Stomp": {
     "name": "Stomp",
@@ -37,7 +37,7 @@
     "level3": "200% damage, strong knockback",
     "rarity": "Common",
     "price": 2,
-    "traits": ["Warden", "Huntsman"]
+    "traits": ["Ox", "Bear"]
   },
   "FieryCharge": {
     "name": "Fiery Charge",
@@ -47,6 +47,6 @@
     "level3": "140% damage/s fire for 6s",
     "rarity": "Common",
     "price": 2,
-    "traits": ["Arcanist", "Butcher"]
+    "traits": ["Ox", "Dragon"]
   }
 }

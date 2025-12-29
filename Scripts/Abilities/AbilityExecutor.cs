@@ -6,7 +6,7 @@ public partial class AbilityExecutor : Node2D
     private Array<Ability> activeAbilities = [];
     public int nextAbilityIndex = 0;
     private bool isNextAbilityReady = true;
-    private float timeToLoop = 4.0f;
+    private float timeToLoop = 2.0f;
     public Timer cooldownTimer;
 
     public override void _Ready()

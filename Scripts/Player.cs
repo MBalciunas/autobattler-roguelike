@@ -2,7 +2,7 @@ using AutoBattlerRoguelike.Scripts;
 using AutoBattlerRoguelike.Scripts.Abilities;
 using Godot;
 
-public partial class Player : Node2D
+public partial class Player : Area2D
 {
     [Export] public PlayerState playerState;
 
@@ -16,12 +16,21 @@ public partial class Player : Node2D
         {
             var screenRect = GetViewport().GetVisibleRect();
 
+            float bottomUiHeight = 150f;
+            float buffer = 15f;
+
+            screenRect.Position += new Vector2(buffer, buffer);
+            screenRect.Size -= new Vector2(
+                buffer * 2,
+                buffer * 2 + bottomUiHeight
+            );
+
             if (!screenRect.HasPoint(GlobalPosition))
             {
                 if (GlobalPosition.X < screenRect.Position.X || GlobalPosition.X > screenRect.End.X)
                     chargingEffect.Direction.X *= -1;
 
-                if (GlobalPosition.Y < screenRect.Position.Y || GlobalPosition.Y > screenRect.End.Y)
+                if (GlobalPosition.Y < screenRect.Position.Y|| GlobalPosition.Y > screenRect.End.Y)
                     chargingEffect.Direction.Y *= -1;
             }
 

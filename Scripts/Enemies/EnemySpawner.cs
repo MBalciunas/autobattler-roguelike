@@ -9,7 +9,7 @@ public partial class EnemySpawner : Node
 
     private Dictionary<int, int> enemiesToSpawn = new()
     {
-        { 1, 200 },
+        { 1, 15 },
         { 2, 1 },
         { 3, 5 },
         { 4, 20 },
@@ -21,7 +21,7 @@ public partial class EnemySpawner : Node
     {
         spawnTimer = GetNode<Timer>("SpawnTimer");
         enemiesLeftToSpawn = enemiesToSpawn[GlobalManager.Level];
-        spawnTimer.WaitTime = 3.0 - (1 - 1.0 / GlobalManager.Level);
+        spawnTimer.WaitTime = 1.0 - (1 - 1.0 / GlobalManager.Level);
         spawnTimer.Timeout += SpawnEnemies;
         GlobalManager.IsEnemiesSpawning = true;
     }
@@ -34,7 +34,7 @@ public partial class EnemySpawner : Node
         var minDistance = 400f;
         enemiesLeftToSpawn--;
         enemy.GlobalPosition = GetRandomOnScreenPosAwayFromPlayer(playerPos, minDistance);
-        
+
         if (enemiesLeftToSpawn == 0)
         {
             spawnTimer.Stop();
@@ -44,14 +44,23 @@ public partial class EnemySpawner : Node
 
     private Vector2 GetRandomOnScreenPosAwayFromPlayer(Vector2 playerPos, float minDistance)
     {
-        var size = GetViewport().GetVisibleRect().Size;
+        var screenRect = GetViewport().GetVisibleRect();
+
+        float bottomUiHeight = 150f;
+        float buffer = 15f;
+
+        screenRect.Position += new Vector2(buffer, buffer);
+        screenRect.Size -= new Vector2(
+            buffer * 2,
+            buffer * 2 + bottomUiHeight
+        );
 
         Vector2 candidate = playerPos;
 
         for (int i = 0; i < 8; i++)
         {
-            float x = (float)GD.RandRange(0, size.X);
-            float y = (float)GD.RandRange(0, size.Y);
+            float x = (float)GD.RandRange(0, screenRect.Size.X);
+            float y = (float)GD.RandRange(0, screenRect.Size.Y);
             candidate = new Vector2(x, y);
             if (candidate.DistanceTo(playerPos) >= minDistance)
                 return candidate;
@@ -61,8 +70,8 @@ public partial class EnemySpawner : Node
         var dir = (candidate - playerPos);
         if (dir.LengthSquared() < 0.0001f) dir = Vector2.Right; // avoid NaN if same point
         var outPos = playerPos + dir.Normalized() * minDistance;
-        outPos.X = Mathf.Clamp(outPos.X, 0, size.X);
-        outPos.Y = Mathf.Clamp(outPos.Y, 0, size.Y);
+        outPos.X = Mathf.Clamp(outPos.X, 0, screenRect.Size.X);
+        outPos.Y = Mathf.Clamp(outPos.Y, 0, screenRect.Size.Y);
         return outPos;
     }
 }

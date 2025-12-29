@@ -2,7 +2,7 @@ using Godot;
 
 namespace AutoBattlerRoguelike.Scripts.Abilities.Common;
 
-public partial class CleaveEffect : Node2D
+public partial class CleaveEffect : Area2D
 {
     private float damage;
     private float bleedDamage;

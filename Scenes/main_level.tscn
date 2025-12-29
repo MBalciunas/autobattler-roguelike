@@ -1,18 +1,18 @@
-[gd_scene load_steps=8 format=3 uid="uid://bd3n6dt1rhq1p"]
+[gd_scene load_steps=9 format=3 uid="uid://bd3n6dt1rhq1p"]
 
 [ext_resource type="PackedScene" uid="uid://dc0gbcacmyv4j" path="res://Scenes/player.tscn" id="1_q2fht"]
 [ext_resource type="Script" uid="uid://dvsjkfldb4k3a" path="res://Scripts/Enemies/EnemySpawner.cs" id="2_5erdv"]
-[ext_resource type="Resource" uid="uid://bw5asxn2rpv7q" path="res://Resources/PlayerState.tres" id="2_qbrl8"]
 [ext_resource type="PackedScene" uid="uid://dlpifra67ncok" path="res://Scenes/base_melee_enemy.tscn" id="3_qbrl8"]
 [ext_resource type="Script" uid="uid://t0jdua7b6nth" path="res://Scripts/GameManager.cs" id="5_a2ia3"]
 [ext_resource type="Script" uid="uid://d00o6jqj75uvb" path="res://Scripts/UI/LoopUI.cs" id="6_lwkuy"]
+[ext_resource type="Script" uid="uid://dxosjyewr4efc" path="res://Scripts/UI/HealthUI.cs" id="7_ha3dl"]
+[ext_resource type="Texture2D" uid="uid://bwnatcfx2mdo2" path="res://icon.svg" id="7_lwkuy"]
 [ext_resource type="PackedScene" uid="uid://d0gqn7jb7n3m5" path="res://Scenes/UI/ability_in_loop_ui.tscn" id="7_tqiex"]
 
 [node name="MainLevel" type="Node"]
 
 [node name="Player" parent="." instance=ExtResource("1_q2fht")]
 position = Vector2(950, 487)
-playerState = ExtResource("2_qbrl8")
 
 [node name="EnemySpawner" type="Node2D" parent="."]
 script = ExtResource("2_5erdv")
@@ -59,3 +59,32 @@ offset_left = -5.0
 offset_top = -5.0
 offset_right = 5.0
 offset_bottom = 5.0
+
+[node name="HealthUI" type="Control" parent="UI/Control/PlayerUI"]
+anchors_preset = 0
+offset_left = 366.0
+offset_top = -64.0
+offset_right = 406.0
+offset_bottom = -24.0
+script = ExtResource("7_ha3dl")
+
+[node name="Bar" type="TextureProgressBar" parent="UI/Control/PlayerUI/HealthUI"]
+modulate = Color(1, 0, 0, 1)
+layout_mode = 0
+offset_top = -8.0
+offset_right = 325.42105
+offset_bottom = 19.0
+value = 100.0
+nine_patch_stretch = true
+texture_progress = ExtResource("7_lwkuy")
+
+[node name="Amount" type="Label" parent="UI/Control/PlayerUI/HealthUI"]
+layout_mode = 0
+offset_left = -1.0
+offset_top = -7.0
+offset_right = 325.0
+offset_bottom = 19.0
+theme_override_font_sizes/font_size = 18
+text = "10"
+horizontal_alignment = 1
+vertical_alignment = 1

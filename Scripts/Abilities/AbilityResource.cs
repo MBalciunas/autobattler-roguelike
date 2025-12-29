@@ -26,10 +26,10 @@ public enum AbilityName
 
 public enum AbilityTrait
 {
-    WitchDoctor, Butcher, Stalker, Huntsman, Warden, Arcanist
+    Serpent, Dragon, Bear, Tiger, Ox, Mantis, Eagle, Monkey, Scorpion, Leopard
 }
 
 public enum DamageType
 {
-    Poison, Physical, Fire, Bleed
+    Poison, Fire, Bleed
 }

@@ -24,10 +24,10 @@ public partial class ToxicDartProjectile : Area2D
         }
     }
 
-    public void Init((float cleaveDamage, float bleedDamage, int bleedDuration) stats)
+    public void Init((float damage, float poisonDamage, int poisonDuration) stats)
     {
-        damage = stats.cleaveDamage;
-        poisonDamage = stats.bleedDamage;
-        poisonDuration = stats.bleedDuration;
+        damage = stats.damage;
+        poisonDamage = stats.poisonDamage;
+        poisonDuration = stats.poisonDuration;
     }
 }

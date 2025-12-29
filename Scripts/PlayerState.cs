@@ -32,7 +32,7 @@ public partial class PlayerState : Resource
 
         AbilitiesInLoop =
         [
-            new PlayerAbilityResource(GlobalManager.Abilities[AbilityName.FieryCharge]),
+            new PlayerAbilityResource(GlobalManager.Abilities[AbilityName.ToxicDart]),
         ];
     }
 

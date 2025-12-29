@@ -38,6 +38,6 @@ public partial class LoopUI : Control
         if (abilityExecutor.cooldownTimer.TimeLeft == 0) return;
         
         float progress = 1 - (float)(abilityExecutor.cooldownTimer.TimeLeft / abilityExecutor.cooldownTimer.WaitTime);
-        Rotation = (float)(abilityExecutor.nextAbilityIndex * Mathf.DegToRad(rotationAngle) + Mathf.DegToRad(progress * rotationAngle));
+        Rotation = -(float)(abilityExecutor.nextAbilityIndex * Mathf.DegToRad(rotationAngle) + Mathf.DegToRad(progress * rotationAngle));
     }
 }

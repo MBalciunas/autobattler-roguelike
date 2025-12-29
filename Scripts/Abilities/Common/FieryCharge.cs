@@ -24,9 +24,9 @@ public partial class FieryCharge : Ability
     {
         return level switch
         {
-            1 => (fireDamage: 0.4f, fireDuration: 4f, chargeDistance: 500),
-            2 => (fireDamage: 0.9f, fireDuration: 5f, chargeDistance: 700),
-            3 => (fireDamage: 1.5f, fireDuration: 6f, chargeDistance: 900),
+            1 => (fireDamage: 0.4f, fireDuration: 4f, chargeDistance: 700),
+            2 => (fireDamage: 0.9f, fireDuration: 5f, chargeDistance: 900),
+            3 => (fireDamage: 1.5f, fireDuration: 6f, chargeDistance: 1100),
             _ => throw new ArgumentOutOfRangeException(nameof(level), level, null)
         };
     }
