@@ -37,14 +37,14 @@ public partial class Cleave : Ability
         tween.Dispose();
     }
 
-    private (float cleaveDamage, float bleedDamage, int bleedDuration) GetStatsForLevel(int level)
+    private (float damage, float bleedDamage, int bleedDuration) GetStatsForLevel(int level)
     {
         return level switch
         {
-            1 => (cleaveDamage: 1f, bleedDamage: 0.2f, bleedDuration: 4),
-            2 => (cleaveDamage: 2f, bleedDamage: 0.5f, bleedDuration: 5),
-            3 => (cleaveDamage: 3f, bleedDamage: 1f, bleedDuration: 6),
-            _ => (cleaveDamage: 1.0f, bleedDamage: 0.2f, bleedDuration: 4)
+            1 => (damage: 1f, bleedDamage: 0.2f, bleedDuration: 4),
+            2 => (damage: 2f, bleedDamage: 0.5f, bleedDuration: 5),
+            3 => (damage: 3f, bleedDamage: 1f, bleedDuration: 6),
+            _ => (damage: 1.0f, bleedDamage: 0.2f, bleedDuration: 4)
         };
     }
 }

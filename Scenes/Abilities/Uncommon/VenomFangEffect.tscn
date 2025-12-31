@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://6x6s86f1h836"]
+
+[ext_resource type="Script" uid="uid://o8odofetngf0" path="res://Scripts/Abilities/Uncommon/VenomFangEffect.cs" id="1_xvyrk"]
+[ext_resource type="Texture2D" uid="uid://bwnatcfx2mdo2" path="res://icon.svg" id="2_s7hfn"]
+
+[node name="VenomFangEffect" type="Node2D"]
+script = ExtResource("1_xvyrk")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(0.19778812, 0.9012012, 0, 1)
+position = Vector2(100, -2.682209e-07)
+scale = Vector2(1.56, 0.0625)
+texture = ExtResource("2_s7hfn")

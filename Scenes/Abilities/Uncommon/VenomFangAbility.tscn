@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://c8jjj87ug5r7a"]
+
+[ext_resource type="Script" uid="uid://c7w4jijcfac4b" path="res://Scripts/Abilities/Uncommon/VenomFang.cs" id="1_0nma8"]
+[ext_resource type="PackedScene" uid="uid://6x6s86f1h836" path="res://Scenes/Abilities/Uncommon/VenomFangEffect.tscn" id="2_l8i6t"]
+
+[node name="VenomFangAbility" type="Node2D"]
+script = ExtResource("1_0nma8")
+venomFangEffectScene = ExtResource("2_l8i6t")

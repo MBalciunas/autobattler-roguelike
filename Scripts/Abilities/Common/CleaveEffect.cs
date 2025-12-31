@@ -17,9 +17,9 @@ public partial class CleaveEffect : Area2D
         }
     }
 
-    public void Init((float cleaveDamage, float bleedDamage, int bleedDuration) stats)
+    public void Init((float damage, float bleedDamage, int bleedDuration) stats)
     {
-        damage = stats.cleaveDamage;
+        damage = stats.damage;
         bleedDamage = stats.bleedDamage;
         bleedDuration = stats.bleedDuration;
     }

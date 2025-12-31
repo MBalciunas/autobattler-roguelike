@@ -10,7 +10,7 @@ public abstract partial class Enemy : Area2D
     [Export] private float attackCooldown = 2;
     [Export] private float attackRange = 100;
     [Export] private float health = 2;
-    public List<DamageOverTime> activeDots = new();
+    private List<DamageOverTime> activeDots = new();
     protected Player player;
     private Timer attackTimer;
     private Timer dotsTimer;

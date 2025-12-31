@@ -21,12 +21,12 @@ public enum AbilityRarity
 
 public enum AbilityName
 {
-    ToxicDart, ShadowStep, Cleave, Stomp, FieryCharge
+    ToxicDart, ShadowStep, Cleave, Stomp, FieryCharge, VenomFang
 }
 
 public enum AbilityTrait
 {
-    Serpent, Dragon, Bear, Tiger, Ox, Mantis, Eagle, Monkey, Scorpion, Leopard
+    Serpent, Dragon, Crane, Tiger, Ox, Bear, Mantis, Eagle, Monkey, Leopard
 }
 
 public enum ElementType

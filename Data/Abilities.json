@@ -1,52 +1,62 @@
 {
   "ToxicDart": {
-    "name": "Toxic Dart",
-    "description": "Projectile that deals damage and applies poison over time. Shoots closest unpoisoned enemy.",
-    "level1": "1 dart, 100% damage + 20% damage/s poison for 4s",
-    "level2": "2 darts, 180% damage + 40% damage/s poison for 5s",
-    "level3": "3 darts, 324% damage + 75% damage/s poison for 6s",
-    "rarity": "Common",
-    "price": 2,
-    "traits": ["Serpent", "Scorpion"]
+	"name": "Toxic Dart",
+	"description": "Projectile that deals damage and applies poison over time. Shoots closest unpoisoned enemy.",
+	"level1": "1 dart, 100% damage + 20% damage/s poison for 4s",
+	"level2": "2 darts, 180% damage + 40% damage/s poison for 5s",
+	"level3": "3 darts, 324% damage + 75% damage/s poison for 6s",
+	"rarity": "Common",
+	"price": 2,
+	"traits": ["Serpent", "Crane"]
   },
   "ShadowStep": {
-    "name": "Shadow Step",
-    "description": "Teleport behind furthest enemy and deal 300% damage",
-    "level1": "300% damage",
-    "level2": "450% damage",
-    "level3": "600% and it explodes for additional 150% AoE Damage",
-    "rarity": "Common",
-    "price": 2,
-    "traits": ["Tiger", "Eagle"]
+	"name": "Shadow Step",
+	"description": "Teleport behind furthest enemy and deal 300% damage",
+	"level1": "300% damage",
+	"level2": "450% damage",
+	"level3": "600% and it explodes for additional 150% AoE Damage",
+	"rarity": "Common",
+	"price": 2,
+	"traits": ["Tiger", "Serpent"]
   },
   "Cleave": {
-    "name": "Cleave",
-    "description": "Cleaves nearby enemies and applies bleed",
-    "level1": "100% damage + 20% damage/s bleed for 4s",
-    "level2": "200% damage + 50% damage/s bleed for 5s",
-    "level3": "300% damage + 100% damage/s bleed for 6s",
-    "rarity": "Common",
-    "price": 2,
-    "traits": ["Bear", "Mantis"]
+	"name": "Cleave",
+	"description": "Cleaves nearby enemies and applies bleed",
+	"level1": "100% damage + 20% damage/s bleed for 4s",
+	"level2": "200% damage + 50% damage/s bleed for 5s",
+	"level3": "300% damage + 100% damage/s bleed for 6s",
+	"rarity": "Common",
+	"price": 2,
+	"traits": ["Tiger", "Dragon"]
   },
   "Stomp": {
-    "name": "Stomp",
-    "description": "Stomps the ground, dealing damage to nearby enemies and knocking them back",
-    "level1": "50% damage, small knockback",
-    "level2": "100% damage, medium knockback",
-    "level3": "200% damage, strong knockback",
-    "rarity": "Common",
-    "price": 2,
-    "traits": ["Ox", "Bear"]
+	"name": "Stomp",
+	"description": "Stomps the ground, dealing damage to nearby enemies and knocking them back",
+	"level1": "50% damage, small knockback",
+	"level2": "100% damage, medium knockback",
+	"level3": "200% damage, strong knockback",
+	"rarity": "Common",
+	"price": 2,
+	"traits": ["Ox", "Dragon"]
   },
   "FieryCharge": {
-    "name": "Fiery Charge",
-    "description": "Charges in the direction of closest enemy. Sets all enemies in path on fire.",
-    "level1": "40% damage/s fire for 4s",
-    "level2": "90% damage/s fire for 5s",
-    "level3": "140% damage/s fire for 6s",
-    "rarity": "Common",
-    "price": 2,
-    "traits": ["Ox", "Dragon"]
+	"name": "Fiery Charge",
+	"description": "Charges in the direction of closest enemy. Sets all enemies in path on fire.",
+	"level1": "40% damage/s fire for 4s",
+	"level2": "90% damage/s fire for 5s",
+	"level3": "140% damage/s fire for 6s",
+	"rarity": "Common",
+	"price": 2,
+	"traits": ["Crane", "Ox"]
+  },
+  "VenomFang": {
+	"name": "Venom Fang",
+	"description": "Strike 3 close enemies. Apply poison and bleed.",
+	"level1": "10 damage. 4 damage/s bleed for 4s. 2 damage/s poison for 10s",
+	"level2": "25 damage. 10 damage/s bleed for 4s. 5 damage/s poison for 10s.",
+	"level3": "45 damage. 18 damage/s bleed for 4s. 12 damage/s poison for 10s.",
+	"rarity": "Uncommon",
+	"price": 4,
+	"traits": ["Serpent", "Tiger"]
   }
 }
