@@ -39,7 +39,6 @@ public partial class GlobalManager : Node
     public void LoadNextLevel()
     {
         Level++;
-        GD.Print("Loading level " + Level);
         GetTree().CallDeferred("change_scene_to_file", "res://Scenes/main_level.tscn");
     }
 

@@ -8,6 +8,7 @@ namespace AutoBattlerRoguelike.Scripts;
 public partial class PlayerState : Resource
 {
     public PlayerStatFloat Health { get; private set; }
+    public PlayerStatFloat Shield { get; private set; }
     public PlayerStatFloat MaxHealth { get; private set; }
     public PlayerStatFloat Damage { get; private set; }
     public PlayerStatFloat CritChance { get; private set; }
@@ -30,6 +31,7 @@ public partial class PlayerState : Resource
     {
         MaxHealth = new PlayerStatFloat(10);
         Health = new PlayerStatFloat(10).OnMin(_ => GameManager.Instance.RestartGame());
+        Shield = new PlayerStatFloat(0);
         Health.SetMax(MaxHealth.Value);
         Gold = new PlayerStatInt(0);
         Damage = new PlayerStatFloat(0);
@@ -40,20 +42,29 @@ public partial class PlayerState : Resource
 
         AbilitiesInLoop =
         [
-            new PlayerAbilityResource(GlobalManager.Abilities[AbilityName.VenomFang]),
+            new PlayerAbilityResource(GlobalManager.Abilities[AbilityName.IronWing]),
         ];
     }
 
     public void ResetHealth()
     {
-        Health.Value = MaxHealth.Value;
+        Health.Set(MaxHealth.Value);
     }
 
     public void Heal(float amount) => Health.Add(amount);
 
     public void TakeDamage(float amount)
     {
-        Health.Add(-amount);
+        var amountLeft = amount;
+        if (Shield.Value > 0)
+        {
+            amountLeft -= Shield.Value;
+            Shield.Add(-amount);
+        }
+        if (amountLeft > 0)
+        {
+            Health.Add(-amountLeft);
+        }
     }
 
     public void AddGold(int amount)
@@ -63,9 +74,9 @@ public partial class PlayerState : Resource
 
     public int GetTraitCount(AbilityTrait trait)
     {
-        return AbilitiesInLoop.Count(a => a.AbilityResource.Traits.Contains(trait));    
+        return AbilitiesInLoop.Count(a => a.AbilityResource.Traits.Contains(trait));
     }
-    
+
     public void IncreaseDamage(float amount) => Damage.Add(amount);
 
     public void AddAbility(AbilityResource abilityResource)

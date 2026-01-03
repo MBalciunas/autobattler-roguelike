@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://ba6whdd2rwcjd"]
+
+[ext_resource type="Script" uid="uid://rgukywg2lht0" path="res://Scripts/Abilities/Uncommon/IronWing.cs" id="1_x1djd"]
+[ext_resource type="PackedScene" uid="uid://bll871w35himj" path="res://Scenes/Abilities/Uncommon/IronWingEffect.tscn" id="2_85rjs"]
+
+[node name="IronWingAbility" type="Node2D"]
+script = ExtResource("1_x1djd")
+ironWingEffectScene = ExtResource("2_85rjs")

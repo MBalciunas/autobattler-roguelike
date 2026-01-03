@@ -58,5 +58,15 @@
 	"rarity": "Uncommon",
 	"price": 4,
 	"traits": ["Serpent", "Tiger"]
+  },
+  "IronWing": {
+	"name": "Iron Wing",
+	"description": "Strike enemies in the cone, target closest enemy. Gain shield for each enemy hit.",
+	"level1": "20 damage. 10 shield.",
+	"level2": "50 damage. 15 shield.",
+	"level3": "130 damage. 30 shield.",
+	"rarity": "Uncommon",
+	"price": 4,
+	"traits": ["Dragon", "Crane"]
   }
 }

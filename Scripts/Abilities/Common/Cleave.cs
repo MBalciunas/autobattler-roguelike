@@ -15,18 +15,20 @@ public partial class Cleave : Ability
     {
         var enemy = GlobalManager.GetEnemiesSortedByClosest().FirstOrDefault();
 
+        cleaveEffect = cleaveEffectScene.Instantiate<CleaveEffect>();
+        cleaveEffect.Init(GetStatsForLevel(Level));
+        cleaveEffect.GlobalPosition = GlobalPosition + Vector2.Left * 20;
         if (enemy != null)
         {
-            cleaveEffect = cleaveEffectScene.Instantiate<CleaveEffect>();
-            cleaveEffect.Init(GetStatsForLevel(Level));
             var direction = (enemy.GlobalPosition - GlobalPosition).Normalized();
             cleaveEffect.GlobalPosition = GlobalPosition + direction * 20;
             cleaveEffect.Rotation = direction.Angle() - Mathf.DegToRad(60);
-            GetTree().Root.GetNode("MainLevel").AddChild(cleaveEffect);
-            tween = GetTree().CreateTween();
-            tween.TweenProperty(cleaveEffect, "rotation", cleaveEffect.Rotation + Mathf.DegToRad(120), 0.2);
-            tween.Finished += TweenOnFinished;
         }
+
+        GetTree().Root.GetNode("MainLevel").AddChild(cleaveEffect);
+        tween = GetTree().CreateTween();
+        tween.TweenProperty(cleaveEffect, "rotation", cleaveEffect.Rotation + Mathf.DegToRad(120), 0.2);
+        tween.Finished += TweenOnFinished;
     }
 
     private void TweenOnFinished()

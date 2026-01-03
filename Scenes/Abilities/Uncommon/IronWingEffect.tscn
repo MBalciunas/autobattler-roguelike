@@ -1,0 +1,66 @@
+[gd_scene load_steps=3 format=3 uid="uid://bll871w35himj"]
+
+[ext_resource type="Script" uid="uid://cs6xt6y6db7r6" path="res://Scripts/Abilities/Uncommon/IronWingEffect.cs" id="1_5odq1"]
+[ext_resource type="Texture2D" uid="uid://bwnatcfx2mdo2" path="res://icon.svg" id="2_oh8fn"]
+
+[node name="IronWingEffect" type="Area2D"]
+script = ExtResource("1_5odq1")
+
+[node name="Sprite2D5" type="Sprite2D" parent="."]
+visible = false
+modulate = Color(0.68989944, 0.4712088, 0.6996873, 1)
+position = Vector2(174, -2)
+rotation = -0.017246881
+scale = Vector2(0.583955, 0.63383037)
+texture = ExtResource("2_oh8fn")
+
+[node name="Sprite2D7" type="Sprite2D" parent="."]
+visible = false
+modulate = Color(0.68989944, 0.4712088, 0.6996873, 1)
+position = Vector2(80, -1.0000002)
+rotation = -0.017246881
+scale = Vector2(0.30410656, 0.32227463)
+texture = ExtResource("2_oh8fn")
+
+[node name="Sprite2D6" type="Sprite2D" parent="."]
+visible = false
+modulate = Color(0.68989944, 0.4712088, 0.6996873, 1)
+position = Vector2(125.999985, -3)
+rotation = -0.017246881
+scale = Vector2(0.40372393, 0.46123043)
+texture = ExtResource("2_oh8fn")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+visible = false
+modulate = Color(0.68989944, 0.4712088, 0.6996873, 1)
+position = Vector2(102, -28.999996)
+rotation = -0.2894361
+scale = Vector2(1.56, 0.0625)
+texture = ExtResource("2_oh8fn")
+
+[node name="Sprite2D3" type="Sprite2D" parent="."]
+visible = false
+modulate = Color(0.68989944, 0.4712088, 0.6996873, 1)
+position = Vector2(218.00002, -31.999992)
+rotation = 0.8920947
+scale = Vector2(0.5615587, 0.0625)
+texture = ExtResource("2_oh8fn")
+
+[node name="Sprite2D4" type="Sprite2D" parent="."]
+visible = false
+modulate = Color(0.68989944, 0.4712088, 0.6996873, 1)
+position = Vector2(220.99998, 21.000008)
+rotation = -1.050521
+scale = Vector2(0.5615587, 0.0625)
+texture = ExtResource("2_oh8fn")
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+visible = false
+modulate = Color(0.68989944, 0.4712088, 0.6996873, 1)
+position = Vector2(106.000015, 27.000002)
+rotation = 0.22203489
+scale = Vector2(1.56, 0.0625)
+texture = ExtResource("2_oh8fn")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(0, 1, 208, 50, 234, 17, 235, -29, 202, -61)

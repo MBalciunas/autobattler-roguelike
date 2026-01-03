@@ -118,7 +118,5 @@ public abstract partial class Enemy : Area2D
     {
         WitchDoctorEffect.ApplyToDot(damageOverTime);
         activeDots.Add(damageOverTime);
-        GD.Print("Dots damage: " + damageOverTime.damage);
-        GD.Print("Dots durations: " + damageOverTime.durationLeft);
     }
 }

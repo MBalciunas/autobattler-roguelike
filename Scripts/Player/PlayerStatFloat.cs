@@ -17,7 +17,7 @@ public partial class PlayerStatFloat : Resource
     public float Value
     {
         get => helper.Value;
-        set => helper.Value = value;
+        private set => helper.Value = value;
     }
 
     public PlayerStatFloat SetMin(float min)
@@ -45,6 +45,7 @@ public partial class PlayerStatFloat : Resource
     }
 
     public void Add(float amount) => Value += amount;
+    public void Set(float amount) => Value = amount;
     public void Subtract(float amount) => Value -= amount;
     public void Multiply(float amount) => Value *= amount;
     public void Divide(float amount) => Value /= amount;
