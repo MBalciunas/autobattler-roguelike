@@ -30,14 +30,14 @@ public partial class DragonBreath : Ability
 
     }
 
-    private (float damage, float shield)
+    private (float damage, float poisonedDamage)
         GetStatsForLevel(int level)
     {
         return level switch
         {
-            1 => (damage: 30f, poisonedDamaged: 40f),
-            2 => (damage: 60f, poisonedDamaged: 90f),
-            3 => (damage: 150f, poisonedDamaged: 250f),
+            1 => (damage: 30f, poisonedDamage: 40f),
+            2 => (damage: 60f, poisonedDamage: 90f),
+            3 => (damage: 150f, poisonedDamage: 250f),
             _ => throw new ArgumentOutOfRangeException(nameof(level), level, null)
         };
     }

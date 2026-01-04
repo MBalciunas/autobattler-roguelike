@@ -101,8 +101,9 @@ script = ExtResource("9_ha3dl")
 [node name="Bar" type="TextureProgressBar" parent="UI/Control/PlayerUI/ShieldUI"]
 modulate = Color(0.06295253, 0.4722048, 0.58936495, 1)
 layout_mode = 0
+offset_left = 5.0
 offset_top = -8.0
-offset_right = 325.42105
+offset_right = 330.42105
 offset_bottom = 19.0
 value = 100.0
 nine_patch_stretch = true

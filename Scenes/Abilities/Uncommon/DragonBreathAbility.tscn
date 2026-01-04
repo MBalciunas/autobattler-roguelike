@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://ftwoppip1cuy"]
+
+[ext_resource type="Script" uid="uid://1htfn4e6yrms" path="res://Scripts/Abilities/Uncommon/DragonBreath.cs" id="1_p2g6a"]
+[ext_resource type="PackedScene" uid="uid://d36c0rnqr4sj4" path="res://Scenes/Abilities/Uncommon/DragonBreathEffect.tscn" id="2_7b4uv"]
+
+[node name="DragonBreathAbility" type="Node2D"]
+script = ExtResource("1_p2g6a")
+dragonBreathEffectScene = ExtResource("2_7b4uv")

@@ -22,7 +22,7 @@ public enum AbilityRarity
 public enum AbilityName
 {
     ToxicDart, ShadowStep, Cleave, Stomp, FieryCharge, // Common
-    VenomFang, IronWing // Uncommon
+    VenomFang, IronWing, DragonBreath // Uncommon
 }
 
 public enum AbilityTrait

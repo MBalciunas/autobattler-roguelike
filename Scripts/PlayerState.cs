@@ -42,7 +42,7 @@ public partial class PlayerState : Resource
 
         AbilitiesInLoop =
         [
-            new PlayerAbilityResource(GlobalManager.Abilities[AbilityName.IronWing]),
+            new PlayerAbilityResource(GlobalManager.Abilities[AbilityName.DragonBreath]),
         ];
     }
 
