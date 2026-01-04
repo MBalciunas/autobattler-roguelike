@@ -78,5 +78,15 @@
 	"rarity": "Uncommon",
 	"price": 4,
 	"traits": ["Dragon", "Serpent"]
+  },
+  "Tremor": {
+	"name": "Tremor",
+	"description": "Hit enemies in line toward closest enemy. Medium range. Damage, slow, apply bleed.",
+	"level1": "20 damage. 30% slow 3 seconds. 4 damage/s bleed for 4s.",
+	"level2": "50 damage. 40% slow 4 seconds. 8 damage/s bleed for 4s.",
+	"level3": "120 damage. 60% slow 6 seconds. 15 damage/s bleed for 4s.",
+	"rarity": "Uncommon",
+	"price": 4,
+	"traits": ["Ox", "Tiger"]
   }
 }

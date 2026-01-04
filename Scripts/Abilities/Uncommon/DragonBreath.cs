@@ -7,7 +7,6 @@ namespace AutoBattlerRoguelike.Scripts.Abilities.Uncommon;
 public partial class DragonBreath : Ability
 {
     [Export] private PackedScene dragonBreathEffectScene;
-    private float range = 230f;
     private Tween tween;
 
     public override void _Ready() { }

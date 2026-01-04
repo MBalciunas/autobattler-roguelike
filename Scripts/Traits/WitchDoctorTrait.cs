@@ -2,7 +2,7 @@ using AutoBattlerRoguelike.Scripts.Abilities;
 
 namespace AutoBattlerRoguelike.Scripts.Traits;
 
-public static class WitchDoctorEffect 
+public static class SerpentEffect 
 {
     public static void ApplyToDot(DamageOverTime dot)
     {

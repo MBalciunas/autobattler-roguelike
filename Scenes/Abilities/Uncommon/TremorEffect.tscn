@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://hxpkhl0in6r2"]
+
+[ext_resource type="Script" uid="uid://dwxriyytwuqpr" path="res://Scripts/Abilities/Uncommon/TremorEffect.cs" id="1_pf4ni"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_eogxd"]
+size = Vector2(50, 78)
+
+[node name="TremorEffect" type="Area2D"]
+script = ExtResource("1_pf4ni")
+
+[node name="CollisionPolygon2D" type="CollisionShape2D" parent="."]
+position = Vector2(25, 0)
+shape = SubResource("RectangleShape2D_eogxd")
+
+[connection signal="area_entered" from="." to="." method="OnAreaEntered"]

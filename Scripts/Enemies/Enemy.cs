@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using AutoBattlerRoguelike.Scripts.Abilities;
@@ -8,6 +7,7 @@ using Godot;
 public abstract partial class Enemy : Area2D
 {
     [Export] private float moveSpeed = 50;
+    [Export] private float currentMoveSpeed = 50;
     [Export] private float attackCooldown = 2;
     [Export] private float attackRange = 100;
     [Export] private float health = 2;
@@ -15,17 +15,22 @@ public abstract partial class Enemy : Area2D
     protected Player player;
     private Timer attackTimer;
     private Timer dotsTimer;
+    private Timer slowTimer;
     private bool isMoving = true;
 
     public override void _Ready()
     {
         attackTimer = new Timer();
         dotsTimer = new Timer();
+        slowTimer = new Timer();
         AddChild(dotsTimer);
         dotsTimer.WaitTime = 1f;
         dotsTimer.OneShot = false;
         dotsTimer.Timeout += TakeDotsDamage;
         dotsTimer.Start();
+        AddChild(slowTimer);
+        slowTimer.OneShot = true;
+        slowTimer.Timeout += RemoveSlow;
         AddChild(attackTimer);
         attackTimer.WaitTime = attackCooldown;
         attackTimer.OneShot = true;
@@ -51,7 +56,7 @@ public abstract partial class Enemy : Area2D
         {
             player = GetNode<Player>("../../Player");
             var direction = (player.GlobalPosition - GlobalPosition).Normalized();
-            Position += direction * moveSpeed * (float)delta;
+            Position += direction * currentMoveSpeed * (float)delta;
         }
     }
 
@@ -117,12 +122,24 @@ public abstract partial class Enemy : Area2D
 
     public void AddActiveDot(DamageOverTime damageOverTime)
     {
-        WitchDoctorEffect.ApplyToDot(damageOverTime);
+        SerpentEffect.ApplyToDot(damageOverTime);
         activeDots.Add(damageOverTime);
     }
     
     public bool IsPoisoned()
     {
         return activeDots.Any(d => d.damageType == ElementType.Poison);
+    }
+
+    public void AddSlow(float slow, float slowDuration)
+    {
+        currentMoveSpeed = moveSpeed * slow;
+        slowTimer.WaitTime = slowDuration;
+        slowTimer.Start();
+    }
+    
+    private void RemoveSlow()
+    {
+        currentMoveSpeed = moveSpeed;
     }
 }
