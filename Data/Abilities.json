@@ -68,5 +68,15 @@
 	"rarity": "Uncommon",
 	"price": 4,
 	"traits": ["Dragon", "Crane"]
+  },
+  "DragonBreath": {
+    "name": "Dragon Breath",
+    "description": "Hit enemies in the wide cone, deal increased damaged if target is poisoned.",
+    "level1": "30 damage. 40 if poisoned.",
+    "level2": "60 damage. 90 if poisoned.",
+    "level3": "150 damage. 250 if poisoned.",
+    "rarity": "Uncommon",
+    "price": 4,
+    "traits": ["Dragon", "Crane"]
   }
 }

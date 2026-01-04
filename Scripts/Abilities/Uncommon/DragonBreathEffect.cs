@@ -3,11 +3,11 @@ using Godot;
 
 namespace AutoBattlerRoguelike.Scripts.Abilities.Uncommon;
 
-public partial class IronWingEffect : Area2D
+public partial class DragonBreathEffect : Area2D
 {
     private float damage;
-    private float shield;
-    private readonly HashSet<Enemy> enemiesHit = new();
+    private float poisonedDamage;
+    private readonly HashSet<Enemy> enemiesHit = [];
 
     private const float SnapshotWindow = 0.1f; // seconds
     private const float SnapshotInterval = 0.02f; // seconds
@@ -28,7 +28,8 @@ public partial class IronWingEffect : Area2D
             {
                 if (a is Enemy e && enemiesHit.Add(e))
                 {
-                    e.TakeDamage(damage);
+                    var damageAmount = e.IsPoisoned() ? poisonedDamage : damage; 
+                    e.TakeDamage(damageAmount);
                 }
             }
 
@@ -36,7 +37,6 @@ public partial class IronWingEffect : Area2D
             elapsed += SnapshotInterval;
         }
 
-        GlobalManager.playerState.Shield.Add(shield * enemiesHit.Count);
         FadeAndFree();
     }
 
@@ -79,9 +79,9 @@ public partial class IronWingEffect : Area2D
         QueueFree();
     }
 
-    public void Init((float damage, float shield) stats)
+    public void Init((float damage, float poisonedDamage) stats)
     {
         damage = stats.damage;
-        shield = stats.shield;
+        poisonedDamage = stats.poisonedDamage;
     }
 }
