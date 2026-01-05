@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://b0qspvx1n8p3j"]
+
+[ext_resource type="Script" uid="uid://cscbdag2rsiyh" path="res://Scripts/Abilities/Rare/CrimsonSpike.cs" id="1_stmel"]
+[ext_resource type="PackedScene" uid="uid://col6q1r8sotc5" path="res://Scenes/Abilities/Rare/CrimsonSpikeProjectile.tscn" id="2_5t28b"]
+
+[node name="CrimsonSpike" type="Node2D"]
+script = ExtResource("1_stmel")
+projectileScene = ExtResource("2_5t28b")

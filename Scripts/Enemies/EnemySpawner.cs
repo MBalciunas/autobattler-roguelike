@@ -9,7 +9,7 @@ public partial class EnemySpawner : Node
 
     private Dictionary<int, int> enemiesToSpawn = new()
     {
-        { 1, 100 },
+        { 1, 15 },
         { 2, 1 },
         { 3, 5 },
         { 4, 20 },
@@ -21,8 +21,8 @@ public partial class EnemySpawner : Node
     {
         spawnTimer = GetNode<Timer>("SpawnTimer");
         enemiesLeftToSpawn = enemiesToSpawn[GlobalManager.Level];
-        // spawnTimer.WaitTime = 1.0 - (1 - 1.0 / GlobalManager.Level);
-        spawnTimer.WaitTime = 0.2f;
+        spawnTimer.WaitTime = 1.0 - (1 - 1.0 / GlobalManager.Level);
+        // spawnTimer.WaitTime = 0.2f;
         spawnTimer.Timeout += SpawnEnemies;
         GlobalManager.IsEnemiesSpawning = true;
     }

@@ -96,7 +96,17 @@
 	"level2": "120 damage",
 	"level3": "200 damage",
 	"rarity": "Uncommon",
-	"price": 2,
+	"price": 4,
+	"traits": ["Tiger", "Crane"]
+  },
+  "CrimsonSpike": {
+	"name": "Crimson Spike",
+	"description": "Shoot projectile towards the enemy with lowest health. Apply heavy bleed to all enemies it passes through",
+	"level1": "10 damage/s bleed for 4s.",
+	"level2": "20 damage/s bleed for 4s.",
+	"level3": "40 damage/s bleed for 4s.",
+	"rarity": "Rare",
+	"price": 6,
 	"traits": ["Tiger", "Crane"]
   }
 }

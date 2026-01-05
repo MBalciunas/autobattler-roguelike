@@ -42,12 +42,7 @@ public partial class PlayerState : Resource
 
         AbilitiesInLoop =
         [
-            new PlayerAbilityResource(GlobalManager.Abilities[AbilityName.Pounce]),
-            new PlayerAbilityResource(GlobalManager.Abilities[AbilityName.Stomp]),
-            new PlayerAbilityResource(GlobalManager.Abilities[AbilityName.DragonBreath]),
-            new PlayerAbilityResource(GlobalManager.Abilities[AbilityName.VenomFang]),
-            new PlayerAbilityResource(GlobalManager.Abilities[AbilityName.Cleave]),
-            new PlayerAbilityResource(GlobalManager.Abilities[AbilityName.FieryCharge]),
+            new PlayerAbilityResource(GlobalManager.Abilities[AbilityName.CrimsonSpike]),
         ];
     }
 
