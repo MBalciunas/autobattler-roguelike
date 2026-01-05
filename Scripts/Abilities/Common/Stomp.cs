@@ -12,7 +12,6 @@ public partial class Stomp : Ability
     {
         stompEffect = GetNode<Sprite2D>("Sprite");
         stompEffect.Modulate =  new Color(0, 0, 0, 0);
-
     }
 
     protected override void ExecuteAbility()

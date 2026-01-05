@@ -7,7 +7,7 @@ using Godot;
 public abstract partial class Enemy : Area2D
 {
     [Export] private float moveSpeed = 50;
-    [Export] private float currentMoveSpeed = 50;
+    private float currentMoveSpeed = 50;
     [Export] private float attackCooldown = 2;
     [Export] private float attackRange = 100;
     [Export] private float health = 2;
@@ -20,6 +20,9 @@ public abstract partial class Enemy : Area2D
 
     public override void _Ready()
     {
+        currentMoveSpeed = moveSpeed;
+        
+        
         attackTimer = new Timer();
         dotsTimer = new Timer();
         slowTimer = new Timer();

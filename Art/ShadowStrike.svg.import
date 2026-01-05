@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://c2r644w32o015"
-path="res://.godot/imported/ShadowStep.svg-7825bd21c723ed09eae49b3cbe89984b.ctex"
+path="res://.godot/imported/ShadowStrike.svg-69a88fe45bf0e04a4cff476e6d4610f1.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/ShadowStep.svg"
-dest_files=["res://.godot/imported/ShadowStep.svg-7825bd21c723ed09eae49b3cbe89984b.ctex"]
+source_file="res://Art/ShadowStrike.svg"
+dest_files=["res://.godot/imported/ShadowStrike.svg-69a88fe45bf0e04a4cff476e6d4610f1.ctex"]
 
 [params]
 

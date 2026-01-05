@@ -9,12 +9,12 @@
 	"price": 2,
 	"traits": ["Serpent", "Crane"]
   },
-  "ShadowStep": {
-	"name": "Shadow Step",
-	"description": "Teleport behind furthest enemy and deal 300% damage",
-	"level1": "300% damage",
-	"level2": "450% damage",
-	"level3": "600% and it explodes for additional 150% AoE Damage",
+  "ShadowStrike": {
+	"name": "Shadow Strike",
+	"description": "Teleport behind furthest enemy and deal damage",
+	"level1": "50",
+	"level2": "80",
+	"level3": "140",
 	"rarity": "Common",
 	"price": 2,
 	"traits": ["Tiger", "Serpent"]
@@ -89,14 +89,24 @@
 	"price": 4,
 	"traits": ["Ox", "Tiger"]
   },
+  "PhoenixDive": {
+	"name": "Phoenix Dive",
+	"description": "Jump to the furthest enemy location, damage and knock enemies.",
+	"level1": "30 damage.",
+	"level2": "60 damage",
+	"level3": "120 damage",
+	"rarity": "Uncommon",
+	"price": 4,
+	"traits": ["Tiger", "Crane"]
+  },
   "Pounce": {
 	"name": "Pounce",
 	"description": "Dash to closest enemy, deal high damage and get shield based on damage done.",
 	"level1": "60 damage.",
 	"level2": "120 damage",
 	"level3": "200 damage",
-	"rarity": "Uncommon",
-	"price": 4,
+	"rarity": "Rare",
+	"price": 6,
 	"traits": ["Tiger", "Crane"]
   },
   "CrimsonSpike": {

@@ -1,8 +1,9 @@
+using System;
 using System.Collections.Generic;
 
 namespace AutoBattlerRoguelike.Scripts.Abilities.Common;
 
-public partial class ShadowStep : Ability
+public partial class ShadowStrike : Ability
 {
     protected override void ExecuteAbility()
     {
@@ -22,10 +23,10 @@ public partial class ShadowStep : Ability
     {
         return level switch
         {
-            1 => 3f,
-            2 => 4.5f,
-            3 => 6f,
-            _ => 3f
+            1 => 50f,
+            2 => 80f,
+            3 => 140f,
+            _ => throw new ArgumentOutOfRangeException(nameof(level), level, null)
         };
     }
 }

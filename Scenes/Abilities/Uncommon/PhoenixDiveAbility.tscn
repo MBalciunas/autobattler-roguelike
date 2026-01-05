@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://civ6udai2ydx6"]
+
+[ext_resource type="Script" uid="uid://mgfwsv338ucf" path="res://Scripts/Abilities/Uncommon/PhoenixDive.cs" id="1_af2wv"]
+[ext_resource type="Texture2D" uid="uid://dpmdjijj1ermm" path="res://Art/Stomp.svg" id="2_j4kac"]
+
+[node name="PhoenixDive" type="Node2D"]
+script = ExtResource("1_af2wv")
+
+[node name="Sprite" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(0.43, 0)
+texture = ExtResource("2_j4kac")
