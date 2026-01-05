@@ -88,5 +88,15 @@
 	"rarity": "Uncommon",
 	"price": 4,
 	"traits": ["Ox", "Tiger"]
+  },
+  "Pounce": {
+	"name": "Pounce",
+	"description": "Dash to closest enemy, deal high damage and get shield based on damage done.",
+	"level1": "60 damage.",
+	"level2": "120 damage",
+	"level3": "200 damage",
+	"rarity": "Uncommon",
+	"price": 2,
+	"traits": ["Tiger", "Crane"]
   }
 }

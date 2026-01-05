@@ -29,8 +29,8 @@ public partial class PlayerState : Resource
 
     public void InitializeStats()
     {
-        MaxHealth = new PlayerStatFloat(10);
-        Health = new PlayerStatFloat(10).OnMin(_ => GameManager.Instance.RestartGame());
+        MaxHealth = new PlayerStatFloat(200);
+        Health = new PlayerStatFloat(MaxHealth.Value).OnMin(_ => GameManager.Instance.RestartGame());
         Shield = new PlayerStatFloat(0);
         Health.SetMax(MaxHealth.Value);
         Gold = new PlayerStatInt(0);
@@ -42,7 +42,12 @@ public partial class PlayerState : Resource
 
         AbilitiesInLoop =
         [
-            new PlayerAbilityResource(GlobalManager.Abilities[AbilityName.Tremor]),
+            new PlayerAbilityResource(GlobalManager.Abilities[AbilityName.Pounce]),
+            new PlayerAbilityResource(GlobalManager.Abilities[AbilityName.Stomp]),
+            new PlayerAbilityResource(GlobalManager.Abilities[AbilityName.DragonBreath]),
+            new PlayerAbilityResource(GlobalManager.Abilities[AbilityName.VenomFang]),
+            new PlayerAbilityResource(GlobalManager.Abilities[AbilityName.Cleave]),
+            new PlayerAbilityResource(GlobalManager.Abilities[AbilityName.FieryCharge]),
         ];
     }
 
