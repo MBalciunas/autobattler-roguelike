@@ -138,5 +138,15 @@
 	"rarity": "Rare",
 	"price": 6,
 	"traits": ["Dragon", "Crane"]
+  },
+  "ToxicPool": {
+	"name": "Toxic Pool",
+	"description": "Spawns pool under the closest enemy that deals periodic damage, slows and applies poison.",
+	"level1": "20 damage per second. 35% slow. 4 damage/s poison for 10s. Duration 3 seconds",
+	"level2": "35 damage per second. 45% slow. 7 damage/s poison for 10s. Duration 3 seconds",
+	"level3": "55 damage per second. 60% slow. 12 damage/s poison for 10s. Duration 3 seconds",
+	"rarity": "Rare",
+	"price": 6,
+	"traits": ["Serpent", "Ox"]
   }
 }
