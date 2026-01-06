@@ -39,12 +39,12 @@
 	"price": 2,
 	"traits": ["Ox", "Dragon"]
   },
-  "FieryCharge": {
-	"name": "Fiery Charge",
-	"description": "Charges in the direction of closest enemy. Sets all enemies in path on fire.",
-	"level1": "40% damage/s fire for 4s",
-	"level2": "90% damage/s fire for 5s",
-	"level3": "140% damage/s fire for 6s",
+  "SteelPlume": {
+	"name": "Steel Plume",
+	"description": "Shoot piercing projectile to closest enemy.",
+	"level1": "20 damage. 20% slow for 3 seconds.",
+	"level2": "40 damage. 30% slow for 4 seconds.",
+	"level3": "80 damage. 40% slow for 5 seconds.",
 	"rarity": "Common",
 	"price": 2,
 	"traits": ["Crane", "Ox"]

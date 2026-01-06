@@ -7,7 +7,7 @@ using Godot;
 public abstract partial class Enemy : Area2D
 {
     [Export] private float moveSpeed = 50;
-    private float currentMoveSpeed = 50;
+    [Export] private float currentMoveSpeed = 50;
     [Export] private float attackCooldown = 2;
     [Export] private float attackRange = 100;
     [Export] private float health = 2;
@@ -136,7 +136,7 @@ public abstract partial class Enemy : Area2D
 
     public void AddSlow(float slow, float slowDuration)
     {
-        currentMoveSpeed = moveSpeed * slow;
+        currentMoveSpeed = moveSpeed * (1 - slow);
         slowTimer.WaitTime = slowDuration;
         slowTimer.Start();
     }
