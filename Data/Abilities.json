@@ -118,5 +118,15 @@
 	"rarity": "Rare",
 	"price": 6,
 	"traits": ["Tiger", "Crane"]
+  },
+  "SerpentDance": {
+	"name": "Serpent Dance",
+	"description": "Quickly strikes enemies in medium range 10 times. Inflict Poison. Apply shield for each unique enemy hit.",
+	"level1": "10 damage. 4 damage/s poison for 10s. 10 Shield.",
+	"level2": "10 damage. 7 damage/s poison for 10s. 15 Shield.",
+	"level3": "10 damage. 12 damage/s poison for 10s. 20 Shield.",
+	"rarity": "Rare",
+	"price": 6,
+	"traits": ["Tiger", "Crane"]
   }
 }
