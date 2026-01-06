@@ -1,12 +1,11 @@
 using System.Collections.Generic;
 using Godot;
 
-namespace AutoBattlerRoguelike.Scripts.Abilities.Uncommon;
+namespace AutoBattlerRoguelike.Scripts.Abilities.Rare;
 
-public partial class DragonBreathEffect : Area2D
+public partial class DragonTailEffect : Area2D
 {
     private float damage;
-    private float poisonedDamage;
     private readonly HashSet<Enemy> enemiesHit = [];
 
     private const float SnapshotWindow = 0.1f; // seconds
@@ -28,8 +27,7 @@ public partial class DragonBreathEffect : Area2D
             {
                 if (a is Enemy e && enemiesHit.Add(e))
                 {
-                    var damageAmount = e.IsPoisoned() ? poisonedDamage : damage; 
-                    e.TakeDamage(damageAmount);
+                    e.TakeDamage(damage);
                 }
             }
 
@@ -79,9 +77,8 @@ public partial class DragonBreathEffect : Area2D
         QueueFree();
     }
 
-    public void Init((float damage, float shield) stats)
+    public void Init(float damage)
     {
-        damage = stats.damage;
-        poisonedDamage = stats.shield;
+        this.damage = damage;
     }
 }

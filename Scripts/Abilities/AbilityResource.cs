@@ -23,7 +23,7 @@ public enum AbilityName
 {
     ToxicDart, ShadowStrike, Cleave, Stomp, SteelPlume, // Common
     VenomFang, IronWing, DragonBreath, Tremor, PhoenixDive, // Uncommon
-    CrimsonSpike, Pounce, SerpentDance // Rare
+    CrimsonSpike, Pounce, SerpentDance, DragonTail // Rare
 }
 
 public enum AbilityTrait

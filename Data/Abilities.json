@@ -127,6 +127,16 @@
 	"level3": "10 damage. 12 damage/s poison for 10s. 20 Shield.",
 	"rarity": "Rare",
 	"price": 6,
-	"traits": ["Tiger", "Crane"]
+	"traits": ["Serpent", "Crane"]
+  },
+  "DragonTail": {
+	"name": "Dragon Tail",
+	"description": "Strikes in a straight line towards closest enemy in long range. Deal damage to all enemies hit. Grants a shield.",
+	"level1": "30 damage. 15 shield.",
+	"level2": "60 damage. 25 shield.",
+	"level3": "150 damage. 50 shield.",
+	"rarity": "Rare",
+	"price": 6,
+	"traits": ["Dragon", "Crane"]
   }
 }

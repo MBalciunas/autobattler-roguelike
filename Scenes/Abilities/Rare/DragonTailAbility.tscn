@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://mepstbrj004f"]
+
+[ext_resource type="Script" uid="uid://b7thlagwr5oin" path="res://Scripts/Abilities/Rare/DragonTail.cs" id="1_igja4"]
+[ext_resource type="PackedScene" uid="uid://cyhpv5le5an7l" path="res://Scenes/Abilities/Rare/DragonTailEffect.tscn" id="2_i8fic"]
+
+[node name="DragonTailAbility" type="Node2D"]
+script = ExtResource("1_igja4")
+dragonTailEffectScene = ExtResource("2_i8fic")
