@@ -58,7 +58,7 @@ public partial class PlayerState : Resource
         Health = new PlayerStatFloat(MaxHealth.Value).OnMin(_ => GameManager.Instance.RestartGame());
         Shield = new PlayerStatFloat(0);
         Health.SetMax(MaxHealth.Value);
-        Gold = new PlayerStatInt(0);
+        Gold = new PlayerStatInt(10000);
         Damage = new PlayerStatFloat(0);
         CritChance = new PlayerStatFloat(10);
         CritDamage = new PlayerStatFloat(1.5f);
@@ -206,5 +206,39 @@ public partial class PlayerState : Resource
         Gold.Subtract(affordable);
         AddXP(xp);
         return xp;
+    }
+
+    // Reorder abilities within the loop
+    public bool MoveAbility(int fromIndex, int toIndex)
+    {
+        var count = AbilitiesInLoop.Count;
+        if (fromIndex < 0 || fromIndex >= count) return false;
+        if (toIndex < 0 || toIndex >= count) return false;
+        if (fromIndex == toIndex) return false;
+
+        // Convert to list for easier manipulation
+        var list = AbilitiesInLoop.ToList();
+        var item = list[fromIndex];
+        list.RemoveAt(fromIndex);
+        list.Insert(toIndex, item);
+
+        // Write back to Godot Array
+        AbilitiesInLoop = new Godot.Collections.Array<PlayerAbilityResource>(list);
+        EmitSignal(SignalName.OnAbilitiesChanged, AbilitiesInLoop);
+        return true;
+    }
+
+    public bool SwapAbilities(int indexA, int indexB)
+    {
+        var count = AbilitiesInLoop.Count;
+        if (indexA < 0 || indexA >= count) return false;
+        if (indexB < 0 || indexB >= count) return false;
+        if (indexA == indexB) return false;
+
+        var list = AbilitiesInLoop.ToList();
+        (list[indexA], list[indexB]) = (list[indexB], list[indexA]);
+        AbilitiesInLoop = new Godot.Collections.Array<PlayerAbilityResource>(list);
+        EmitSignal(SignalName.OnAbilitiesChanged, AbilitiesInLoop);
+        return true;
     }
 }

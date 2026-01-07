@@ -40,10 +40,19 @@ public partial class AbilityLoopShopUI : Control
             ability.Position = pos;
             AddChild(ability);
 
+            // Set UI content
             ability.GetNode<Label>("Label").Text = abilityResource.AbilityResource.Name;
             ability.GetNode<Label>("Level").Text = abilityResource.Level.ToString();
             ability.GetNode<Label>("Copies").Text = new string('-', abilityResource.Copies);
             ability.GetNode<TextureRect>("Icon").Texture = abilityResource.AbilityResource.Icon;
+
+            // If draggable script is attached, set its metadata for drag preview and target index
+            if (ability is AbilityInLoopDraggable draggable)
+            {
+                draggable.Index = i;
+                draggable.IconTexture = abilityResource.AbilityResource.Icon;
+                draggable.AbilityName = abilityResource.AbilityResource.Name;
+            }
             
         }
     }
