@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://bwnatcfx2mdo2" path="res://icon.svg" id="7_lwkuy"]
 [ext_resource type="PackedScene" uid="uid://d0gqn7jb7n3m5" path="res://Scenes/UI/ability_in_loop_ui.tscn" id="7_tqiex"]
 [ext_resource type="Script" uid="uid://cuuk36nvictnk" path="res://Scripts/UI/ShieldUI.cs" id="9_ha3dl"]
+[ext_resource type="Script" path="res://Scripts/UI/LevelXPUI.cs" id="10_lxpu"]
 
 [node name="MainLevel" type="Node"]
 
@@ -44,6 +45,15 @@ offset_left = 973.0
 offset_top = 1069.0
 offset_right = 1013.0
 offset_bottom = 1109.0
+
+[node name="LevelXP" type="Label" parent="UI/Control"]
+layout_mode = 0
+offset_left = 20.0
+offset_top = 20.0
+offset_right = 500.0
+offset_bottom = 60.0
+text = "Level: 1 | XP to next: 10"
+script = ExtResource("10_lxpu")
 
 [node name="LoopUI" type="Control" parent="UI/Control/PlayerUI"]
 anchors_preset = 0

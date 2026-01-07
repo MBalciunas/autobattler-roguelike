@@ -9,12 +9,16 @@ public partial class EnemySpawner : Node
 
     private Dictionary<int, int> enemiesToSpawn = new()
     {
-        { 1, 15 },
+        { 1, 1 },
         { 2, 1 },
-        { 3, 5 },
-        { 4, 20 },
-        { 5, 30 },
-        { 6, 50 },
+        { 3, 1 },
+        { 4, 1 },
+        { 5, 1 },
+        { 6, 1 },
+        { 7, 1 },
+        { 8, 1 },
+        { 9, 1 },
+        { 10, 1 },
     };
 
     public override void _Ready()

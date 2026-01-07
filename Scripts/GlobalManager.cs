@@ -31,7 +31,22 @@ public partial class GlobalManager : Node
 
     public void FinishLevel()
     {
+        // 1) Apply gold interest BEFORE base after-round gold
+        var interest = Mathf.Min(playerState.Gold.Value / 10, 5); // +1 per full 10 gold, up to +5
+        if (interest > 0)
+        {
+            playerState.AddGold(interest);
+        }
+
+        // 2) Base after-round gold
         playerState.AddGold(5);
+
+        // 3) Per-round XP: base 4, +1 every 5 rounds, first +1 at round 6
+        var roundIndex = Level; // assuming one round per level
+        var roundXp = 4 + (roundIndex - 1) / 5;
+        playerState.AddXP(roundXp);
+
+        // 4) Proceed as before
         playerState.ResetHealth();
         GetTree().CallDeferred("change_scene_to_file", "res://Scenes/shop_scene.tscn");
     }

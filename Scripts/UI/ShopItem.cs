@@ -10,9 +10,20 @@ public partial class ShopItem : Control
         {
             if (GlobalManager.playerState.Gold.Value >= abilityResource.Price)
             {
-                GlobalManager.playerState.Gold.Subtract(abilityResource.Price);
-                GlobalManager.playerState.AddAbility(abilityResource);
-                Hide();
+                var added = GlobalManager.playerState.TryAddAbility(abilityResource);
+                if (added)
+                {
+                    GlobalManager.playerState.Gold.Subtract(abilityResource.Price);
+                    Hide();
+                }
+                else
+                {
+                    // Feedback is already printed in TryAddAbility when capacity is full
+                }
+            }
+            else
+            {
+                GD.Print("Not enough gold to buy this ability.");
             }
         }
     }

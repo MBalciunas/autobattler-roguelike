@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://buqru3joibnoe"]
+[gd_scene load_steps=11 format=3 uid="uid://buqru3joibnoe"]
 
 [ext_resource type="Script" uid="uid://cxrbwkbig6js8" path="res://Scripts/UI/ShopUI.cs" id="1_uxpe5"]
 [ext_resource type="Script" uid="uid://cougl0p6pxm6x" path="res://Scripts/UI/AbilityLoopShopUI.cs" id="2_6rmb7"]
@@ -8,6 +8,8 @@
 [ext_resource type="Script" uid="uid://bbiobc88e7a2j" path="res://Scripts/UI/NextLevelButton.cs" id="3_6rmb7"]
 [ext_resource type="PackedScene" uid="uid://b60ipvscmxadc" path="res://Scenes/UI/shop_ability_in_loop_ui.tscn" id="3_jwdga"]
 [ext_resource type="Script" uid="uid://dpsya6s4l4yfl" path="res://Scripts/UI/ShopReroll.cs" id="3_nkmxo"]
+[ext_resource type="Script" uid="uid://d3k1h4ar8ixgm" path="res://Scripts/UI/LevelXPUI.cs" id="4_lxpu"]
+[ext_resource type="Script" uid="uid://4t7xnfm3oflt" path="res://Scripts/UI/BuyXPButton.cs" id="5_buyxp"]
 
 [node name="ShopScene" type="Control"]
 layout_mode = 3
@@ -92,6 +94,25 @@ offset_bottom = 79.0
 theme_override_font_sizes/font_size = 50
 text = "Gold: 10"
 script = ExtResource("2_njw01")
+
+[node name="LevelXP" type="Label" parent="."]
+layout_mode = 0
+offset_left = 39.0
+offset_top = 595.0
+offset_right = 686.0
+offset_bottom = 650.0
+theme_override_font_sizes/font_size = 40
+text = "Level: 1 | XP to next: 10"
+script = ExtResource("4_lxpu")
+
+[node name="BuyXP" type="Button" parent="."]
+layout_mode = 0
+offset_left = 137.0
+offset_top = 661.0
+offset_right = 384.0
+offset_bottom = 721.0
+text = "Buy XP"
+script = ExtResource("5_buyxp")
 
 [node name="NextLevelButton" type="Button" parent="."]
 layout_mode = 0
