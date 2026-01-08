@@ -75,6 +75,10 @@ public partial class PlayerState : Resource
         AbilitiesInLoop =
         [
             new PlayerAbilityResource(GlobalManager.Abilities[AbilityName.ToxicPool]),
+            new PlayerAbilityResource(GlobalManager.Abilities[AbilityName.DragonTail]),
+            new PlayerAbilityResource(GlobalManager.Abilities[AbilityName.DragonBreath]),
+            new PlayerAbilityResource(GlobalManager.Abilities[AbilityName.PhoenixDive]),
+            new PlayerAbilityResource(GlobalManager.Abilities[AbilityName.Pounce]),
         ];
 
         // Emit initial values for UI that might subscribe late
@@ -215,7 +219,7 @@ public partial class PlayerState : Resource
         list.Insert(toIndex, item);
 
         // Write back to Godot Array
-        AbilitiesInLoop = new Godot.Collections.Array<PlayerAbilityResource>(list);
+        AbilitiesInLoop = new Array<PlayerAbilityResource>(list);
         EmitSignal(SignalName.OnAbilitiesChanged, AbilitiesInLoop);
         return true;
     }

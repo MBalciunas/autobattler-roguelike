@@ -11,6 +11,7 @@ public abstract partial class Enemy : Area2D
     [Export] private float attackCooldown = 2;
     [Export] private float attackRange = 100;
     [Export] private float health = 2;
+    [Export] private PackedScene damageTakenUI;
     private List<DamageOverTime> activeDots = new();
     protected Player player;
     private Timer attackTimer;
@@ -94,6 +95,10 @@ public abstract partial class Enemy : Area2D
         }
         
         health -= damage;
+        var damageTakenEffect = damageTakenUI.Instantiate<DamageTakenUI>();
+        damageTakenEffect.Position = GlobalPosition;
+        GetTree().Root.GetNode("MainLevel").AddChild(damageTakenEffect);
+        damageTakenEffect.Init(damage);
         if (health <= 0)
         {
             RemoveFromGroup("Enemies");

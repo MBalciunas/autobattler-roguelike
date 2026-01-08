@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://dlpifra67ncok"]
+[gd_scene load_steps=5 format=3 uid="uid://dlpifra67ncok"]
 
 [ext_resource type="Script" uid="uid://cqnwx27b3ivg5" path="res://Scripts/Enemies/BaseMeleeEnemy.cs" id="1_l5kn3"]
 [ext_resource type="Texture2D" uid="uid://bwnatcfx2mdo2" path="res://icon.svg" id="1_opt7k"]
+[ext_resource type="PackedScene" uid="uid://biv3g5hynha3k" path="res://Scenes/UI/DamageTakenUI.tscn" id="2_vmtsp"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_l5kn3"]
 radius = 27.073973
@@ -10,6 +11,7 @@ radius = 27.073973
 script = ExtResource("1_l5kn3")
 damage = 20.0
 health = 50.0
+damageTakenUI = ExtResource("2_vmtsp")
 
 [node name="Sprite" type="Sprite2D" parent="."]
 scale = Vector2(0.4, 0.4)

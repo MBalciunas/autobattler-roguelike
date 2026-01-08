@@ -1,16 +1,16 @@
 [gd_scene load_steps=12 format=3 uid="uid://buqru3joibnoe"]
 
-[ext_resource type="Script" uid="uid://cxrbwkbig6js8" path="res://Scripts/UI/ShopUI.cs" id="1_uxpe5"]
-[ext_resource type="Script" uid="uid://cougl0p6pxm6x" path="res://Scripts/UI/AbilityLoopShopUI.cs" id="2_6rmb7"]
+[ext_resource type="Script" uid="uid://cxrbwkbig6js8" path="res://Scripts/UI/ShopUI/ShopUI.cs" id="1_uxpe5"]
+[ext_resource type="Script" uid="uid://cougl0p6pxm6x" path="res://Scripts/UI/ShopUI/AbilityLoopShopUI.cs" id="2_6rmb7"]
 [ext_resource type="Script" uid="uid://cbfgayhyoqxbt" path="res://Scripts/UI/GoldUI.cs" id="2_njw01"]
 [ext_resource type="PackedScene" uid="uid://cdcae3h324er8" path="res://Scenes/UI/shop_item.tscn" id="2_uxpe5"]
 [ext_resource type="Texture2D" uid="uid://2knlf0lhubdc" path="res://Art/reroll.png" id="3_5ycja"]
-[ext_resource type="Script" uid="uid://bbiobc88e7a2j" path="res://Scripts/UI/NextLevelButton.cs" id="3_6rmb7"]
+[ext_resource type="Script" uid="uid://bbiobc88e7a2j" path="res://Scripts/UI/ShopUI/NextLevelButton.cs" id="3_6rmb7"]
 [ext_resource type="PackedScene" uid="uid://b60ipvscmxadc" path="res://Scenes/UI/shop_ability_in_loop_ui.tscn" id="3_jwdga"]
-[ext_resource type="Script" uid="uid://dpsya6s4l4yfl" path="res://Scripts/UI/ShopReroll.cs" id="3_nkmxo"]
+[ext_resource type="Script" uid="uid://dpsya6s4l4yfl" path="res://Scripts/UI/ShopUI/ShopReroll.cs" id="3_nkmxo"]
 [ext_resource type="Script" uid="uid://d3k1h4ar8ixgm" path="res://Scripts/UI/LevelXPUI.cs" id="4_lxpu"]
-[ext_resource type="Script" uid="uid://4t7xnfm3oflt" path="res://Scripts/UI/BuyXPButton.cs" id="5_buyxp"]
-[ext_resource type="Script" uid="uid://c811h8v4yw7rl" path="res://Scripts/UI/InfoPanel.cs" id="11_6w775"]
+[ext_resource type="Script" uid="uid://4t7xnfm3oflt" path="res://Scripts/UI/ShopUI/BuyXPButton.cs" id="5_buyxp"]
+[ext_resource type="Script" uid="uid://c811h8v4yw7rl" path="res://Scripts/UI/ShopUI/InfoPanel.cs" id="11_6w775"]
 
 [node name="ShopScene" type="Control"]
 layout_mode = 3
