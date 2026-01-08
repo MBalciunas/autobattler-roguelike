@@ -18,7 +18,6 @@ public partial class CrimsonSpikeProjectile : Area2D
     {
         if (area is Enemy enemy)
         {
-            GD.Print("Applying crimson spike " + bleedDamage);
             enemy.AddActiveDot(new DamageOverTime(bleedDamage, bleedDuration, ElementType.Bleed));
         }
     }

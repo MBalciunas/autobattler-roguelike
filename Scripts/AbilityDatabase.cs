@@ -41,6 +41,9 @@ public static class AbilityDatabase
                 AbilityName = abilityName,
                 Name = data.name,
                 Description = data.description,
+                Level1Effect = data.level1,
+                Level2Effect = data.level2,
+                Level3Effect = data.level3,
                 Rarity = data.rarity, 
                 Price = data.price,
                 Icon = GD.Load<Texture2D>(iconPath),
@@ -63,6 +66,9 @@ public class AbilityJson
 {
     public string name { get; set; }
     public string description { get; set; }
+    public string level1 { get; set; }
+    public string level2 { get; set; }
+    public string level3 { get; set; }
 
     public AbilityRarity rarity { get; set; }
 

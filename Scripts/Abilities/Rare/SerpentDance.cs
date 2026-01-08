@@ -19,8 +19,6 @@ public partial class SerpentDance : Ability
         var enemiesInRange = GlobalManager.GetEnemiesSortedByClosest()
             .Where(e => e.GlobalPosition.DistanceTo(GlobalPosition) <= range).ToList();
         
-        GD.Print(enemiesInRange.Count);
-
         if (enemiesInRange.Count == 0) return;
         
         var stats = GetStatsForLevel(Level);

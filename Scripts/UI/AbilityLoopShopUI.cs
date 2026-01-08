@@ -4,6 +4,7 @@ using Godot.Collections;
 public partial class AbilityLoopShopUI : Control
 {
     [Export] private PackedScene abilityInLoopScene;
+    [Export] private InfoPanel infoPanel;
 
     
     public override void _Ready()
@@ -17,6 +18,19 @@ public partial class AbilityLoopShopUI : Control
         GlobalManager.playerState.OnAbilitiesChanged -= DisplayAbilities;
     }
 
+    private void SetupHover(Control item, PlayerAbilityResource abilityResource)
+    {
+        if (item == null) return;
+        item.MouseEntered += () =>
+        {
+            if (abilityResource != null && infoPanel != null)
+            {
+                infoPanel.ShowAbility(abilityResource.AbilityResource);
+            }
+        };
+        item.MouseExited += () => infoPanel?.Clear();
+    }
+    
     private void DisplayAbilities(Array<PlayerAbilityResource> abilities)
     {
         foreach (var ability in GetChildren())
@@ -54,6 +68,7 @@ public partial class AbilityLoopShopUI : Control
                 draggable.AbilityName = abilityResource.AbilityResource.Name;
             }
             
+            SetupHover(ability, abilityResource);
         }
     }
 }

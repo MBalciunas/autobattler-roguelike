@@ -3,11 +3,11 @@ using Godot;
 public partial class BuyXPButton : Button
 {
     [Export] public int GoldToSpendPerClick = 1;
-    [Export] public float RateGoldPerXP = 0.5f; // gold needed per 1 xp (1 gold -> 2 XP)
+    [Export] public int RateXpPerGold = 2; // gold needed per 1 xp (1 gold -> 2 XP)
 
     public override void _Ready()
     {
-        Text = $"Buy XP ({GoldToSpendPerClick}g -> {Mathf.FloorToInt(GoldToSpendPerClick / RateGoldPerXP)}xp)";
+        Text = $"Buy XP ({GoldToSpendPerClick}g -> {Mathf.FloorToInt(GoldToSpendPerClick * RateXpPerGold)}xp)";
         GlobalManager.playerState.Gold.OnValueChanged += OnGoldChanged;
         OnGoldChanged(GlobalManager.playerState.Gold.Value);
         Pressed += OnPressed;
@@ -15,7 +15,7 @@ public partial class BuyXPButton : Button
 
     private void OnPressed()
     {
-        GlobalManager.playerState.SpendGoldForXP(GoldToSpendPerClick, RateGoldPerXP);
+        GlobalManager.playerState.SpendGoldForXp(GoldToSpendPerClick, RateXpPerGold);
     }
 
     private void OnGoldChanged(int gold)

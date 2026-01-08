@@ -6,6 +6,9 @@ public partial class AbilityResource : Resource
 {
     [Export] public String Name;
     [Export] public String Description;
+    [Export] public String Level1Effect;
+    [Export] public String Level2Effect;
+    [Export] public String Level3Effect;
     [Export] public AbilityRarity Rarity;
     [Export] public int Price;
     [Export] public Texture2D Icon;

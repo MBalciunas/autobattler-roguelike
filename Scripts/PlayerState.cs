@@ -129,7 +129,6 @@ public partial class PlayerState : Resource
 
     public void AddAbility(AbilityResource abilityResource)
     {
-        // Backwards-compatible method: perform addition without transactional feedback
         TryAddAbility(abilityResource);
     }
 
@@ -147,12 +146,10 @@ public partial class PlayerState : Resource
                 GD.Print("Ability loop is full for current level. Level up to add more abilities.");
                 return false;
             }
-
             AbilitiesInLoop.Add(new PlayerAbilityResource(abilityResource));
         }
         else
         {
-            // Stacking copies of an existing ability is allowed regardless of capacity
             currentAbility.AddCopy();
         }
 
@@ -189,21 +186,16 @@ public partial class PlayerState : Resource
 
     public int GetXpRequired(int level)
     {
-        // Use custom XP table; level is current level, returns XP to reach next level
         if (level >= 10) return 0; // at cap, no further XP required
-        return XpTable.TryGetValue(level + 1, out var req) ? req : 0;
+        return XpTable.GetValueOrDefault(level + 1, 0);
     }
 
-    public int SpendGoldForXP(int goldToSpend, float rateGoldPerXP = 1f)
+    public int SpendGoldForXp(int goldToSpend, int rateGoldPerXp)
     {
-        if (goldToSpend <= 0) return 0;
-        var affordable = Mathf.Min(goldToSpend, Gold.Value);
-        if (affordable <= 0) return 0;
-
-        var xp = Mathf.FloorToInt(affordable / rateGoldPerXP);
+        var xp = goldToSpend * rateGoldPerXp;
         if (xp <= 0) return 0;
 
-        Gold.Subtract(affordable);
+        Gold.Subtract(goldToSpend);
         AddXP(xp);
         return xp;
     }
