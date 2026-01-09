@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://buqru3joibnoe"]
+[gd_scene load_steps=13 format=3 uid="uid://buqru3joibnoe"]
 
 [ext_resource type="Script" uid="uid://cxrbwkbig6js8" path="res://Scripts/UI/ShopUI/ShopUI.cs" id="1_uxpe5"]
 [ext_resource type="Script" uid="uid://cougl0p6pxm6x" path="res://Scripts/UI/ShopUI/AbilityLoopShopUI.cs" id="2_6rmb7"]
@@ -11,6 +11,7 @@
 [ext_resource type="Script" uid="uid://d3k1h4ar8ixgm" path="res://Scripts/UI/LevelXPUI.cs" id="4_lxpu"]
 [ext_resource type="Script" uid="uid://4t7xnfm3oflt" path="res://Scripts/UI/ShopUI/BuyXPButton.cs" id="5_buyxp"]
 [ext_resource type="Script" uid="uid://c811h8v4yw7rl" path="res://Scripts/UI/ShopUI/InfoPanel.cs" id="11_6w775"]
+[ext_resource type="Script" uid="uid://d0psghf6l6wf6" path="res://Scripts/UI/PlayerStatsUI.cs" id="12_jynki"]
 
 [node name="ShopScene" type="Control"]
 layout_mode = 3
@@ -236,3 +237,44 @@ layout_mode = 0
 offset_right = 682.0
 offset_bottom = 523.0
 color = Color(0.1457363, 0.20321012, 0.23238409, 1)
+
+[node name="Stats" type="Label" parent="."]
+layout_mode = 0
+offset_left = 803.0
+offset_top = 115.0
+offset_right = 843.0
+offset_bottom = 138.0
+theme_override_font_sizes/font_size = 20
+text = "Stats"
+
+[node name="StatsContainer" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 805.0
+offset_top = 155.0
+offset_right = 845.0
+offset_bottom = 195.0
+script = ExtResource("12_jynki")
+
+[node name="MaxHealth" type="Label" parent="StatsContainer"]
+layout_mode = 2
+text = "MaxHealth: 15 "
+
+[node name="Armor" type="Label" parent="StatsContainer"]
+layout_mode = 2
+text = "Armor: 15 "
+
+[node name="Damage" type="Label" parent="StatsContainer"]
+layout_mode = 2
+text = "Damage %: 15 "
+
+[node name="CritChance" type="Label" parent="StatsContainer"]
+layout_mode = 2
+text = "Crit Chance %: 15 "
+
+[node name="CritDamage" type="Label" parent="StatsContainer"]
+layout_mode = 2
+text = "Crit Damage %: 15 "
+
+[node name="Lifesteal" type="Label" parent="StatsContainer"]
+layout_mode = 2
+text = "Lifesteal %: 15 "

@@ -1,0 +1,31 @@
+[gd_scene format=3 uid="uid://cb8wx6vi4jlqq"]
+
+[node name="StatSelection1" type="Control"]
+custom_minimum_size = Vector2(250, 0)
+layout_mode = 3
+anchors_preset = 0
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_right = 194.0
+offset_bottom = 149.0
+color = Color(0.33660764, 0.3366076, 0.3366076, 1)
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 34.0
+offset_top = 1.0
+offset_right = 152.0
+offset_bottom = 105.0
+text = "Damage +5%
+Armor +5
+Max Health +5"
+vertical_alignment = 1
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 64.0
+offset_top = 107.0
+offset_right = 129.0
+offset_bottom = 138.0
+text = "Choose"

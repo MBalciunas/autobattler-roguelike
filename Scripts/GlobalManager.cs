@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using AutoBattlerRoguelike.Scripts;
@@ -13,6 +14,38 @@ public partial class GlobalManager : Node
 
     public static int Level = 1;
     public static bool IsEnemiesSpawning;
+
+    private static Dictionary<int, int> StatAmountPerLevel = new()
+    {
+        { 1, 5 },
+        { 2, 6 },
+        { 3, 7 },
+        { 4, 8 },
+        { 5, 20 },
+        { 6, 10 },
+        { 7, 12 },
+        { 8, 14 },
+        { 9, 16 },
+        { 10, 30 },
+        { 11, 20 },
+        { 12, 22 },
+        { 13, 24 },
+        { 14, 26 },
+        { 15, 40 },
+        { 16, 44 },
+        { 17, 48 },
+    };
+
+    private static Dictionary<UpgradablePlayerStat, float> StatPerGenericStatValue = new()
+    {
+        { UpgradablePlayerStat.MaxHealth, 1 },
+        { UpgradablePlayerStat.Armor, 1 },
+        { UpgradablePlayerStat.CritChance, 0.2f },
+        { UpgradablePlayerStat.CritDamage, 1 },
+        { UpgradablePlayerStat.Damage, 1 },
+        { UpgradablePlayerStat.Lifesteal, 0.2f },
+    };
+
 
     public override void _EnterTree()
     {
@@ -31,24 +64,53 @@ public partial class GlobalManager : Node
 
     public void FinishLevel()
     {
-        // 1) Apply gold interest BEFORE base after-round gold
-        var interest = Mathf.Min(playerState.Gold.Value / 10, 5); // +1 per full 10 gold, up to +5
+        var interest = CalculateInterest();
         if (interest > 0)
         {
             playerState.AddGold(interest);
         }
 
-        // 2) Base after-round gold
-        playerState.AddGold(5);
+        playerState.AddGold(CalculateGoldAfterRound());
 
-        // 3) Per-round XP: base 4, +1 every 5 rounds, first +1 at round 6
-        var roundIndex = Level; // assuming one round per level
-        var roundXp = 4 + (roundIndex - 1) / 5;
-        playerState.AddXP(roundXp);
 
-        // 4) Proceed as before
+        playerState.AddXP(CalculateXpGain());
+
         playerState.ResetHealth();
         GetTree().CallDeferred("change_scene_to_file", "res://Scenes/shop_scene.tscn");
+    }
+
+    public static int CalculateInterest()
+    {
+        return Mathf.Min(playerState.Gold.Value / 10, 5);
+    }
+    
+    public static int CalculateGoldAfterRound()
+    {
+        return 5 + Level / 5 + 1;
+    }
+
+    public static int CalculateXpGain()
+    {
+        return 4 + (Level - 1) / 5;
+    }
+
+    public static Dictionary<UpgradablePlayerStat, float> RollRandomStatsSelection()
+    {
+        var statAmount = StatAmountPerLevel[Level];
+        var differentStats = GD.RandRange(1, 2);
+
+        var stats = Enum.GetValues<UpgradablePlayerStat>().OrderBy(_ => Guid.NewGuid()).Take(differentStats).ToList();
+        var dict = new Dictionary<UpgradablePlayerStat, float>();
+
+        while (statAmount > 0)
+        {
+            int randRange = GD.RandRange(0, differentStats - 1);
+            var selectedStat = stats[randRange];
+            dict[selectedStat] = dict.GetValueOrDefault(selectedStat) + StatPerGenericStatValue[selectedStat];
+            statAmount--;
+        }
+
+        return dict;
     }
 
     public void LoadNextLevel()
@@ -64,4 +126,14 @@ public partial class GlobalManager : Node
             .OrderBy(e => e.GlobalPosition.DistanceTo(Player.GlobalPosition))
             .ToList();
     }
+}
+
+public enum UpgradablePlayerStat
+{
+    MaxHealth,
+    Damage,
+    Armor,
+    CritChance,
+    CritDamage,
+    Lifesteal,
 }

@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://bd3n6dt1rhq1p"]
+[gd_scene load_steps=13 format=3 uid="uid://bd3n6dt1rhq1p"]
 
 [ext_resource type="PackedScene" uid="uid://dc0gbcacmyv4j" path="res://Scenes/player.tscn" id="1_q2fht"]
 [ext_resource type="Script" uid="uid://dvsjkfldb4k3a" path="res://Scripts/Enemies/EnemySpawner.cs" id="2_5erdv"]
@@ -9,7 +9,9 @@
 [ext_resource type="Texture2D" uid="uid://bwnatcfx2mdo2" path="res://icon.svg" id="7_lwkuy"]
 [ext_resource type="PackedScene" uid="uid://d0gqn7jb7n3m5" path="res://Scenes/UI/ability_in_loop_ui.tscn" id="7_tqiex"]
 [ext_resource type="Script" uid="uid://cuuk36nvictnk" path="res://Scripts/UI/ShieldUI.cs" id="9_ha3dl"]
-[ext_resource type="Script" path="res://Scripts/UI/LevelXPUI.cs" id="10_lxpu"]
+[ext_resource type="Script" uid="uid://d3k1h4ar8ixgm" path="res://Scripts/UI/LevelXPUI.cs" id="10_lxpu"]
+[ext_resource type="Script" uid="uid://ddp4wuuutswi6" path="res://Scripts/UI/RoundEndSelection.cs" id="11_6l6h0"]
+[ext_resource type="PackedScene" uid="uid://cb8wx6vi4jlqq" path="res://Scenes/UI/StatSelection.tscn" id="12_o18aq"]
 
 [node name="MainLevel" type="Node"]
 
@@ -23,8 +25,9 @@ enemyScene = ExtResource("3_qbrl8")
 [node name="SpawnTimer" type="Timer" parent="EnemySpawner"]
 autostart = true
 
-[node name="GameManager" type="Node2D" parent="."]
+[node name="GameManager" type="Node2D" parent="." node_paths=PackedStringArray("roundEndScene")]
 script = ExtResource("5_a2ia3")
+roundEndScene = NodePath("../UI/Control/RoundEndSelection")
 
 [node name="UI" type="CanvasLayer" parent="."]
 
@@ -45,15 +48,6 @@ offset_left = 973.0
 offset_top = 1069.0
 offset_right = 1013.0
 offset_bottom = 1109.0
-
-[node name="LevelXP" type="Label" parent="UI/Control"]
-layout_mode = 0
-offset_left = 20.0
-offset_top = 20.0
-offset_right = 500.0
-offset_bottom = 60.0
-text = "Level: 1 | XP to next: 10"
-script = ExtResource("10_lxpu")
 
 [node name="LoopUI" type="Control" parent="UI/Control/PlayerUI"]
 anchors_preset = 0
@@ -129,3 +123,138 @@ theme_override_font_sizes/font_size = 18
 text = "10"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="LevelXP" type="Label" parent="UI/Control"]
+layout_mode = 0
+offset_left = 20.0
+offset_top = 20.0
+offset_right = 500.0
+offset_bottom = 60.0
+text = "Level: 1 | XP to next: 10"
+script = ExtResource("10_lxpu")
+
+[node name="RoundEndSelection" type="Control" parent="UI/Control"]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 938.0
+offset_top = 471.0
+offset_right = 978.0
+offset_bottom = 511.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("11_6l6h0")
+
+[node name="ColorRect" type="ColorRect" parent="UI/Control/RoundEndSelection"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -403.0
+offset_top = -354.0
+offset_right = 403.0
+offset_bottom = 186.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.63835996, 0.48070604, 0.27310553, 0.827451)
+
+[node name="RoundFinishedLabel" type="Label" parent="UI/Control/RoundEndSelection"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -217.0
+offset_top = -316.0
+offset_right = 217.0
+offset_bottom = -247.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 50
+text = "Round Completed"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="GoldEarnedLabel" type="Label" parent="UI/Control/RoundEndSelection"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -105.0
+offset_top = -223.0
+offset_right = 106.0
+offset_bottom = -181.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 30
+text = "Gold earned: 5"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="XpGainedLabel" type="Label" parent="UI/Control/RoundEndSelection"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -105.0
+offset_top = -174.0
+offset_right = 106.0
+offset_bottom = -132.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 30
+text = "Gold earned: 5"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="StatsText" type="Label" parent="UI/Control/RoundEndSelection"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -169.0
+offset_top = -121.0
+offset_right = 170.0
+offset_bottom = -79.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 30
+text = "Select one pack of stats"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="StatsSelectionContainer" type="HBoxContainer" parent="UI/Control/RoundEndSelection"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -349.0
+offset_top = -20.0
+offset_right = 409.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="StatSelection1" parent="UI/Control/RoundEndSelection/StatsSelectionContainer" instance=ExtResource("12_o18aq")]
+layout_mode = 2
+
+[node name="StatSelection2" parent="UI/Control/RoundEndSelection/StatsSelectionContainer" instance=ExtResource("12_o18aq")]
+layout_mode = 2
+
+[node name="StatSelection3" parent="UI/Control/RoundEndSelection/StatsSelectionContainer" instance=ExtResource("12_o18aq")]
+layout_mode = 2

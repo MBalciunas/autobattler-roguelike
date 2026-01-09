@@ -4,6 +4,7 @@ using Godot;
 public partial class GameManager : Node
 {
     private GlobalManager globalManager;
+    [Export] private RoundEndSelection roundEndScene;
     public static GameManager Instance;
     
     public override void _Ready()
@@ -19,6 +20,12 @@ public partial class GameManager : Node
     } 
     
     public void FinishLevel()
+    {
+        roundEndScene.Show();
+        roundEndScene.Update();
+    } 
+    
+    public void StatsChosen()
     {
         globalManager.FinishLevel();
     } 

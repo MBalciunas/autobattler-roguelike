@@ -58,7 +58,7 @@ public partial class PlayerState : Resource
         Health = new PlayerStatFloat(MaxHealth.Value).OnMin(_ => GameManager.Instance.RestartGame());
         Shield = new PlayerStatFloat(0);
         Health.SetMax(MaxHealth.Value);
-        Gold = new PlayerStatInt(10000);
+        Gold = new PlayerStatInt(0);
         Damage = new PlayerStatFloat(0);
         CritChance = new PlayerStatFloat(10);
         CritDamage = new PlayerStatFloat(1.5f);
@@ -79,6 +79,11 @@ public partial class PlayerState : Resource
             new PlayerAbilityResource(GlobalManager.Abilities[AbilityName.DragonBreath]),
             new PlayerAbilityResource(GlobalManager.Abilities[AbilityName.PhoenixDive]),
             new PlayerAbilityResource(GlobalManager.Abilities[AbilityName.Pounce]),
+            new PlayerAbilityResource(GlobalManager.Abilities[AbilityName.CrimsonSpike]),
+            new PlayerAbilityResource(GlobalManager.Abilities[AbilityName.IronWing]),
+            new PlayerAbilityResource(GlobalManager.Abilities[AbilityName.Tremor]),
+            new PlayerAbilityResource(GlobalManager.Abilities[AbilityName.Cleave]),
+            new PlayerAbilityResource(GlobalManager.Abilities[AbilityName.Stomp]),
         ];
 
         // Emit initial values for UI that might subscribe late
