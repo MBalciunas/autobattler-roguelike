@@ -5,6 +5,13 @@ public partial class BaseMeleeEnemy : Enemy
     [Export] private float damage;
     Tween tween;
 
+
+    public override void _Ready()
+    {
+        damage *= Mathf.Pow(1.18f, GlobalManager.Level - 1);
+        base._Ready();
+    }
+
     public override void Attack()
     {
         var tweener = GetTree().CreateTween();

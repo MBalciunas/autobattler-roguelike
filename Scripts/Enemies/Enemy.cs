@@ -10,7 +10,7 @@ public abstract partial class Enemy : Area2D
     [Export] private float currentMoveSpeed = 50;
     [Export] private float attackCooldown = 2;
     [Export] private float attackRange = 100;
-    [Export] private float health = 2;
+    [Export] private float health;
     [Export] private PackedScene damageTakenUI;
     private List<DamageOverTime> activeDots = new();
     protected Player player;
@@ -19,10 +19,16 @@ public abstract partial class Enemy : Area2D
     private Timer slowTimer;
     private bool isMoving = true;
 
+    [Signal] public delegate void DiedEventHandler();
+
+    
     public override void _Ready()
     {
         currentMoveSpeed = moveSpeed;
-        
+
+        int level = GlobalManager.Level;
+        moveSpeed += Mathf.Pow(1.04f, level - 1);
+        health *= Mathf.Pow(1.18f, level - 1);
         
         attackTimer = new Timer();
         dotsTimer = new Timer();
@@ -84,12 +90,13 @@ public abstract partial class Enemy : Area2D
             var critRoll = GD.Randf() * 100;
             if (critRoll <= player.playerState.CritChance.Value)
             {
-                damage *= player.playerState.CritDamage.Value;
+                damage *= (player.playerState.CritDamage.Value / 100);
             }
 
             if (player.playerState.Lifesteal.Value > 0)
             {
-                var healAmount = player.playerState.Lifesteal.Value * damage;
+                var healAmount = player.playerState.Lifesteal.Value * damage / 100f;
+                GD.Print($"Lifestealing {healAmount}");
                 player.Heal(healAmount);
             }
         }
@@ -102,10 +109,7 @@ public abstract partial class Enemy : Area2D
         if (health <= 0)
         {
             RemoveFromGroup("Enemies");
-            if (GetTree().GetNodesInGroup("Enemies").Count == 0 && !GlobalManager.IsEnemiesSpawning)
-            {
-                GameManager.Instance.FinishLevel();
-            }
+            EmitSignal(SignalName.Died);
 
             CallDeferred("queue_free");
         }

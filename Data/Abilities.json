@@ -2,9 +2,9 @@
   "ToxicDart": {
 	"name": "Toxic Dart",
 	"description": "Projectile that deals damage and applies poison over time. Shoots closest unpoisoned enemy.",
-	"level1": "1 dart, 100% damage + 20% damage/s poison for 4s",
-	"level2": "2 darts, 180% damage + 40% damage/s poison for 5s",
-	"level3": "3 darts, 324% damage + 75% damage/s poison for 6s",
+	"level1": "1 dart, 3 damage + 2 damage/s poison for 10s",
+	"level2": "2 darts, 6 damage + 4 damage/s poison for 10s",
+	"level3": "3 darts, 15 damage + 8 damage/s poison for 10s",
 	"rarity": "Common",
 	"price": 2,
 	"traits": ["Serpent", "Crane"]
@@ -12,9 +12,9 @@
   "ShadowStrike": {
 	"name": "Shadow Strike",
 	"description": "Teleport behind furthest enemy and deal damage",
-	"level1": "50",
-	"level2": "80",
-	"level3": "140",
+	"level1": "5",
+	"level2": "8",
+	"level3": "20",
 	"rarity": "Common",
 	"price": 2,
 	"traits": ["Tiger", "Serpent"]
@@ -22,9 +22,9 @@
   "Cleave": {
 	"name": "Cleave",
 	"description": "Cleaves nearby enemies and applies bleed",
-	"level1": "100% damage + 20% damage/s bleed for 4s",
-	"level2": "200% damage + 50% damage/s bleed for 5s",
-	"level3": "300% damage + 100% damage/s bleed for 6s",
+	"level1": "1 damage + 5 damage/s bleed for 4s",
+	"level2": "3 damage + 9 damage/s bleed for 4s",
+	"level3": "10 damage + 14 damage/s bleed for 4s",
 	"rarity": "Common",
 	"price": 2,
 	"traits": ["Tiger", "Dragon"]
@@ -32,9 +32,9 @@
   "Stomp": {
 	"name": "Stomp",
 	"description": "Stomps the ground, dealing damage to nearby enemies and knocking them back",
-	"level1": "50% damage, small knockback",
-	"level2": "100% damage, medium knockback",
-	"level3": "200% damage, strong knockback",
+	"level1": "2 damage, small knockback",
+	"level2": "5 damage, medium knockback",
+	"level3": "15 damage, strong knockback",
 	"rarity": "Common",
 	"price": 2,
 	"traits": ["Ox", "Dragon"]
@@ -42,9 +42,9 @@
   "SteelPlume": {
 	"name": "Steel Plume",
 	"description": "Shoot piercing projectile to closest enemy.",
-	"level1": "20 damage. 20% slow for 3 seconds.",
-	"level2": "40 damage. 30% slow for 4 seconds.",
-	"level3": "80 damage. 40% slow for 5 seconds.",
+	"level1": "2 damage. 20% slow for 3 seconds.",
+	"level2": "7 damage. 30% slow for 4 seconds.",
+	"level3": "15 damage. 40% slow for 5 seconds.",
 	"rarity": "Common",
 	"price": 2,
 	"traits": ["Crane", "Ox"]
@@ -52,9 +52,9 @@
   "VenomFang": {
 	"name": "Venom Fang",
 	"description": "Strike 3 close enemies. Apply poison and bleed.",
-	"level1": "10 damage. 4 damage/s bleed for 4s. 2 damage/s poison for 10s",
-	"level2": "25 damage. 10 damage/s bleed for 4s. 5 damage/s poison for 10s.",
-	"level3": "45 damage. 18 damage/s bleed for 4s. 12 damage/s poison for 10s.",
+	"level1": "3 damage. 4 damage/s bleed for 4s. 2 damage/s poison for 10s",
+	"level2": "9 damage. 10 damage/s bleed for 4s. 5 damage/s poison for 10s.",
+	"level3": "25 damage. 18 damage/s bleed for 4s. 12 damage/s poison for 10s.",
 	"rarity": "Uncommon",
 	"price": 4,
 	"traits": ["Serpent", "Tiger"]
@@ -62,9 +62,9 @@
   "IronWing": {
 	"name": "Iron Wing",
 	"description": "Strike enemies in the cone, target closest enemy. Gain shield for each enemy hit.",
-	"level1": "20 damage. 10 shield.",
-	"level2": "50 damage. 15 shield.",
-	"level3": "130 damage. 30 shield.",
+	"level1": "4 damage. 1 shield.",
+	"level2": "10 damage. 2 shield.",
+	"level3": "20 damage. 5 shield.",
 	"rarity": "Uncommon",
 	"price": 4,
 	"traits": ["Dragon", "Crane"]
@@ -72,9 +72,9 @@
   "DragonBreath": {
 	"name": "Dragon Breath",
 	"description": "Hit enemies in the wide cone, deal increased damaged if target is poisoned.",
-	"level1": "30 damage. 40 if poisoned.",
-	"level2": "60 damage. 90 if poisoned.",
-	"level3": "150 damage. 250 if poisoned.",
+	"level1": "5 damage. 10 if poisoned.",
+	"level2": "10 damage. 20 if poisoned.",
+	"level3": "25 damage. 50 if poisoned.",
 	"rarity": "Uncommon",
 	"price": 4,
 	"traits": ["Dragon", "Serpent"]
@@ -82,9 +82,9 @@
   "Tremor": {
 	"name": "Tremor",
 	"description": "Hit enemies in line toward closest enemy. Medium range. Damage, slow, apply bleed.",
-	"level1": "20 damage. 30% slow 3 seconds. 4 damage/s bleed for 4s.",
-	"level2": "50 damage. 40% slow 4 seconds. 8 damage/s bleed for 4s.",
-	"level3": "120 damage. 60% slow 6 seconds. 15 damage/s bleed for 4s.",
+	"level1": "3 damage. 30% slow 3 seconds. 4 damage/s bleed for 4s.",
+	"level2": "7 damage. 40% slow 4 seconds. 8 damage/s bleed for 4s.",
+	"level3": "15 damage. 60% slow 6 seconds. 15 damage/s bleed for 4s.",
 	"rarity": "Uncommon",
 	"price": 4,
 	"traits": ["Ox", "Tiger"]
@@ -92,19 +92,19 @@
   "PhoenixDive": {
 	"name": "Phoenix Dive",
 	"description": "Jump to the furthest enemy location, damage and knock enemies.",
-	"level1": "30 damage.",
-	"level2": "60 damage",
-	"level3": "120 damage",
+	"level1": "3 damage.",
+	"level2": "8 damage",
+	"level3": "16 damage",
 	"rarity": "Uncommon",
 	"price": 4,
 	"traits": ["Tiger", "Crane"]
   },
   "Pounce": {
 	"name": "Pounce",
-	"description": "Dash to closest enemy, deal high damage and get shield based on damage done.",
-	"level1": "60 damage.",
-	"level2": "120 damage",
-	"level3": "200 damage",
+	"description": "Dash to closest enemy, deal high damage and get 20% damage done as shield.",
+	"level1": "10 damage.",
+	"level2": "20 damage",
+	"level3": "50 damage",
 	"rarity": "Rare",
 	"price": 6,
 	"traits": ["Tiger", "Crane"]
@@ -112,9 +112,9 @@
   "CrimsonSpike": {
 	"name": "Crimson Spike",
 	"description": "Shoot projectile towards the enemy with lowest health. Apply heavy bleed to all enemies it passes through",
-	"level1": "10 damage/s bleed for 4s.",
+	"level1": "8 damage/s bleed for 4s.",
 	"level2": "20 damage/s bleed for 4s.",
-	"level3": "40 damage/s bleed for 4s.",
+	"level3": "50 damage/s bleed for 4s.",
 	"rarity": "Rare",
 	"price": 6,
 	"traits": ["Tiger", "Crane"]
@@ -122,9 +122,9 @@
   "SerpentDance": {
 	"name": "Serpent Dance",
 	"description": "Quickly strikes enemies in medium range 10 times. Inflict Poison. Apply shield for each unique enemy hit.",
-	"level1": "10 damage. 4 damage/s poison for 10s. 10 Shield.",
-	"level2": "10 damage. 7 damage/s poison for 10s. 15 Shield.",
-	"level3": "10 damage. 12 damage/s poison for 10s. 20 Shield.",
+	"level1": "5 damage. 4 damage/s poison for 10s. 1 Shield.",
+	"level2": "10 damage. 7 damage/s poison for 10s. 2 Shield.",
+	"level3": "20 damage. 15 damage/s poison for 10s. 5 Shield.",
 	"rarity": "Rare",
 	"price": 6,
 	"traits": ["Serpent", "Crane"]
@@ -132,9 +132,9 @@
   "DragonTail": {
 	"name": "Dragon Tail",
 	"description": "Strikes in a straight line towards closest enemy in long range. Deal damage to all enemies hit. Grants a shield.",
-	"level1": "30 damage. 15 shield.",
-	"level2": "60 damage. 25 shield.",
-	"level3": "150 damage. 50 shield.",
+	"level1": "5 damage. 5 shield.",
+	"level2": "12 damage. 10 shield.",
+	"level3": "30 damage. 20 shield.",
 	"rarity": "Rare",
 	"price": 6,
 	"traits": ["Dragon", "Crane"]
@@ -142,9 +142,9 @@
   "ToxicPool": {
 	"name": "Toxic Pool",
 	"description": "Spawns pool under the closest enemy that deals periodic damage, slows and applies poison.",
-	"level1": "20 damage per second. 35% slow. 4 damage/s poison for 10s. Duration 3 seconds",
-	"level2": "35 damage per second. 45% slow. 7 damage/s poison for 10s. Duration 3 seconds",
-	"level3": "55 damage per second. 60% slow. 12 damage/s poison for 10s. Duration 3 seconds",
+	"level1": "4 damage per second. 35% slow. 4 damage/s poison for 10s. Duration 3 seconds",
+	"level2": "10 damage per second. 45% slow. 7 damage/s poison for 10s. Duration 3 seconds",
+	"level3": "20 damage per second. 60% slow. 12 damage/s poison for 10s. Duration 3 seconds",
 	"rarity": "Rare",
 	"price": 6,
 	"traits": ["Serpent", "Ox"]

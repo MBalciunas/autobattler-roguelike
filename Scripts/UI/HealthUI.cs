@@ -15,7 +15,7 @@ public partial class HealthUI : Control
 
     private void UpdateUI(float value)
     {
-        Amount.Text = value.ToString(CultureInfo.InvariantCulture);
+        Amount.Text = $"{value:0.##}";
         HealthBar.Value = value / GlobalManager.playerState.MaxHealth.Value * 100;
     }
 

@@ -46,9 +46,9 @@ public partial class SerpentDance : Ability
     {
         return level switch
         {
-            1 => (damage: 10f, poisonDamage: 4f, poisonDuration: 10f, shieldPerEnemy: 10f),
-            2 => (damage: 25f, poisonDamage: 7f, poisonDuration: 10f, shieldPerEnemy: 15f),
-            3 => (damage: 45f, poisonDamage: 12f, poisonDuration: 10f, shieldPerEnemy: 30f),
+            1 => (damage: 5f, poisonDamage: 4f, poisonDuration: 10f, shieldPerEnemy: 1f),
+            2 => (damage: 10f, poisonDamage: 7f, poisonDuration: 10f, shieldPerEnemy: 2f),
+            3 => (damage: 20f, poisonDamage: 12f, poisonDuration: 10f, shieldPerEnemy: 5f),
             _ => throw new ArgumentOutOfRangeException(nameof(level), level, null)
         };
     }

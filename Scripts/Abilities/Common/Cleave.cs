@@ -41,12 +41,14 @@ public partial class Cleave : Ability
 
     private (float damage, float bleedDamage, int bleedDuration) GetStatsForLevel(int level)
     {
+        // Updated to match Data/Abilities.json values for Cleave
+        // Bleed damage is damage per second, duration is in seconds
         return level switch
         {
-            1 => (damage: 1f, bleedDamage: 0.2f, bleedDuration: 4),
-            2 => (damage: 2f, bleedDamage: 0.5f, bleedDuration: 5),
-            3 => (damage: 3f, bleedDamage: 1f, bleedDuration: 6),
-            _ => (damage: 1.0f, bleedDamage: 0.2f, bleedDuration: 4)
+            1 => (damage: 1f, bleedDamage: 5f, bleedDuration: 4),
+            2 => (damage: 3f, bleedDamage: 9f, bleedDuration: 4),
+            3 => (damage: 10f, bleedDamage: 14f, bleedDuration: 4),
+            _ => (damage: 1f, bleedDamage: 5f, bleedDuration: 4)
         };
     }
 }

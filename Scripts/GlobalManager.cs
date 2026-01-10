@@ -62,37 +62,11 @@ public partial class GlobalManager : Node
         GetTree().ChangeSceneToFile("res://Scenes/main_level.tscn");
     }
 
-    public void FinishLevel()
-    {
-        var interest = CalculateInterest();
-        if (interest > 0)
-        {
-            playerState.AddGold(interest);
-        }
+    public static int CalculateInterest() => Mathf.Min(playerState.Gold.Value / 5, 10);
 
-        playerState.AddGold(CalculateGoldAfterRound());
+    public static int CalculateGoldAfterRound() => 5 + Level / 5 * 3;
 
-
-        playerState.AddXP(CalculateXpGain());
-
-        playerState.ResetHealth();
-        GetTree().CallDeferred("change_scene_to_file", "res://Scenes/shop_scene.tscn");
-    }
-
-    public static int CalculateInterest()
-    {
-        return Mathf.Min(playerState.Gold.Value / 10, 5);
-    }
-    
-    public static int CalculateGoldAfterRound()
-    {
-        return 5 + Level / 5 + 1;
-    }
-
-    public static int CalculateXpGain()
-    {
-        return 4 + (Level - 1) / 5;
-    }
+    public static int CalculateXpGain() => 4 + (Level - 1) / 5;
 
     public static Dictionary<UpgradablePlayerStat, float> RollRandomStatsSelection()
     {
@@ -113,9 +87,26 @@ public partial class GlobalManager : Node
         return dict;
     }
 
+    public void FinishLevel()
+    {
+        var interest = CalculateInterest();
+        if (interest > 0)
+        {
+            playerState.AddGold(interest);
+        }
+
+        playerState.AddGold(CalculateGoldAfterRound());
+
+
+        playerState.AddXP(CalculateXpGain());
+
+        GetTree().CallDeferred("change_scene_to_file", "res://Scenes/shop_scene.tscn");
+    }
+    
     public void LoadNextLevel()
     {
         Level++;
+        playerState.ResetHealth();
         GetTree().CallDeferred("change_scene_to_file", "res://Scenes/main_level.tscn");
     }
 

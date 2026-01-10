@@ -55,11 +55,12 @@ public partial class PhoenixDive : Ability
 
     private (float stompDamage, float knockbackStrength, float knockbackRadius) GetStatsForLevel(int level)
     {
+        // Match Data/Abilities.json: damage 3/8/16; keep existing knockback strengths/radii
         return level switch
         {
-            1 => (stompDamage: 30f, knockbackStrength: 200f, knockbackRadius: 300f),
-            2 => (stompDamage: 60f, knockbackStrength: 300f, knockbackRadius: 400f),
-            3 => (stompDamage: 120f, knockbackStrength: 500f, knockbackRadius: 500f),
+            1 => (stompDamage: 3f, knockbackStrength: 200f, knockbackRadius: 300f),
+            2 => (stompDamage: 8f, knockbackStrength: 300f, knockbackRadius: 400f),
+            3 => (stompDamage: 16f, knockbackStrength: 500f, knockbackRadius: 500f),
             _ => throw new ArgumentOutOfRangeException(nameof(level), level, null)
         };
     }

@@ -20,18 +20,19 @@ public partial class Pounce : Ability
 
             var damage = GetStatsForLevel(Level);
             enemy.TakeDamage(damage);
-            GlobalManager.playerState.Shield.Add(damage);
+            GlobalManager.playerState.Shield.Add(damage / 5);
         }
     }
 
     private float GetStatsForLevel(int level)
     {
+        // Match Data/Abilities.json: damage 10/20/50; shield gained equals damage dealt
         return level switch
         {
-            1 => 60f,
-            2 => 120f,
-            3 => 200f,
-            _ => 1.0f
+            1 => 10f,
+            2 => 20f,
+            3 => 50f,
+            _ => 10f
         };
     }
 }

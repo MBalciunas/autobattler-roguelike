@@ -1,82 +1,113 @@
 using Godot;
-using Godot.Collections;
 
 public partial class EnemySpawner : Node
 {
     [Export] private PackedScene enemyScene;
-    private Timer spawnTimer;
-    private int enemiesLeftToSpawn = 0;
-
-    private Dictionary<int, int> enemiesToSpawn = new()
-    {
-        { 1, 1 },
-        { 2, 1 },
-        { 3, 1 },
-        { 4, 1 },
-        { 5, 1 },
-        { 6, 1 },
-        { 7, 1 },
-        { 8, 1 },
-        { 9, 1 },
-        { 10, 1 },
-    };
+    
+    private int currentWave = 0;
+    private int enemiesAlive = 0;
+    
+    private float buffer = 50f;
+    private float bottomUiHeight = 150f;
+    private Vector2 screenSize;
 
     public override void _Ready()
     {
-        spawnTimer = GetNode<Timer>("SpawnTimer");
-        enemiesLeftToSpawn = enemiesToSpawn[GlobalManager.Level];
-        spawnTimer.WaitTime = 0.3 - (1 - 1.0 / GlobalManager.Level);
-        // spawnTimer.WaitTime = 0.2f;
-        spawnTimer.Timeout += SpawnEnemies;
-        GlobalManager.IsEnemiesSpawning = true;
+        screenSize = new Vector2(
+            ProjectSettings.GetSetting("display/window/size/viewport_width").AsInt32(),
+            ProjectSettings.GetSetting("display/window/size/viewport_height").AsInt32()
+        );
+        
+        StartWave();
     }
 
-    private void SpawnEnemies()
+    private int GetEnemiesPerWave()
     {
-        var enemy = enemyScene.Instantiate() as Enemy;
-        AddChild(enemy);
-        var playerPos = GetNode<Node2D>("../Player").GlobalPosition;
-        var minDistance = 400f;
-        enemiesLeftToSpawn--;
-        enemy.GlobalPosition = GetRandomOnScreenPosAwayFromPlayer(playerPos, minDistance);
+        return 1 + GlobalManager.Level + currentWave;
+    }
 
-        if (enemiesLeftToSpawn == 0)
+    private int GetTotalWaves()
+    {
+        return 2 + GlobalManager.Level / 2;
+    }
+
+    private void StartWave()
+    {
+        currentWave++;
+        SpawnWave();
+    }
+
+    private void SpawnWave()
+    {
+        int totalEnemies = GetEnemiesPerWave();
+        int clusters = Mathf.Max(1, totalEnemies / 5);
+        int enemiesPerCluster = totalEnemies / clusters;
+        int remainder = totalEnemies % clusters;
+        
+        var playerPos = GetNode<Node2D>("../Player").GlobalPosition;
+        
+        for (int c = 0; c < clusters; c++)
         {
-            spawnTimer.Stop();
-            GlobalManager.IsEnemiesSpawning = false;
+            var clusterCenter = GetRandomSpawnPosition(playerPos, 300f);
+            int count = enemiesPerCluster + (c < remainder ? 1 : 0);
+            
+            for (int i = 0; i < count; i++)
+            {
+                var enemy = enemyScene.Instantiate<Enemy>();
+                
+                var offset = new Vector2(
+                    GD.RandRange(-60, 60),
+                    GD.RandRange(-60, 60)
+                );
+                
+                var finalPos = clusterCenter + offset;
+                finalPos.X = Mathf.Clamp(finalPos.X, buffer, screenSize.X - buffer);
+                finalPos.Y = Mathf.Clamp(finalPos.Y, buffer, screenSize.Y - buffer - bottomUiHeight);
+                
+                enemy.GlobalPosition = finalPos;
+                enemy.Died += OnEnemyDied;
+                enemiesAlive++;
+
+                CallDeferred("add_child", enemy);
+            }
         }
     }
 
-    private Vector2 GetRandomOnScreenPosAwayFromPlayer(Vector2 playerPos, float minDistance)
+    private void OnEnemyDied()
     {
-        var screenRect = GetViewport().GetVisibleRect();
-
-        float bottomUiHeight = 150f;
-        float buffer = 15f;
-
-        screenRect.Position += new Vector2(buffer, buffer);
-        screenRect.Size -= new Vector2(
-            buffer * 2,
-            buffer * 2 + bottomUiHeight
-        );
-
-        Vector2 candidate = playerPos;
-
-        for (int i = 0; i < 8; i++)
+        if (GetTree().GetNodesInGroup("Enemies").Count == 0)
         {
-            float x = (float)GD.RandRange(0, screenRect.Size.X);
-            float y = (float)GD.RandRange(0, screenRect.Size.Y);
-            candidate = new Vector2(x, y);
+            if (currentWave < GetTotalWaves())
+            {
+                StartWave();
+            }
+            else
+            {
+                GameManager.Instance.FinishLevel();
+            }
+        }
+    }
+
+    private Vector2 GetRandomSpawnPosition(Vector2 playerPos, float minDistance)
+    {
+        float minX = buffer;
+        float maxX = screenSize.X - buffer;
+        float minY = buffer;
+        float maxY = screenSize.Y - buffer - bottomUiHeight;
+
+        for (int i = 0; i < 30; i++)
+        {
+            float x = (float)GD.RandRange(minX, maxX);
+            float y = (float)GD.RandRange(minY, maxY);
+            var candidate = new Vector2(x, y);
+            
             if (candidate.DistanceTo(playerPos) >= minDistance)
                 return candidate;
         }
-
-        // Fallback: push the last candidate out to minDistance, then clamp to screen
-        var dir = (candidate - playerPos);
-        if (dir.LengthSquared() < 0.0001f) dir = Vector2.Right; // avoid NaN if same point
-        var outPos = playerPos + dir.Normalized() * minDistance;
-        outPos.X = Mathf.Clamp(outPos.X, 0, screenRect.Size.X);
-        outPos.Y = Mathf.Clamp(outPos.Y, 0, screenRect.Size.Y);
-        return outPos;
+        
+        return new Vector2(
+            (float)GD.RandRange(minX, maxX),
+            (float)GD.RandRange(minY, maxY)
+        );
     }
 }

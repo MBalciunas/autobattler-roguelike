@@ -29,14 +29,15 @@ public partial class DragonBreath : Ability
 
     }
 
-    private (float damage, float shield)
+    private (float damage, float poisonedDamage)
         GetStatsForLevel(int level)
     {
+        // Match Data/Abilities.json: base damage 5/10/25; if poisoned 10/20/50
         return level switch
         {
-            1 => (damage: 30f, shield: 40f),
-            2 => (damage: 60f, shield: 90f),
-            3 => (damage: 150f, shield: 250f),
+            1 => (damage: 5f, poisonedDamage: 10f),
+            2 => (damage: 10f, poisonedDamage: 20f),
+            3 => (damage: 25f, poisonedDamage: 50f),
             _ => throw new ArgumentOutOfRangeException(nameof(level), level, null)
         };
     }

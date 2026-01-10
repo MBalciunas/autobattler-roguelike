@@ -26,9 +26,9 @@ public partial class ToxicPool : Ability
     {
         return level switch
         {
-            1 => (damage: 20f, poisonDamage: 4f, poisonDuration: 10f, slow: 0.35f, duration: 3f),
-            2 => (damage: 35f, poisonDamage: 7f, poisonDuration: 10f, slow: 0.45f, duration: 3f),
-            3 => (damage: 55f, poisonDamage: 12f, poisonDuration: 10f, slow: 0.6f, duration: 3f),
+            1 => (damage: 4f, poisonDamage: 4f, poisonDuration: 10f, slow: 0.35f, duration: 3f),
+            2 => (damage: 10f, poisonDamage: 7f, poisonDuration: 10f, slow: 0.45f, duration: 3f),
+            3 => (damage: 20f, poisonDamage: 12f, poisonDuration: 10f, slow: 0.6f, duration: 3f),
             _ => throw new ArgumentOutOfRangeException(nameof(level), level, null)
         };
     }

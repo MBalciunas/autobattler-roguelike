@@ -29,9 +29,9 @@ public partial class CrimsonSpike : Ability
     {
         return level switch
         {
-            1 => (bleedDamage: 10f, bleedDuration: 4),
+            1 => (bleedDamage: 8f, bleedDuration: 4),
             2 => (bleedDamage: 20f, bleedDuration: 4),
-            3 => (bleedDamage: 40f, bleedDuration: 4),
+            3 => (bleedDamage: 50f, bleedDuration: 4),
             _ => throw new ArgumentOutOfRangeException(nameof(level), level, null)
         };
     }

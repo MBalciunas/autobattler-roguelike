@@ -54,14 +54,13 @@ public partial class PlayerState : Resource
 
     public void InitializeStats()
     {
-        MaxHealth = new PlayerStatFloat(200);
+        MaxHealth = new PlayerStatFloat(10);
         Health = new PlayerStatFloat(MaxHealth.Value).OnMin(_ => GameManager.Instance.RestartGame());
         Shield = new PlayerStatFloat(0);
-        Health.SetMax(MaxHealth.Value);
         Gold = new PlayerStatInt(0);
         Damage = new PlayerStatFloat(0);
         CritChance = new PlayerStatFloat(10);
-        CritDamage = new PlayerStatFloat(1.5f);
+        CritDamage = new PlayerStatFloat(150f);
         Armor = new PlayerStatFloat(0);
         Lifesteal = new PlayerStatFloat(0);
 
@@ -74,14 +73,7 @@ public partial class PlayerState : Resource
 
         AbilitiesInLoop =
         [
-            new PlayerAbilityResource(GlobalManager.Abilities[AbilityName.ToxicPool]),
-            new PlayerAbilityResource(GlobalManager.Abilities[AbilityName.DragonTail]),
-            new PlayerAbilityResource(GlobalManager.Abilities[AbilityName.DragonBreath]),
-            new PlayerAbilityResource(GlobalManager.Abilities[AbilityName.PhoenixDive]),
-            new PlayerAbilityResource(GlobalManager.Abilities[AbilityName.Pounce]),
-            new PlayerAbilityResource(GlobalManager.Abilities[AbilityName.CrimsonSpike]),
-            new PlayerAbilityResource(GlobalManager.Abilities[AbilityName.IronWing]),
-            new PlayerAbilityResource(GlobalManager.Abilities[AbilityName.Tremor]),
+            new PlayerAbilityResource(GlobalManager.Abilities[AbilityName.ToxicDart]),
             new PlayerAbilityResource(GlobalManager.Abilities[AbilityName.Cleave]),
             new PlayerAbilityResource(GlobalManager.Abilities[AbilityName.Stomp]),
         ];
@@ -106,6 +98,7 @@ public partial class PlayerState : Resource
     public void ResetHealth()
     {
         Health.Set(MaxHealth.Value);
+        Health.SetMax(MaxHealth.Value);
     }
 
     public void Heal(float amount) => Health.Add(amount);
@@ -149,7 +142,7 @@ public partial class PlayerState : Resource
         if (currentAbility == null)
         {
             // Enforce capacity: number of distinct abilities cannot exceed Level
-            if (AbilitiesInLoop.Count >= Level.Value)
+            if (AbilitiesInLoop.Count >= Level.Value + 2)
             {
                 // Not enough capacity to add a new ability
                 GD.Print("Ability loop is full for current level. Level up to add more abilities.");

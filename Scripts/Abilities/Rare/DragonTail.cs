@@ -37,9 +37,9 @@ public partial class DragonTail : Ability
     {
         return level switch
         {
-            1 => (damage: 30f, shield: 15f),
-            2 => (damage: 60f, shield: 25f),
-            3 => (damage: 150f, shield: 50f),
+            1 => (damage: 5f, shield: 5f),
+            2 => (damage: 12f, shield: 10f),
+            3 => (damage: 30f, shield: 20f),
             _ => throw new ArgumentOutOfRangeException(nameof(level), level, null)
         };
     }

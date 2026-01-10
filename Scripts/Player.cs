@@ -87,6 +87,7 @@ public partial class Player : Area2D
         float armor = playerState.Armor.Value;
         float percentReduced = damage * (100f / (100f + armor));
         float finalDamage = Mathf.Max(1f, percentReduced - armor * 0.05f); // Mix of % and flat reduction
+        GD.Print($"Incoming {damage} damage, reduced to {finalDamage}");
 
         playerState.TakeDamage(finalDamage);
     }

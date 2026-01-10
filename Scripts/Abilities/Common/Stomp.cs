@@ -35,12 +35,13 @@ public partial class Stomp : Ability
 
     private (float stompDamage, float knockbackStrength, float knockbackRadius) GetStatsForLevel(int level)
     {
+        // Match Data/Abilities.json: damage 2/5/15; knockback tiers kept as small/medium/strong via existing strengths/radii
         return level switch
         {
-            1 => (stompDamage: 0.5f, knockbackStrength: 100f, knockbackRadius: 300f),
-            2 => (stompDamage: 1f, knockbackStrength: 150f, knockbackRadius: 400f),
-            3 => (stompDamage: 2f, knockbackStrength: 200f, knockbackRadius: 500f),
-            _ => (stompDamage: 0.5f, knockbackStrength: 0.2f, knockbackRadius: 300f)
+            1 => (stompDamage: 2f, knockbackStrength: 100f, knockbackRadius: 300f),
+            2 => (stompDamage: 5f, knockbackStrength: 150f, knockbackRadius: 400f),
+            3 => (stompDamage: 15f, knockbackStrength: 200f, knockbackRadius: 500f),
+            _ => (stompDamage: 2f, knockbackStrength: 100f, knockbackRadius: 300f)
         };
     }
 }
