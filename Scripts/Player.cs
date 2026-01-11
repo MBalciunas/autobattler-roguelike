@@ -15,7 +15,7 @@ public partial class Player : Area2D
     public override void _Ready()
     {
         shieldTimer = new Timer();
-        shieldTimer.WaitTime = 5f;
+        shieldTimer.WaitTime = 1f;
         shieldTimer.OneShot = false;
         shieldTimer.Timeout += RemoveShield;
         AddChild(shieldTimer);
@@ -101,6 +101,10 @@ public partial class Player : Area2D
         GD.Print($"Incoming {damage} damage, reduced to {finalDamage}");
 
         playerState.TakeDamage(finalDamage);
+        if (playerState.Shield.Value == 0)
+        {
+            shieldTimer.Stop();
+            playerState.ShieldDuration.Set(0);        }
     }
 
     public void Heal(float healAmount)

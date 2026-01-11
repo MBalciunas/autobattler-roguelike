@@ -44,6 +44,7 @@ public partial class ShieldUI : Control
         }
         else
         {
+            Timer.Show();
             Timer.Text = value.ToString(CultureInfo.InvariantCulture);
         }
     }
