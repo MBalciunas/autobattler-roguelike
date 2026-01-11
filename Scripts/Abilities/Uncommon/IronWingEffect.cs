@@ -36,7 +36,7 @@ public partial class IronWingEffect : Area2D
             elapsed += SnapshotInterval;
         }
 
-        GlobalManager.playerState.Shield.Add(shield * enemiesHit.Count);
+        GlobalManager.playerState.AddShield(shield * enemiesHit.Count);
         FadeAndFree();
     }
 

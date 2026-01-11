@@ -27,7 +27,7 @@ public partial class DragonTail : Ability
             effect.Rotation = direction.Angle();
         }
         
-        GlobalManager.playerState.Shield.Add(stats.shield);
+        GlobalManager.playerState.AddShield(stats.shield);
         GetTree().Root.GetNode("MainLevel").AddChild(effect);
 
     }

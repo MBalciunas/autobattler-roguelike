@@ -4,16 +4,20 @@ using Godot;
 public partial class ShieldUI : Control
 {
     private Label Amount;
+    private Label Timer;
     private TextureProgressBar ShieldBar;
 
     public override void _Ready()
     {
         Amount = GetNode<Label>("Amount");
+        Timer = GetNode<Label>("Timer");
         ShieldBar = GetNode<TextureProgressBar>("Bar");
-        Amount.Text = GlobalManager.playerState.Shield.Value.ToString(CultureInfo.InvariantCulture);
+        UpdateUI(GlobalManager.playerState.Shield.Value);
+        UpdateDurationUI(GlobalManager.playerState.ShieldDuration.Value);
         ShieldBar.Visible = false;
         Amount.Visible = false;
         GlobalManager.playerState.Shield.OnValueChanged += UpdateUI;
+        GlobalManager.playerState.ShieldDuration.OnValueChanged += UpdateDurationUI;
     }
 
     private void UpdateUI(float value)
@@ -27,8 +31,20 @@ public partial class ShieldUI : Control
         {
             ShieldBar.Visible = true;
             Amount.Visible = true;
-            Amount.Text = value.ToString(CultureInfo.InvariantCulture);
+            Amount.Text = $"{value:0.##}";
             // ShieldBar.Value = value / GlobalManager.playerState.MaxHealth.Value * 100;
+        }
+    }
+    
+    private void UpdateDurationUI(int value)
+    {
+        if (value <= 0)
+        {
+            Timer.Hide();
+        }
+        else
+        {
+            Timer.Text = value.ToString(CultureInfo.InvariantCulture);
         }
     }
 

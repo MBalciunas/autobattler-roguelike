@@ -10,6 +10,7 @@ public partial class PlayerState : Resource
 {
     public PlayerStatFloat Health { get; private set; }
     public PlayerStatFloat Shield { get; private set; }
+    public PlayerStatInt ShieldDuration { get; private set; }
     public PlayerStatFloat MaxHealth { get; private set; }
     public PlayerStatFloat Damage { get; private set; }
     public PlayerStatFloat CritChance { get; private set; }
@@ -57,6 +58,7 @@ public partial class PlayerState : Resource
         MaxHealth = new PlayerStatFloat(10);
         Health = new PlayerStatFloat(MaxHealth.Value).OnMin(_ => GameManager.Instance.RestartGame());
         Shield = new PlayerStatFloat(0);
+        ShieldDuration = new PlayerStatInt(0);
         Gold = new PlayerStatInt(0);
         Damage = new PlayerStatFloat(0);
         CritChance = new PlayerStatFloat(10);
@@ -73,9 +75,9 @@ public partial class PlayerState : Resource
 
         AbilitiesInLoop =
         [
-            new PlayerAbilityResource(GlobalManager.Abilities[AbilityName.ToxicDart]),
-            new PlayerAbilityResource(GlobalManager.Abilities[AbilityName.Cleave]),
-            new PlayerAbilityResource(GlobalManager.Abilities[AbilityName.Stomp]),
+            new PlayerAbilityResource(GlobalManager.Abilities[AbilityName.Pounce]),
+            new PlayerAbilityResource(GlobalManager.Abilities[AbilityName.Pounce]),
+            new PlayerAbilityResource(GlobalManager.Abilities[AbilityName.Pounce]),
         ];
 
         // Emit initial values for UI that might subscribe late
@@ -122,6 +124,15 @@ public partial class PlayerState : Resource
         Gold.Add(amount);
     }
 
+    public void AddShield(float amount)
+    {
+        if (Shield.Value == 0)
+        {
+            GlobalManager.Player.StartShieldDuration();
+        }
+        Shield.Add(amount);
+    }
+    
     public int GetTraitCount(AbilityTrait trait)
     {
         return AbilitiesInLoop.Count(a => a.AbilityResource.Traits.Contains(trait));

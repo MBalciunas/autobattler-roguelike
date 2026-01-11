@@ -20,7 +20,7 @@ public partial class Pounce : Ability
 
             var damage = GetStatsForLevel(Level);
             enemy.TakeDamage(damage);
-            GlobalManager.playerState.Shield.Add(damage / 5);
+            GlobalManager.playerState.AddShield(damage / 5);
         }
     }
 

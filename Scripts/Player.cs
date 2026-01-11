@@ -9,6 +9,17 @@ public partial class Player : Area2D
     public bool isInvulnerable = false;
     public bool isCharging = false;
     private ChargingEffect chargingEffect;
+    private Timer shieldTimer;
+    private int shieldTimerLeft;
+
+    public override void _Ready()
+    {
+        shieldTimer = new Timer();
+        shieldTimer.WaitTime = 5f;
+        shieldTimer.OneShot = false;
+        shieldTimer.Timeout += RemoveShield;
+        AddChild(shieldTimer);
+    }
 
     public override void _Process(double delta)
     {
@@ -30,7 +41,7 @@ public partial class Player : Area2D
                 if (GlobalPosition.X < screenRect.Position.X || GlobalPosition.X > screenRect.End.X)
                     chargingEffect.Direction.X *= -1;
 
-                if (GlobalPosition.Y < screenRect.Position.Y|| GlobalPosition.Y > screenRect.End.Y)
+                if (GlobalPosition.Y < screenRect.Position.Y || GlobalPosition.Y > screenRect.End.Y)
                     chargingEffect.Direction.Y *= -1;
             }
 
@@ -95,6 +106,25 @@ public partial class Player : Area2D
     public void Heal(float healAmount)
     {
         playerState.Heal(healAmount);
+    }
+
+    public void StartShieldDuration()
+    {
+        playerState.ShieldDuration.Set(5);
+        shieldTimerLeft = 5;
+        shieldTimer.Start();
+    }
+
+
+    private void RemoveShield()
+    {
+        shieldTimerLeft--;
+        playerState.ShieldDuration.Set(shieldTimerLeft);
+        if (shieldTimerLeft == 0)
+        {
+            shieldTimer.Stop();
+            playerState.Shield.Set(0);
+        }
     }
 }
 

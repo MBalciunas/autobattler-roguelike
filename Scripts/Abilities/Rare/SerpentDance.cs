@@ -35,7 +35,7 @@ public partial class SerpentDance : Ability
 
             if (enemiesInRange.Count > i)
             {
-                GlobalManager.playerState.Shield.Add(stats.shieldPerEnemy);
+                GlobalManager.playerState.AddShield(stats.shieldPerEnemy);
             }
             await ToSignal(GetTree().CreateTimer(0.05f), SceneTreeTimer.SignalName.Timeout);
         }

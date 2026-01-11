@@ -44,6 +44,8 @@ public partial class PlayerStatInt : Resource
     }
 
     public void Add(int amount) => Value += amount;
+    public void Set(int amount) => Value = amount;
+
     public void Subtract(int amount) => Value -= amount;
     public void Multiply(int amount) => Value *= amount;
     public void Divide(int amount) => Value /= amount;
