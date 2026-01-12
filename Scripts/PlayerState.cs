@@ -63,7 +63,7 @@ public partial class PlayerState : Resource
         Health = new PlayerStatFloat(MaxHealth.Value).OnMin(_ => GameManager.Instance.RestartGame());
         Shield = new PlayerStatFloat(0);
         ShieldDuration = new PlayerStatInt(0);
-        Gold = new PlayerStatInt(0);
+        Gold = new PlayerStatInt(20);
         Damage = new PlayerStatFloat(0);
         BleedDamage = new PlayerStatFloat(4);
         BleedDuration = new PlayerStatFloat(3);
@@ -248,8 +248,40 @@ public partial class PlayerState : Resource
 
         var list = AbilitiesInLoop.ToList();
         (list[indexA], list[indexB]) = (list[indexB], list[indexA]);
-        AbilitiesInLoop = new Godot.Collections.Array<PlayerAbilityResource>(list);
+        AbilitiesInLoop = new Array<PlayerAbilityResource>(list);
         EmitSignal(SignalName.OnAbilitiesChanged, AbilitiesInLoop);
         return true;
+    }
+    
+    public int GetSellValueForAbility(int index)
+    {
+        if (index < 0 || index >= AbilitiesInLoop.Count) return 0;
+
+        var a = AbilitiesInLoop[index];
+        int baseValue = a.AbilityResource.Price * a.Level;
+
+        // Common sells for full value always
+        if (a.AbilityResource.Rarity == AbilityRarity.Common)
+            return baseValue;
+
+        // Non-common depreciation by level
+        float mult = a.Level switch
+        {
+            1 => 1f,          
+            2 => 2f / 3f,
+            3 => 1f / 3f,
+        };
+
+        return Mathf.RoundToInt(baseValue * mult);
+    }
+
+    public void SellAbility(int index)
+    {
+        int sellValue = GetSellValueForAbility(index);
+        if (sellValue <= 0) return;
+
+        Gold.Add(sellValue);
+        AbilitiesInLoop.RemoveAt(index);
+        EmitSignal(SignalName.OnAbilitiesChanged, AbilitiesInLoop);
     }
 }

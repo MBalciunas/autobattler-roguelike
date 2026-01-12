@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://buqru3joibnoe"]
+[gd_scene load_steps=15 format=3 uid="uid://buqru3joibnoe"]
 
 [ext_resource type="Script" uid="uid://cxrbwkbig6js8" path="res://Scripts/UI/ShopUI/ShopUI.cs" id="1_uxpe5"]
 [ext_resource type="Script" uid="uid://cougl0p6pxm6x" path="res://Scripts/UI/ShopUI/AbilityLoopShopUI.cs" id="2_6rmb7"]
@@ -12,6 +12,8 @@
 [ext_resource type="Script" uid="uid://4t7xnfm3oflt" path="res://Scripts/UI/ShopUI/BuyXPButton.cs" id="5_buyxp"]
 [ext_resource type="Script" uid="uid://c811h8v4yw7rl" path="res://Scripts/UI/ShopUI/InfoPanel.cs" id="11_6w775"]
 [ext_resource type="Script" uid="uid://d0psghf6l6wf6" path="res://Scripts/UI/PlayerStatsUI.cs" id="12_jynki"]
+[ext_resource type="Script" uid="uid://d34awa1ql3k5b" path="res://Scripts/UI/ShopUI/AbilitySellUI.cs" id="13_6k5of"]
+[ext_resource type="Texture2D" uid="uid://bwnatcfx2mdo2" path="res://icon.svg" id="13_mr61v"]
 
 [node name="ShopScene" type="Control"]
 layout_mode = 3
@@ -278,3 +280,28 @@ text = "Crit Damage %: 15 "
 [node name="Lifesteal" type="Label" parent="StatsContainer"]
 layout_mode = 2
 text = "Lifesteal %: 15 "
+
+[node name="SellAbilityUI" type="Control" parent="."]
+anchors_preset = 0
+offset_left = 807.0
+offset_top = 367.0
+offset_right = 847.0
+offset_bottom = 407.0
+script = ExtResource("13_6k5of")
+
+[node name="TextureRect" type="TextureRect" parent="SellAbilityUI"]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 0
+offset_right = 128.0
+offset_bottom = 128.0
+texture = ExtResource("13_mr61v")
+
+[node name="SellValue" type="Label" parent="SellAbilityUI"]
+layout_mode = 0
+offset_right = 126.0
+offset_bottom = 126.0
+theme_override_font_sizes/font_size = 30
+text = "Sell Ability"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
