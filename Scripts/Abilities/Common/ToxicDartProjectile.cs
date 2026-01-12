@@ -4,8 +4,7 @@ using Godot;
 public partial class ToxicDartProjectile : Area2D
 {
     private float damage;
-    private float poisonDamage;
-    private float poisonDuration;
+    private int poisonStacks;
     private float speed = 800;
 
     public override void _Process(double delta)
@@ -19,15 +18,14 @@ public partial class ToxicDartProjectile : Area2D
         if (area is Enemy enemy)
         {
             enemy.TakeDamage(damage);
-            enemy.AddActiveDot(new DamageOverTime(poisonDamage, poisonDuration, ElementType.Poison));
+            enemy.AddActiveDot(DamageOverTime.GetPoison(poisonStacks));
             QueueFree();
         }
     }
 
-    public void Init((float damage, float poisonDamage, int poisonDuration) stats)
+    public void Init((float damage, int poisonStacks) stats)
     {
         damage = stats.damage;
-        poisonDamage = stats.poisonDamage;
-        poisonDuration = stats.poisonDuration;
+        poisonStacks = stats.poisonStacks;
     }
 }

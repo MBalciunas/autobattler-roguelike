@@ -6,7 +6,7 @@ public partial class ToxicPoolEffect : Area2D
 {
     private float damage;
     private float poisonDamage;
-    private float poisonDuration;
+    private int poisonStacks;
     private float duration;
     private int timePassed = 0;
     private float slow;
@@ -31,7 +31,7 @@ public partial class ToxicPoolEffect : Area2D
             if (area is Enemy enemy)
             {
                 enemy.TakeDamage(damage);
-                enemy.AddActiveDot(new DamageOverTime(poisonDamage, poisonDuration, ElementType.Poison));
+                enemy.AddActiveDot(DamageOverTime.GetPoison(poisonStacks));
                 enemy.AddSlow(slow, 1f);
             }
         }
@@ -51,16 +51,15 @@ public partial class ToxicPoolEffect : Area2D
         if (area is Enemy enemy)
         {
             enemy.TakeDamage(damage);
-            enemy.AddActiveDot(new DamageOverTime(poisonDamage, poisonDuration, ElementType.Poison));
+            enemy.AddActiveDot(new DamageOverTime(poisonDamage, poisonStacks, ElementType.Poison));
             enemy.AddSlow(slow, 1f);
         }
     }
 
-    public void Init((float damage, float poisonDamage, float poisonDuration, float slow, float duration) stats)
+    public void Init((float damage, int poisonDamage, float slow, float duration) stats)
     {
         damage = stats.damage;
         poisonDamage = stats.poisonDamage;
-        poisonDuration = stats.poisonDuration;
         duration = stats.duration;
         slow = stats.slow;
     }

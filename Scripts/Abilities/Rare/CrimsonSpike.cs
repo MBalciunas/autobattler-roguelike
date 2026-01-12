@@ -25,13 +25,13 @@ public partial class CrimsonSpike : Ability
         }
     }
 
-    private (float bleedDamage, float bleedDuration) GetStatsForLevel(int level)
+    private int GetStatsForLevel(int level)
     {
         return level switch
         {
-            1 => (bleedDamage: 8f, bleedDuration: 4),
-            2 => (bleedDamage: 20f, bleedDuration: 4),
-            3 => (bleedDamage: 50f, bleedDuration: 4),
+            1 => 2,
+            2 => 4,
+            3 => 8,
             _ => throw new ArgumentOutOfRangeException(nameof(level), level, null)
         };
     }

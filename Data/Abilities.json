@@ -1,10 +1,10 @@
 {
   "ToxicDart": {
 	"name": "Toxic Dart",
-	"description": "Projectile that deals damage and applies poison over time. Shoots closest unpoisoned enemy.",
-	"level1": "1 dart, 3 damage + 2 damage/s poison for 10s",
-	"level2": "2 darts, 6 damage + 4 damage/s poison for 10s",
-	"level3": "3 darts, 15 damage + 8 damage/s poison for 10s",
+	"description": "Projectile that deals damage and applies poison over time. Shoots closest unpoisoned enemy. Applies poison.",
+	"level1": "1 dart, 3 damage. 1 poison stack",
+	"level2": "2 darts, 6 damage. 2 poison stacks",
+	"level3": "3 darts, 15 damage. 3 poison stacks",
 	"rarity": "Common",
 	"price": 2,
 	"traits": ["Serpent", "Crane"]
@@ -21,10 +21,10 @@
   },
   "Cleave": {
 	"name": "Cleave",
-	"description": "Cleaves nearby enemies and applies bleed",
-	"level1": "1 damage + 5 damage/s bleed for 4s",
-	"level2": "3 damage + 9 damage/s bleed for 4s",
-	"level3": "10 damage + 14 damage/s bleed for 4s",
+	"description": "Cleaves nearby enemies and applies bleed. Applies bleed.",
+	"level1": "1 damage. 1 bleed stack",
+	"level2": "3 damage. 2 bleed stacks",
+	"level3": "10 damage. 3 bleed stacks",
 	"rarity": "Common",
 	"price": 2,
 	"traits": ["Tiger", "Dragon"]
@@ -52,9 +52,9 @@
   "VenomFang": {
 	"name": "Venom Fang",
 	"description": "Strike 3 close enemies. Apply poison and bleed.",
-	"level1": "3 damage. 4 damage/s bleed for 4s. 2 damage/s poison for 10s",
-	"level2": "9 damage. 10 damage/s bleed for 4s. 5 damage/s poison for 10s.",
-	"level3": "25 damage. 18 damage/s bleed for 4s. 12 damage/s poison for 10s.",
+	"level1": "3 damage. 1 bleed and poison stack",
+	"level2": "9 damage. 2 bleed and poison stacks",
+	"level3": "25 damage. 3 bleed and poison stacks",
 	"rarity": "Uncommon",
 	"price": 4,
 	"traits": ["Serpent", "Tiger"]
@@ -82,9 +82,9 @@
   "Tremor": {
 	"name": "Tremor",
 	"description": "Hit enemies in line toward closest enemy. Medium range. Damage, slow, apply bleed.",
-	"level1": "3 damage. 30% slow 3 seconds. 4 damage/s bleed for 4s.",
-	"level2": "7 damage. 40% slow 4 seconds. 8 damage/s bleed for 4s.",
-	"level3": "15 damage. 60% slow 6 seconds. 15 damage/s bleed for 4s.",
+	"level1": "3 damage. 30% slow 3 seconds. 1 bleed stack",
+	"level2": "7 damage. 40% slow 4 seconds. 2 bleed stacks",
+	"level3": "15 damage. 60% slow 6 seconds. 3 bleed stacks",
 	"rarity": "Uncommon",
 	"price": 4,
 	"traits": ["Ox", "Tiger"]
@@ -111,10 +111,10 @@
   },
   "CrimsonSpike": {
 	"name": "Crimson Spike",
-	"description": "Shoot projectile towards the enemy with lowest health. Apply heavy bleed to all enemies it passes through",
-	"level1": "8 damage/s bleed for 4s.",
-	"level2": "20 damage/s bleed for 4s.",
-	"level3": "50 damage/s bleed for 4s.",
+	"description": "Shoot projectile towards the enemy with lowest health. Applies bleed",
+	"level1": "2 bleed stacks",
+	"level2": "4 bleed stacks",
+	"level3": "8 bleed stacks",
 	"rarity": "Rare",
 	"price": 6,
 	"traits": ["Tiger", "Crane"]
@@ -122,9 +122,9 @@
   "SerpentDance": {
 	"name": "Serpent Dance",
 	"description": "Quickly strikes enemies in medium range 10 times. Inflict Poison. Apply shield for each unique enemy hit.",
-	"level1": "5 damage. 4 damage/s poison for 10s. 1 Shield.",
-	"level2": "10 damage. 7 damage/s poison for 10s. 2 Shield.",
-	"level3": "20 damage. 15 damage/s poison for 10s. 5 Shield.",
+	"level1": "5 damage. 2 poison stack. 1 Shield.",
+	"level2": "10 damage. 3 poison stacks. 2 Shield.",
+	"level3": "20 damage. 5 poison stacks. 5 Shield.",
 	"rarity": "Rare",
 	"price": 6,
 	"traits": ["Serpent", "Crane"]
@@ -142,9 +142,9 @@
   "ToxicPool": {
 	"name": "Toxic Pool",
 	"description": "Spawns pool under the closest enemy that deals periodic damage, slows and applies poison.",
-	"level1": "4 damage per second. 35% slow. 4 damage/s poison for 10s. Duration 3 seconds",
-	"level2": "10 damage per second. 45% slow. 7 damage/s poison for 10s. Duration 3 seconds",
-	"level3": "20 damage per second. 60% slow. 12 damage/s poison for 10s. Duration 3 seconds",
+	"level1": "4 damage per second. 35% slow. 1 poison stack. Duration 3 seconds",
+	"level2": "10 damage per second. 45% slow. 2 poison stacks. Duration 3 seconds",
+	"level3": "20 damage per second. 60% slow. 4 poison stacks. Duration 3 seconds",
 	"rarity": "Rare",
 	"price": 6,
 	"traits": ["Serpent", "Ox"]

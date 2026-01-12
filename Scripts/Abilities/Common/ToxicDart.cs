@@ -12,7 +12,6 @@ public partial class ToxicDart : Ability
         var enemies = GlobalManager.GetEnemiesSortedByClosest();
         if (enemies.Count == 0) return;
 
-        // JSON: level1=1 dart, level2=2 darts, level3=3 darts. Shoot closest unpoisoned enemies first.
         int dartCount = Level switch
         {
             1 => 1,
@@ -21,8 +20,7 @@ public partial class ToxicDart : Ability
             _ => 1
         };
 
-        // Prefer unpoisoned enemies, then fill with remaining closest if not enough
-        var targets = enemies.Where(e => !e.IsPoisoned()).Take(dartCount).ToList();
+        var targets = enemies.Take(dartCount).ToList();
         if (targets.Count < dartCount)
         {
             var additional = enemies.Except(targets).Take(dartCount - targets.Count);
@@ -40,15 +38,13 @@ public partial class ToxicDart : Ability
         }
     }
 
-    private (float damage, float poisonDamage, int poisonDuration) GetStatsForLevel(int level)
+    private (float damage, int poisonStacks) GetStatsForLevel(int level)
     {
-        // Updated to match Data/Abilities.json for Toxic Dart (damage + poison DPS for 10s)
         return level switch
         {
-            1 => (damage: 3f, poisonDamage: 2f, poisonDuration: 10),
-            2 => (damage: 6f, poisonDamage: 4f, poisonDuration: 10),
-            3 => (damage: 15f, poisonDamage: 8f, poisonDuration: 10),
-            _ => (damage: 3f, poisonDamage: 2f, poisonDuration: 10)
+            1 => (damage: 3f, poisonStacks: 1),
+            2 => (damage: 6f, poisonStacks: 2),
+            3 => (damage: 15f, poisonStacks: 3),
         };
     }
 }

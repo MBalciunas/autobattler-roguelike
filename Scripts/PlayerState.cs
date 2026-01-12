@@ -13,6 +13,10 @@ public partial class PlayerState : Resource
     public PlayerStatInt ShieldDuration { get; private set; }
     public PlayerStatFloat MaxHealth { get; private set; }
     public PlayerStatFloat Damage { get; private set; }
+    public PlayerStatFloat BleedDamage { get; private set; }
+    public PlayerStatFloat BleedDuration { get; private set; }
+    public PlayerStatFloat PoisonDamage { get; private set; }
+    public PlayerStatFloat PoisonDuration { get; private set; }
     public PlayerStatFloat CritChance { get; private set; }
     public PlayerStatFloat CritDamage { get; private set; }
     public PlayerStatFloat Armor { get; private set; }
@@ -61,6 +65,10 @@ public partial class PlayerState : Resource
         ShieldDuration = new PlayerStatInt(0);
         Gold = new PlayerStatInt(0);
         Damage = new PlayerStatFloat(0);
+        BleedDamage = new PlayerStatFloat(4);
+        BleedDuration = new PlayerStatFloat(3);
+        PoisonDamage = new PlayerStatFloat(2);
+        PoisonDuration = new PlayerStatFloat(10);
         CritChance = new PlayerStatFloat(10);
         CritDamage = new PlayerStatFloat(150f);
         Armor = new PlayerStatFloat(0);
@@ -75,9 +83,7 @@ public partial class PlayerState : Resource
 
         AbilitiesInLoop =
         [
-            new PlayerAbilityResource(GlobalManager.Abilities[AbilityName.Pounce]),
-            new PlayerAbilityResource(GlobalManager.Abilities[AbilityName.Pounce]),
-            new PlayerAbilityResource(GlobalManager.Abilities[AbilityName.Pounce]),
+            new PlayerAbilityResource(GlobalManager.Abilities[AbilityName.ToxicDart]),
         ];
 
         // Emit initial values for UI that might subscribe late

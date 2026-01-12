@@ -31,7 +31,7 @@ public partial class SerpentDance : Ability
             effect.Rotation = direction.Angle();
             GetTree().Root.GetNode("MainLevel").AddChild(effect);
             target.TakeDamage(stats.damage);
-            target.AddActiveDot(new DamageOverTime(stats.poisonDamage, stats.poisonDuration, ElementType.Poison));
+            target.AddActiveDot(DamageOverTime.GetPoison(stats.poisonStacks));
 
             if (enemiesInRange.Count > i)
             {
@@ -41,15 +41,14 @@ public partial class SerpentDance : Ability
         }
     }
 
-    private (float damage, float poisonDamage, float poisonDuration, float shieldPerEnemy)
-        GetStatsForLevel(int level)
+    
+    private (float damage, int poisonStacks, float shieldPerEnemy) GetStatsForLevel(int level)
     {
         return level switch
         {
-            1 => (damage: 5f, poisonDamage: 4f, poisonDuration: 10f, shieldPerEnemy: 1f),
-            2 => (damage: 10f, poisonDamage: 7f, poisonDuration: 10f, shieldPerEnemy: 2f),
-            3 => (damage: 20f, poisonDamage: 12f, poisonDuration: 10f, shieldPerEnemy: 5f),
-            _ => throw new ArgumentOutOfRangeException(nameof(level), level, null)
+            1 => (damage: 5f, poisonStacks: 2, shieldPerEnemy: 1f),
+            2 => (damage: 10f, poisonStacks: 3, shieldPerEnemy: 2f),
+            3 => (damage: 20f, poisonStacks: 5, shieldPerEnemy: 5f),
         };
     }
 }

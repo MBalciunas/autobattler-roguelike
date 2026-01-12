@@ -19,9 +19,10 @@ public abstract partial class Enemy : Area2D
     private Timer slowTimer;
     private bool isMoving = true;
 
-    [Signal] public delegate void DiedEventHandler();
+    [Signal]
+    public delegate void DiedEventHandler();
 
-    
+
     public override void _Ready()
     {
         currentMoveSpeed = moveSpeed;
@@ -29,7 +30,7 @@ public abstract partial class Enemy : Area2D
         int level = GlobalManager.Level;
         moveSpeed += Mathf.Pow(1.04f, level - 1);
         health *= Mathf.Pow(1.18f, level - 1);
-        
+
         attackTimer = new Timer();
         dotsTimer = new Timer();
         slowTimer = new Timer();
@@ -46,14 +47,14 @@ public abstract partial class Enemy : Area2D
         attackTimer.OneShot = true;
         attackTimer.Start();
         player = GetNode<Player>("../../Player");
-        
+
         AddToGroup("Enemies");
     }
 
     public override void _Process(double delta)
     {
-        if(!isMoving) return;
-        
+        if (!isMoving) return;
+
         if (attackRange >= GlobalPosition.DistanceTo(player.GlobalPosition))
         {
             if (attackTimer.TimeLeft <= 0)
@@ -76,13 +77,13 @@ public abstract partial class Enemy : Area2D
         foreach (var damageOverTime in activeDots)
         {
             damageOverTime.durationLeft -= 1f;
-            TakeDamage(damageOverTime.damage, DamageType.DoT);
+            TakeDamage(damageOverTime.damage * damageOverTime.stacks, DamageType.DoT);
             if (damageOverTime.durationLeft <= 0) dotsToRemove.Add(damageOverTime);
         }
 
         dotsToRemove.ForEach(dot => activeDots.Remove(dot));
     }
-    
+
     public void TakeDamage(float damage, DamageType damageType = DamageType.Direct)
     {
         if (damageType == DamageType.Direct)
@@ -100,7 +101,7 @@ public abstract partial class Enemy : Area2D
                 player.Heal(healAmount);
             }
         }
-        
+
         health -= damage;
         var damageTakenEffect = damageTakenUI.Instantiate<DamageTakenUI>();
         damageTakenEffect.Position = GlobalPosition;
@@ -129,15 +130,25 @@ public abstract partial class Enemy : Area2D
     {
         isMoving = true;
     }
-    
+
     public abstract void Attack();
 
     public void AddActiveDot(DamageOverTime damageOverTime)
     {
-        SerpentEffect.ApplyToDot(damageOverTime);
-        activeDots.Add(damageOverTime);
+        // SerpentEffect.ApplyToDot(damageOverTime);
+        var existingDot = activeDots.FirstOrDefault(dot => dot.damageType == damageOverTime.damageType);
+        if (existingDot != null)
+        {
+            GD.Print("Exists");
+            existingDot.stacks += damageOverTime.stacks;
+            existingDot.ResetDuration();
+        }
+        else
+        {
+            activeDots.Add(damageOverTime);
+        }
     }
-    
+
     public bool IsPoisoned()
     {
         return activeDots.Any(d => d.damageType == ElementType.Poison);
@@ -149,7 +160,7 @@ public abstract partial class Enemy : Area2D
         slowTimer.WaitTime = slowDuration;
         slowTimer.Start();
     }
-    
+
     private void RemoveSlow()
     {
         currentMoveSpeed = moveSpeed;

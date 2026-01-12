@@ -27,21 +27,20 @@ public partial class VenomFang : Ability
             {
                 GetTree().Root.GetNode("MainLevel").AddChild(effect);
                 enemy.TakeDamage(stats.damage);
-                enemy.AddActiveDot(new DamageOverTime(stats.bleedDamage, stats.bleedDuration, ElementType.Bleed));
-                enemy.AddActiveDot(new DamageOverTime(stats.poisonDamage, stats.poisonDuration, ElementType.Poison));
+                enemy.AddActiveDot(DamageOverTime.GetPoison(stats.poisonStacks));
+                enemy.AddActiveDot(DamageOverTime.GetPoison(stats.bleedStacks));
             }
         }
     }
 
-    private (float damage, float bleedDamage, float bleedDuration, float poisonDamage, float poisonDuration)
+    private (float damage, int bleedStacks, int poisonStacks)
         GetStatsForLevel(int level)
     {
-        // Match Data/Abilities.json: damage 3/9/25; bleed DPS 4/10/18 for 4s; poison DPS 2/5/12 for 10s
         return level switch
         {
-            1 => (damage: 3f, bleedDamage: 4f, bleedDuration: 4, poisonDamage: 2f, poisonDuration: 10f),
-            2 => (damage: 9f, bleedDamage: 10f, bleedDuration: 4, poisonDamage: 5f, poisonDuration: 10f),
-            3 => (damage: 25f, bleedDamage: 18f, bleedDuration: 4, poisonDamage: 12f, poisonDuration: 10f),
+            1 => (damage: 3f, bleedStacks: 1, poisonStacks: 1),
+            2 => (damage: 9f, bleedStacks: 1, poisonStacks: 1),
+            3 => (damage: 25f, bleedStacks: 1, poisonStacks: 1),
             _ => throw new ArgumentOutOfRangeException(nameof(level), level, null)
         };
     }

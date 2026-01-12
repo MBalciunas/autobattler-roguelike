@@ -1,12 +1,11 @@
 using Godot;
 
-namespace AutoBattlerRoguelike.Scripts.Abilities.Common;
+namespace AutoBattlerRoguelike.Scripts.Abilities.Uncommon;
 
 public partial class TremorEffect : Area2D
 {
     private float damage;
-    private float bleedDamage;
-    private float bleedDuration;
+    private int bleedStacks;
     private float slow;
     private float slowDuration;
     private float range = 400f;
@@ -30,16 +29,15 @@ public partial class TremorEffect : Area2D
         if (area is Enemy enemy)
         {
             enemy.TakeDamage(damage);
-            enemy.AddActiveDot(new DamageOverTime(bleedDamage, bleedDuration, ElementType.Bleed));
+            enemy.AddActiveDot(DamageOverTime.GetBleed(bleedStacks));
             enemy.AddSlow(slow, slowDuration);
         }
     }
 
-    public void Init((float damage, float bleedDamage, float bleedDuration, float slow, float slowDuration) stats)
+    public void Init((float damage, int bleedStacks, float slow, float slowDuration) stats)
     {
         damage = stats.damage;
-        bleedDamage = stats.bleedDamage;
-        bleedDuration = stats.bleedDuration;
+        bleedStacks = stats.bleedStacks;
         slow = stats.slow;
         slowDuration = stats.slowDuration;
     }

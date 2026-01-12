@@ -22,13 +22,13 @@ public partial class ToxicPool : Ability
         }
     }
 
-    private (float damage, float poisonDamage, float poisonDuration, float slow, float duration) GetStatsForLevel(int level)
+    private (float damage, int poisonStacks, float slow, float duration) GetStatsForLevel(int level)
     {
         return level switch
         {
-            1 => (damage: 4f, poisonDamage: 4f, poisonDuration: 10f, slow: 0.35f, duration: 3f),
-            2 => (damage: 10f, poisonDamage: 7f, poisonDuration: 10f, slow: 0.45f, duration: 3f),
-            3 => (damage: 20f, poisonDamage: 12f, poisonDuration: 10f, slow: 0.6f, duration: 3f),
+            1 => (damage: 4f, poisonStacks: 1, slow: 0.35f, duration: 3f),
+            2 => (damage: 10f, poisonStacks: 2, slow: 0.45f, duration: 3f),
+            3 => (damage: 20f, poisonStacks: 4, slow: 0.6f, duration: 3f),
             _ => throw new ArgumentOutOfRangeException(nameof(level), level, null)
         };
     }

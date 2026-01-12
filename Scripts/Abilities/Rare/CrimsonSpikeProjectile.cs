@@ -4,8 +4,7 @@ namespace AutoBattlerRoguelike.Scripts.Abilities.Rare;
 
 public partial class CrimsonSpikeProjectile : Area2D
 {
-    private float bleedDamage;
-    private float bleedDuration;
+    private int bleedStacks;
     private float speed = 600;
 
     public override void _Process(double delta)
@@ -18,13 +17,12 @@ public partial class CrimsonSpikeProjectile : Area2D
     {
         if (area is Enemy enemy)
         {
-            enemy.AddActiveDot(new DamageOverTime(bleedDamage, bleedDuration, ElementType.Bleed));
+            enemy.AddActiveDot(DamageOverTime.GetBleed(bleedStacks));
         }
     }
 
-    public void Init((float bleedDamage, float bleedDuration) stats)
+    public void Init(int bleedStacks)
     {
-        bleedDamage = stats.bleedDamage;
-        bleedDuration = stats.bleedDuration;
+        this.bleedStacks = bleedStacks;
     }
 }
