@@ -14,15 +14,15 @@ public partial class BaseMeleeEnemy : Enemy
 
     public override void Attack()
     {
-        var tweener = GetTree().CreateTween();
-        var originalPos = Position;
-        tweener.TweenProperty(this, "position", player.GlobalPosition, 0.05f);
-        tweener.Parallel().TweenProperty(this, "scale", new Vector2(0.25f, 0.25f), 0.05f);
-        
-        player.TakeDamage(damage);
-        
-        tweener.TweenProperty(this, "position", originalPos, 0.1f);
-        tweener.Parallel().TweenProperty(this, "scale", new Vector2(1f, 1f), 0.1f);
-        tweener.Dispose();
+    }
+    
+    private void OnAreaEntered(Area2D area)
+    {
+        if (area is Player player)
+        {
+            player.TakeDamage(damage);
+            var direction = (GlobalPosition - player.GlobalPosition).Normalized();
+            Knockback(100f, direction);
+        }
     }
 }

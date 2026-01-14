@@ -1,7 +1,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using AutoBattlerRoguelike.Scripts.Abilities;
-using AutoBattlerRoguelike.Scripts.Traits;
 using Godot;
 
 public abstract partial class Enemy : Area2D
