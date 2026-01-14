@@ -1,0 +1,403 @@
+[gd_scene load_steps=5 format=3 uid="uid://bcjmcqrxdotku"]
+
+[ext_resource type="Texture2D" uid="uid://bwnatcfx2mdo2" path="res://icon.svg" id="1_bptqy"]
+
+[sub_resource type="Animation" id="Animation_fixmx"]
+resource_name = "Bleeding"
+length = 2.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Icon7:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.43333337, 0.8333333, 1.7666667),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(0.91764706, 0, 0.015686275, 0), Color(0.91764706, 0, 0.015686275, 0.78431374), Color(0.91764706, 0, 0.015686275, 0), Color(0.91764706, 0, 0.015686275, 0.78431374)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Icon:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.3, 0.9, 1.6333333),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(0.91764706, 0, 0.015686275, 0), Color(0.91764706, 0, 0.015686275, 0.78431374), Color(0.91764706, 0, 0.015686275, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Icon2:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.6, 1.1333333, 1.4666667, 1.6666666),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(0.91764706, 0, 0.015686275, 0), Color(0.91764706, 0, 0.015686275, 0.78431374), Color(0.91764706, 0, 0.015686275, 0), Color(0.91764706, 0, 0.015686275, 0), Color(0.91764706, 0, 0.015686275, 0.78431374), Color(0.91764706, 0, 0.015686275, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Icon3:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.43333334, 1.0333333, 1.5, 1.8666667),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(0.91764706, 0, 0.015686275, 0), Color(0.91764706, 0, 0.015686275, 0.78431374), Color(0.91764706, 0, 0.015686275, 0), Color(0.91764706, 0, 0.015686275, 0.78431374)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Icon4:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0.26666668, 0.8333333, 1.2333333),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(0.91764706, 0, 0.015686275, 0), Color(0.91764706, 0, 0.015686275, 0.78431374), Color(0.91764706, 0, 0.015686275, 0)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Icon5:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0.16666667, 0.93333334),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0.91764706, 0, 0.015686275, 0), Color(0.91764706, 0, 0.015686275, 0.78431374)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Icon6:modulate")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 1.3333334),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0.91764706, 0, 0.015686275, 0), Color(0.91764706, 0, 0.015686275, 0.78431374)]
+}
+
+[sub_resource type="Animation" id="Animation_v557u"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Icon7:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.9177362, 0, 0.016834596, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Icon:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.9177362, 0, 0.016834596, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Icon2:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.9177362, 0, 0.016834596, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Icon3:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.9177362, 0, 0.016834596, 1)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Icon4:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.9177362, 0, 0.016834596, 1)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Icon5:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.9177362, 0, 0.016834596, 1)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Icon6:modulate")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.9177362, 0, 0.016834596, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ekuoe"]
+_data = {
+&"Bleeding": SubResource("Animation_fixmx"),
+&"RESET": SubResource("Animation_v557u")
+}
+
+[node name="BleedingEffect" type="Node2D"]
+
+[node name="Icon" type="Sprite2D" parent="."]
+modulate = Color(0.9177362, 0, 0.016834596, 1)
+position = Vector2(6, -12)
+scale = Vector2(0.0703125, 0.0703125)
+texture = ExtResource("1_bptqy")
+
+[node name="Icon2" type="Sprite2D" parent="."]
+modulate = Color(0.9177362, 0, 0.016834596, 1)
+position = Vector2(-10, 6)
+scale = Vector2(0.0703125, 0.0703125)
+texture = ExtResource("1_bptqy")
+
+[node name="Icon3" type="Sprite2D" parent="."]
+modulate = Color(0.9177362, 0, 0.016834596, 1)
+position = Vector2(3, 10)
+scale = Vector2(0.0703125, 0.0703125)
+texture = ExtResource("1_bptqy")
+
+[node name="Icon4" type="Sprite2D" parent="."]
+modulate = Color(0.9177362, 0, 0.016834596, 1)
+position = Vector2(8, 0)
+scale = Vector2(0.0703125, 0.0703125)
+texture = ExtResource("1_bptqy")
+
+[node name="Icon5" type="Sprite2D" parent="."]
+modulate = Color(0.9177362, 0, 0.016834596, 1)
+position = Vector2(-8, -4)
+scale = Vector2(0.0703125, 0.0703125)
+texture = ExtResource("1_bptqy")
+
+[node name="Icon6" type="Sprite2D" parent="."]
+modulate = Color(0.9177362, 0, 0.016834596, 1)
+position = Vector2(-1, -10)
+scale = Vector2(0.0703125, 0.0703125)
+texture = ExtResource("1_bptqy")
+
+[node name="Icon7" type="Sprite2D" parent="."]
+modulate = Color(0.9177362, 0, 0.016834596, 1)
+position = Vector2(-1, 1)
+scale = Vector2(0.0703125, 0.0703125)
+texture = ExtResource("1_bptqy")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_ekuoe")
+}
+autoplay = "Bleeding"
+
+[node name="Icon8" type="Sprite2D" parent="."]
+modulate = Color(0.9177362, 0, 0.016834596, 1)
+position = Vector2(19.5, -26.5)
+scale = Vector2(0.0703125, 0.0703125)
+texture = ExtResource("1_bptqy")
+
+[node name="Icon9" type="Sprite2D" parent="."]
+modulate = Color(0.9177362, 0, 0.016834596, 1)
+position = Vector2(3.5, -8.5)
+scale = Vector2(0.0703125, 0.0703125)
+texture = ExtResource("1_bptqy")
+
+[node name="Icon10" type="Sprite2D" parent="."]
+modulate = Color(0.9177362, 0, 0.016834596, 1)
+position = Vector2(16.5, -4.5)
+scale = Vector2(0.0703125, 0.0703125)
+texture = ExtResource("1_bptqy")
+
+[node name="Icon11" type="Sprite2D" parent="."]
+modulate = Color(0.9177362, 0, 0.016834596, 1)
+position = Vector2(21.5, -14.5)
+scale = Vector2(0.0703125, 0.0703125)
+texture = ExtResource("1_bptqy")
+
+[node name="Icon12" type="Sprite2D" parent="."]
+modulate = Color(0.9177362, 0, 0.016834596, 1)
+position = Vector2(5.5, -18.5)
+scale = Vector2(0.0703125, 0.0703125)
+texture = ExtResource("1_bptqy")
+
+[node name="Icon13" type="Sprite2D" parent="."]
+modulate = Color(0.9177362, 0, 0.016834596, 1)
+position = Vector2(12.5, -24.5)
+scale = Vector2(0.0703125, 0.0703125)
+texture = ExtResource("1_bptqy")
+
+[node name="Icon14" type="Sprite2D" parent="."]
+modulate = Color(0.9177362, 0, 0.016834596, 1)
+position = Vector2(12.5, -13.5)
+scale = Vector2(0.0703125, 0.0703125)
+texture = ExtResource("1_bptqy")
+
+[node name="Icon15" type="Sprite2D" parent="."]
+modulate = Color(0.9177362, 0, 0.016834596, 1)
+position = Vector2(-14.5, -29.5)
+scale = Vector2(0.0703125, 0.0703125)
+texture = ExtResource("1_bptqy")
+
+[node name="Icon16" type="Sprite2D" parent="."]
+modulate = Color(0.9177362, 0, 0.016834596, 1)
+position = Vector2(-30.5, -11.5)
+scale = Vector2(0.0703125, 0.0703125)
+texture = ExtResource("1_bptqy")
+
+[node name="Icon17" type="Sprite2D" parent="."]
+modulate = Color(0.9177362, 0, 0.016834596, 1)
+position = Vector2(-17.5, -7.5)
+scale = Vector2(0.0703125, 0.0703125)
+texture = ExtResource("1_bptqy")
+
+[node name="Icon18" type="Sprite2D" parent="."]
+modulate = Color(0.9177362, 0, 0.016834596, 1)
+position = Vector2(-12.5, -17.5)
+scale = Vector2(0.0703125, 0.0703125)
+texture = ExtResource("1_bptqy")
+
+[node name="Icon19" type="Sprite2D" parent="."]
+modulate = Color(0.9177362, 0, 0.016834596, 1)
+position = Vector2(-28.5, -21.5)
+scale = Vector2(0.0703125, 0.0703125)
+texture = ExtResource("1_bptqy")
+
+[node name="Icon20" type="Sprite2D" parent="."]
+modulate = Color(0.9177362, 0, 0.016834596, 1)
+position = Vector2(-21.5, -27.5)
+scale = Vector2(0.0703125, 0.0703125)
+texture = ExtResource("1_bptqy")
+
+[node name="Icon21" type="Sprite2D" parent="."]
+modulate = Color(0.9177362, 0, 0.016834596, 1)
+position = Vector2(-21.5, -16.5)
+scale = Vector2(0.0703125, 0.0703125)
+texture = ExtResource("1_bptqy")
+
+[node name="Icon22" type="Sprite2D" parent="."]
+modulate = Color(0.9177362, 0, 0.016834596, 1)
+position = Vector2(25.5, 9.5)
+scale = Vector2(0.0703125, 0.0703125)
+texture = ExtResource("1_bptqy")
+
+[node name="Icon23" type="Sprite2D" parent="."]
+modulate = Color(0.9177362, 0, 0.016834596, 1)
+position = Vector2(9.5, 27.5)
+scale = Vector2(0.0703125, 0.0703125)
+texture = ExtResource("1_bptqy")
+
+[node name="Icon24" type="Sprite2D" parent="."]
+modulate = Color(0.9177362, 0, 0.016834596, 1)
+position = Vector2(22.5, 31.5)
+scale = Vector2(0.0703125, 0.0703125)
+texture = ExtResource("1_bptqy")
+
+[node name="Icon25" type="Sprite2D" parent="."]
+modulate = Color(0.9177362, 0, 0.016834596, 1)
+position = Vector2(27.5, 21.5)
+scale = Vector2(0.0703125, 0.0703125)
+texture = ExtResource("1_bptqy")
+
+[node name="Icon26" type="Sprite2D" parent="."]
+modulate = Color(0.9177362, 0, 0.016834596, 1)
+position = Vector2(11.5, 17.5)
+scale = Vector2(0.0703125, 0.0703125)
+texture = ExtResource("1_bptqy")
+
+[node name="Icon27" type="Sprite2D" parent="."]
+modulate = Color(0.9177362, 0, 0.016834596, 1)
+position = Vector2(18.5, 11.5)
+scale = Vector2(0.0703125, 0.0703125)
+texture = ExtResource("1_bptqy")
+
+[node name="Icon28" type="Sprite2D" parent="."]
+modulate = Color(0.9177362, 0, 0.016834596, 1)
+position = Vector2(18.5, 22.5)
+scale = Vector2(0.0703125, 0.0703125)
+texture = ExtResource("1_bptqy")
+
+[node name="Icon29" type="Sprite2D" parent="."]
+modulate = Color(0.9177362, 0, 0.016834596, 1)
+position = Vector2(-15.5, 10.5)
+scale = Vector2(0.0703125, 0.0703125)
+texture = ExtResource("1_bptqy")
+
+[node name="Icon30" type="Sprite2D" parent="."]
+modulate = Color(0.9177362, 0, 0.016834596, 1)
+position = Vector2(-31.5, 28.5)
+scale = Vector2(0.0703125, 0.0703125)
+texture = ExtResource("1_bptqy")
+
+[node name="Icon31" type="Sprite2D" parent="."]
+modulate = Color(0.9177362, 0, 0.016834596, 1)
+position = Vector2(-18.5, 32.5)
+scale = Vector2(0.0703125, 0.0703125)
+texture = ExtResource("1_bptqy")
+
+[node name="Icon32" type="Sprite2D" parent="."]
+modulate = Color(0.9177362, 0, 0.016834596, 1)
+position = Vector2(-13.5, 22.5)
+scale = Vector2(0.0703125, 0.0703125)
+texture = ExtResource("1_bptqy")
+
+[node name="Icon33" type="Sprite2D" parent="."]
+modulate = Color(0.9177362, 0, 0.016834596, 1)
+position = Vector2(-29.5, 18.5)
+scale = Vector2(0.0703125, 0.0703125)
+texture = ExtResource("1_bptqy")
+
+[node name="Icon34" type="Sprite2D" parent="."]
+modulate = Color(0.9177362, 0, 0.016834596, 1)
+position = Vector2(-22.5, 12.5)
+scale = Vector2(0.0703125, 0.0703125)
+texture = ExtResource("1_bptqy")
+
+[node name="Icon35" type="Sprite2D" parent="."]
+modulate = Color(0.9177362, 0, 0.016834596, 1)
+position = Vector2(-22.5, 23.5)
+scale = Vector2(0.0703125, 0.0703125)
+texture = ExtResource("1_bptqy")

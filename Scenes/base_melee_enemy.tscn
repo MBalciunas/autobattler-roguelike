@@ -1,8 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://dlpifra67ncok"]
+[gd_scene load_steps=8 format=3 uid="uid://dlpifra67ncok"]
 
 [ext_resource type="Script" uid="uid://cqnwx27b3ivg5" path="res://Scripts/Enemies/BaseMeleeEnemy.cs" id="1_l5kn3"]
 [ext_resource type="Texture2D" uid="uid://bwnatcfx2mdo2" path="res://icon.svg" id="1_opt7k"]
-[ext_resource type="PackedScene" uid="uid://biv3g5hynha3k" path="res://Scenes/UI/DamageTakenUI.tscn" id="2_vmtsp"]
+[ext_resource type="PackedScene" uid="uid://ceq400v2d1q2a" path="res://Scenes/UI/DamageTakenUI.tscn" id="2_vmtsp"]
+[ext_resource type="PackedScene" uid="uid://bcjmcqrxdotku" path="res://Scenes/UI/BleedingEffect.tscn" id="4_as4jh"]
+[ext_resource type="PackedScene" uid="uid://biv3g5hynha3k" path="res://Scenes/UI/PoisonedEffect.tscn" id="5_7nbnc"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_l5kn3"]
 radius = 25.0
@@ -16,7 +18,8 @@ damage = 1.0
 moveSpeed = 100.0
 currentMoveSpeed = 100.0
 attackRange = 0.0
-health = 5.0
+maxHealth = 10.0
+health = 10.0
 damageTakenUI = ExtResource("2_vmtsp")
 
 [node name="Sprite" type="Sprite2D" parent="."]
@@ -32,5 +35,21 @@ collision_mask = 8
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="SeparationArea"]
 shape = SubResource("CircleShape2D_vmtsp")
+
+[node name="BleedingEffect" parent="." instance=ExtResource("4_as4jh")]
+visible = false
+
+[node name="PoisonedEffect" parent="." instance=ExtResource("5_7nbnc")]
+visible = false
+
+[node name="HealthBar" type="TextureProgressBar" parent="."]
+offset_left = -38.0
+offset_top = 26.000002
+offset_right = 90.0
+offset_bottom = 154.0
+scale = Vector2(0.575, 0.04)
+value = 100.0
+texture_progress = ExtResource("1_opt7k")
+tint_progress = Color(0.9729653, 0, 0.13337332, 1)
 
 [connection signal="area_entered" from="." to="." method="OnAreaEntered"]

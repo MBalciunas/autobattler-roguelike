@@ -1,10 +1,10 @@
 namespace AutoBattlerRoguelike.Scripts.Abilities;
 
-public class DamageOverTime(float damage, float duration, ElementType damageType, int stacks = 1)
+public class DamageOverTime(float damage, float duration, ElementType elementType, int stacks = 1)
 {
     public float damage = damage;
     public float durationLeft = duration;
-    public ElementType damageType = damageType;
+    public ElementType elementType = elementType;
     public int stacks = stacks;
 
     public static DamageOverTime GetBleed(int stacks)
@@ -22,14 +22,14 @@ public class DamageOverTime(float damage, float duration, ElementType damageType
         return new DamageOverTime(
             GlobalManager.playerState.PoisonDamage.Value,
             GlobalManager.playerState.PoisonDuration.Value,
-            ElementType.Bleed,
+            ElementType.Poison,
             stacks
         );
     }
 
     public void ResetDuration()
     {
-        durationLeft = damageType switch
+        durationLeft = elementType switch
         {
             ElementType.Poison => GlobalManager.playerState.PoisonDuration.Value,
             ElementType.Bleed => GlobalManager.playerState.BleedDuration.Value,

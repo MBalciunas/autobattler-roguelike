@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://biv3g5hynha3k"]
+[gd_scene load_steps=5 format=3 uid="uid://ceq400v2d1q2a"]
 
 [ext_resource type="Script" uid="uid://db2utpv6rj314" path="res://Scripts/UI/DamageTakenUI.cs" id="1_goya6"]
 

@@ -5,7 +5,6 @@ namespace AutoBattlerRoguelike.Scripts.Abilities.Rare;
 public partial class ToxicPoolEffect : Area2D
 {
     private float damage;
-    private float poisonDamage;
     private int poisonStacks;
     private float duration;
     private int timePassed = 0;
@@ -51,15 +50,15 @@ public partial class ToxicPoolEffect : Area2D
         if (area is Enemy enemy)
         {
             enemy.TakeDamage(damage);
-            enemy.AddActiveDot(new DamageOverTime(poisonDamage, poisonStacks, ElementType.Poison));
+            DamageOverTime.GetPoison(poisonStacks);
             enemy.AddSlow(slow, 1f);
         }
     }
 
-    public void Init((float damage, int poisonDamage, float slow, float duration) stats)
+    public void Init((float damage, int poisonStacks, float slow, float duration) stats)
     {
         damage = stats.damage;
-        poisonDamage = stats.poisonDamage;
+        poisonStacks = stats.poisonStacks;
         duration = stats.duration;
         slow = stats.slow;
     }

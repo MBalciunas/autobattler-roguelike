@@ -36,7 +36,7 @@ public enum AbilityTrait
 
 public enum ElementType
 {
-    Poison, Fire, Bleed
+    Poison, Fire, Bleed, None
 }
 
 public enum DebuffType

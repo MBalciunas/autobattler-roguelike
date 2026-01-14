@@ -15,7 +15,7 @@ public partial class BaseMeleeEnemy : Enemy
     public override void Attack()
     {
     }
-    
+
     private void OnAreaEntered(Area2D area)
     {
         if (area is Player player)

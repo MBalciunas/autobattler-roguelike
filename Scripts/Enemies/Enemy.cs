@@ -9,11 +9,16 @@ public abstract partial class Enemy : Area2D
     [Export] private float currentMoveSpeed = 50;
     [Export] private float attackCooldown = 2;
     [Export] private float attackRange = 100;
+    [Export] private float maxHealth;
     [Export] private float health;
     [Export] private PackedScene damageTakenUI;
     [Export] public float SeparationRadius = 32f;
     [Export] public float SeparationStrength = 1.2f;
+    private TextureProgressBar healthBar;
+    
+    public Node2D poisonedEffect;
     private Area2D separationArea;
+    public Node2D bleedingEffect;
     private List<DamageOverTime> activeDots = new();
     protected Player player;
     private Timer attackTimer;
@@ -27,11 +32,15 @@ public abstract partial class Enemy : Area2D
 
     public override void _Ready()
     {
+        bleedingEffect = GetNode<Node2D>("BleedingEffect");
+        poisonedEffect = GetNode<Node2D>("PoisonedEffect");
+        healthBar =  GetNode<TextureProgressBar>("HealthBar");
         currentMoveSpeed = moveSpeed;
 
         int level = GlobalManager.Level;
         moveSpeed += Mathf.Pow(1.04f, level - 1);
-        health *= Mathf.Pow(1.18f, level - 1);
+        maxHealth *= Mathf.Pow(1.18f, level - 1);
+        health = maxHealth;
 
         attackTimer = new Timer();
         dotsTimer = new Timer();
@@ -57,6 +66,7 @@ public abstract partial class Enemy : Area2D
 
     public override void _Process(double delta)
     {
+        healthBar.Value = health / maxHealth * 100;
         if (!isMoving) return;
 
         player ??= GetNode<Player>("../../Player");
@@ -105,14 +115,24 @@ public abstract partial class Enemy : Area2D
         foreach (var damageOverTime in activeDots)
         {
             damageOverTime.durationLeft -= 1f;
-            TakeDamage(damageOverTime.damage * damageOverTime.stacks, DamageType.DoT);
+            TakeDamage(damageOverTime.damage * damageOverTime.stacks, damageOverTime.elementType, DamageType.DoT);
             if (damageOverTime.durationLeft <= 0) dotsToRemove.Add(damageOverTime);
         }
 
         dotsToRemove.ForEach(dot => activeDots.Remove(dot));
+        
+        if (activeDots.All(dot => dot.elementType != ElementType.Poison))
+        {
+            poisonedEffect.Hide();
+        }
+        
+        if (activeDots.All(dot => dot.elementType != ElementType.Bleed))
+        {
+            bleedingEffect.Hide();
+        }
     }
 
-    public void TakeDamage(float damage, DamageType damageType = DamageType.Direct)
+    public void TakeDamage(float damage, ElementType elementType = ElementType.None, DamageType damageType = DamageType.Direct)
     {
         if (damageType == DamageType.Direct)
         {
@@ -137,7 +157,7 @@ public abstract partial class Enemy : Area2D
         var damageTakenEffect = damageTakenUI.Instantiate<DamageTakenUI>();
         damageTakenEffect.Position = GlobalPosition;
         GetTree().Root.GetNode("MainLevel").AddChild(damageTakenEffect);
-        damageTakenEffect.Init(damage);
+        damageTakenEffect.Init(damage, elementType);
         if (health <= 0)
         {
             RemoveFromGroup("Enemies");
@@ -167,10 +187,9 @@ public abstract partial class Enemy : Area2D
     public void AddActiveDot(DamageOverTime damageOverTime)
     {
         // SerpentEffect.ApplyToDot(damageOverTime);
-        var existingDot = activeDots.FirstOrDefault(dot => dot.damageType == damageOverTime.damageType);
+        var existingDot = activeDots.FirstOrDefault(dot => dot.elementType == damageOverTime.elementType);
         if (existingDot != null)
         {
-            GD.Print("Exists");
             existingDot.stacks += damageOverTime.stacks;
             existingDot.ResetDuration();
         }
@@ -178,11 +197,21 @@ public abstract partial class Enemy : Area2D
         {
             activeDots.Add(damageOverTime);
         }
+
+        if (activeDots.Any(dot => dot.elementType == ElementType.Poison))
+        {
+            poisonedEffect.Show();
+        }
+        
+        if (activeDots.Any(dot => dot.elementType == ElementType.Bleed))
+        {
+            bleedingEffect.Show();
+        }
     }
 
     public bool IsPoisoned()
     {
-        return activeDots.Any(d => d.damageType == ElementType.Poison);
+        return activeDots.Any(d => d.elementType == ElementType.Poison);
     }
 
     public void AddSlow(float slow, float slowDuration)
