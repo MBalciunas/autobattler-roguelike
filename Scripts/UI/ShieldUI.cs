@@ -52,5 +52,7 @@ public partial class ShieldUI : Control
     public override void _ExitTree()
     {
         GlobalManager.playerState.Shield.OnValueChanged -= UpdateUI;
+        GlobalManager.playerState.ShieldDuration.OnValueChanged -= UpdateDurationUI;
+
     }
 }

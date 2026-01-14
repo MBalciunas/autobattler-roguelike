@@ -11,6 +11,6 @@ public partial class DamageTakenUI : Node2D
 
     public void Init(float damage)
     {
-        label.Text = damage.ToString(CultureInfo.InvariantCulture);
+        label.Text = $"{damage:0.#}";
     }
 }

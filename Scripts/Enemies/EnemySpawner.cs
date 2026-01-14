@@ -29,7 +29,7 @@ public partial class EnemySpawner : Node
 
     private int GetTotalWaves()
     {
-        return 2 + GlobalManager.Level / 2;
+        return GlobalManager.Level / 2;
         // return 1;
     }
 
@@ -42,7 +42,7 @@ public partial class EnemySpawner : Node
     private void SpawnWave()
     {
         int totalEnemies = GetEnemiesPerWave();
-        int clusters = Mathf.Max(1, totalEnemies / 5);
+        int clusters = Mathf.Max(1, totalEnemies / 3);
         int enemiesPerCluster = totalEnemies / clusters;
         int remainder = totalEnemies % clusters;
         
@@ -58,8 +58,8 @@ public partial class EnemySpawner : Node
                 var enemy = enemyScene.Instantiate<Enemy>();
                 
                 var offset = new Vector2(
-                    GD.RandRange(-60, 60),
-                    GD.RandRange(-60, 60)
+                    GD.RandRange(-150, 150),
+                    GD.RandRange(-150, 150)
                 );
                 
                 var finalPos = clusterCenter + offset;

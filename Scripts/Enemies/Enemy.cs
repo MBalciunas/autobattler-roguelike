@@ -11,6 +11,9 @@ public abstract partial class Enemy : Area2D
     [Export] private float attackRange = 100;
     [Export] private float health;
     [Export] private PackedScene damageTakenUI;
+    [Export] public float SeparationRadius = 32f;
+    [Export] public float SeparationStrength = 1.2f;
+    private Area2D separationArea;
     private List<DamageOverTime> activeDots = new();
     protected Player player;
     private Timer attackTimer;
@@ -48,25 +51,51 @@ public abstract partial class Enemy : Area2D
         player = GetNode<Player>("../../Player");
 
         AddToGroup("Enemies");
+
+        separationArea = GetNode<Area2D>("SeparationArea");
     }
 
     public override void _Process(double delta)
     {
         if (!isMoving) return;
 
-        if (attackRange >= GlobalPosition.DistanceTo(player.GlobalPosition))
+        player ??= GetNode<Player>("../../Player");
+
+        Vector2 separation = Vector2.Zero;
+
+        foreach (var area in GetNode<Area2D>("SeparationArea").GetOverlappingAreas())
         {
-            if (attackTimer.TimeLeft <= 0)
-            {
-                Attack();
-                attackTimer.Start();
-            }
+            var other = area.GetParent<Enemy>();
+            if (other == this || !other.IsInGroup("Enemies") || !other.isMoving) continue;
+
+            Vector2 d = GlobalPosition - other.GlobalPosition;
+            float dist = d.Length();
+            separation += d.Normalized() * (1f / Mathf.Max(dist, 8f)) * 25;
+        }
+
+        Vector2 dir;
+
+        if (separation.LengthSquared() > 0.25f)
+        {
+            dir = separation;
         }
         else
         {
-            player = GetNode<Player>("../../Player");
-            var direction = (player.GlobalPosition - GlobalPosition).Normalized();
-            Position += direction * currentMoveSpeed * (float)delta;
+            dir = Vector2.Zero;
+            if (GlobalPosition.DistanceTo(player.GlobalPosition) > attackRange)
+                dir = (player.GlobalPosition - GlobalPosition).Normalized();
+        }
+
+        if (dir.LengthSquared() > 0.001f)
+            dir = dir.Normalized();
+
+        Position += dir * currentMoveSpeed * (float)delta;
+
+        if (GlobalPosition.DistanceTo(player.GlobalPosition) <= attackRange &&
+            attackTimer.TimeLeft <= 0)
+        {
+            Attack();
+            attackTimer.Start();
         }
     }
 
@@ -87,6 +116,10 @@ public abstract partial class Enemy : Area2D
     {
         if (damageType == DamageType.Direct)
         {
+            GD.Print("Damage: " + damage);
+            GD.Print(player.playerState.Damage.Value);
+            damage *= (1 + player.playerState.Damage.Value / 100);
+            GD.Print("Enhanced Damage: " + damage);
             var critRoll = GD.Randf() * 100;
             if (critRoll <= player.playerState.CritChance.Value)
             {
@@ -96,7 +129,6 @@ public abstract partial class Enemy : Area2D
             if (player.playerState.Lifesteal.Value > 0)
             {
                 var healAmount = player.playerState.Lifesteal.Value * damage / 100f;
-                GD.Print($"Lifestealing {healAmount}");
                 player.Heal(healAmount);
             }
         }
@@ -121,7 +153,7 @@ public abstract partial class Enemy : Area2D
         var tween = GetTree().CreateTween();
         var targetPosition = GlobalPosition + direction * knockbackStrength;
 
-        tween.TweenProperty(this, "global_position", targetPosition, 0.3f).SetEase(Tween.EaseType.Out);
+        tween.TweenProperty(this, "global_position", targetPosition, 0.7f).SetEase(Tween.EaseType.Out);
         tween.Finished += EnableMovement;
     }
 
