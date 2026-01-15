@@ -136,10 +136,7 @@ public abstract partial class Enemy : Area2D
     {
         if (damageType == DamageType.Direct)
         {
-            GD.Print("Damage: " + damage);
-            GD.Print(player.playerState.Damage.Value);
             damage *= (1 + player.playerState.Damage.Value / 100);
-            GD.Print("Enhanced Damage: " + damage);
             var critRoll = GD.Randf() * 100;
             if (critRoll <= player.playerState.CritChance.Value)
             {

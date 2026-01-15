@@ -22,6 +22,7 @@ public partial class SerpentDance : Ability
         if (enemiesInRange.Count == 0) return;
         
         var stats = GetStatsForLevel(Level);
+        //TODO need to check if enemy dies/removed, to skip. Maybe new ones entered range?
         for (int i = 0; i < strikeTimes; i++)
         {
             var target = enemiesInRange[i % enemiesInRange.Count];

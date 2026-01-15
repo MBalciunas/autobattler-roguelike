@@ -1,4 +1,3 @@
-using System.Linq;
 using Godot;
 
 public partial class ShopUI : Node
@@ -40,9 +39,7 @@ public partial class ShopUI : Node
 
     private void PrepareShopItem(ShopItem shopItemUI)
     {
-        var abilityName = GlobalManager.Abilities.Keys.ToArray()[GD.Randi() % GlobalManager.Abilities.Count];
-
-        var ability = GlobalManager.Abilities[abilityName];
+        var ability = GlobalManager.RollAbility();
         shopItemUI.GetNode<Label>("Title").Text = ability.Name;
         shopItemUI.GetNode<Label>("Price").Text = ability.Price.ToString();
         shopItemUI.GetNode<TextureRect>("Icon").Texture = ability.Icon;
