@@ -64,6 +64,8 @@ public partial class GlobalManager : Node
         { UpgradablePlayerStat.CritDamage, 1 },
         { UpgradablePlayerStat.Damage, 1 },
         { UpgradablePlayerStat.Lifesteal, 0.2f },
+        { UpgradablePlayerStat.PoisonDamage, 0.2f },
+        { UpgradablePlayerStat.BleedDamage, 0.2f },
     };
 
 
@@ -200,4 +202,6 @@ public enum UpgradablePlayerStat
     CritChance,
     CritDamage,
     Lifesteal,
+    PoisonDamage,
+    BleedDamage
 }

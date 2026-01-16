@@ -51,6 +51,12 @@ public partial class RoundEndSelection : Control
                 case Lifesteal:
                     GlobalManager.playerState.Lifesteal.Add(stat.Value);
                     break;
+                case PoisonDamage:
+                    GlobalManager.playerState.PoisonDamage.Add(stat.Value);
+                    break;
+                case BleedDamage:
+                    GlobalManager.playerState.BleedDamage.Add(stat.Value);
+                    break;
             }
         }
         
