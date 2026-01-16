@@ -28,8 +28,8 @@ public partial class Stomp : Ability
             .ToList().ForEach(e =>
             {
                 var direction = GlobalPosition.DirectionTo(e.GlobalPosition).Normalized();
-                e.TakeDamage(stompDamage);
                 e.Knockback(knockbackStrength, direction);
+                e.TakeDamage(stompDamage);
             });
     }
 
@@ -40,7 +40,7 @@ public partial class Stomp : Ability
         {
             1 => (stompDamage: 2f, knockbackStrength: 100f, knockbackRadius: 300f),
             2 => (stompDamage: 5f, knockbackStrength: 150f, knockbackRadius: 400f),
-            3 => (stompDamage: 15f, knockbackStrength: 200f, knockbackRadius: 500f),
+            3 => (stompDamage: 10f, knockbackStrength: 200f, knockbackRadius: 500f),
             _ => (stompDamage: 2f, knockbackStrength: 100f, knockbackRadius: 300f)
         };
     }

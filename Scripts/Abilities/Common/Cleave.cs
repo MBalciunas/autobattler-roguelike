@@ -43,8 +43,8 @@ public partial class Cleave : Ability
     {
         return level switch
         {
-            1 => (damage: 1f, bleedStacks: 1),
-            2 => (damage: 3f, bleedStacks: 2),
+            1 => (damage: 2f, bleedStacks: 1),
+            2 => (damage: 4f, bleedStacks: 2),
             3 => (damage: 10f, bleedStacks: 3),
         };
     }

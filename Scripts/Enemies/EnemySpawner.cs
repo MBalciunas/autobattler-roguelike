@@ -23,13 +23,13 @@ public partial class EnemySpawner : Node
 
     private int GetEnemiesPerWave()
     {
-        return 1 + GlobalManager.Level + currentWave;
+        return GlobalManager.Level + currentWave / 2;
         // return 1;
     }
 
     private int GetTotalWaves()
     {
-        return GlobalManager.Level / 2;
+        return 1 + GlobalManager.Level / 2;
         // return 1;
     }
 

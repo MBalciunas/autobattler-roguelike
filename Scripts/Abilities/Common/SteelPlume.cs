@@ -28,7 +28,7 @@ public partial class SteelPlume : Ability
         // Match Data/Abilities.json: damage 2/7/15; slow 20%/30%/40%; duration 3/4/5s
         return level switch
         {
-            1 => (damage: 2f, slow: 0.20f, slowDuration: 3f),
+            1 => (damage: 3f, slow: 0.20f, slowDuration: 3f),
             2 => (damage: 7f, slow: 0.30f, slowDuration: 4f),
             3 => (damage: 15f, slow: 0.40f, slowDuration: 5f),
             _ => throw new ArgumentOutOfRangeException(nameof(level), level, null)

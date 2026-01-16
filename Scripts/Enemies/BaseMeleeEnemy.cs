@@ -8,7 +8,7 @@ public partial class BaseMeleeEnemy : Enemy
 
     public override void _Ready()
     {
-        damage *= Mathf.Pow(1.18f, GlobalManager.Level - 1);
+        damage *= Mathf.Pow(1.15f, GlobalManager.Level - 1);
         base._Ready();
     }
 

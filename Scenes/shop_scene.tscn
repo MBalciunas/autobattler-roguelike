@@ -281,12 +281,21 @@ text = "Crit Damage %: 15 "
 layout_mode = 2
 text = "Lifesteal %: 15 "
 
+[node name="PoisonDamage" type="Label" parent="StatsContainer"]
+layout_mode = 2
+text = "PoisonDamage: 2/s"
+
+[node name="BleedDamage" type="Label" parent="StatsContainer"]
+layout_mode = 2
+text = "BleedDamage: 4/s
+"
+
 [node name="SellAbilityUI" type="Control" parent="."]
 anchors_preset = 0
 offset_left = 807.0
-offset_top = 367.0
+offset_top = 390.0
 offset_right = 847.0
-offset_bottom = 407.0
+offset_bottom = 430.0
 script = ExtResource("13_6k5of")
 
 [node name="TextureRect" type="TextureRect" parent="SellAbilityUI"]

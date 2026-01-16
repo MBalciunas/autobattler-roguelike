@@ -59,11 +59,11 @@ public partial class PlayerState : Resource
 
     public void InitializeStats()
     {
-        MaxHealth = new PlayerStatFloat(10);
+        MaxHealth = new PlayerStatFloat(20);
         Health = new PlayerStatFloat(MaxHealth.Value).OnMin(_ => GameManager.Instance.RestartGame());
         Shield = new PlayerStatFloat(0);
         ShieldDuration = new PlayerStatInt(0);
-        Gold = new PlayerStatInt(20);
+        Gold = new PlayerStatInt(0);
         Damage = new PlayerStatFloat(0);
         BleedDamage = new PlayerStatFloat(4);
         BleedDuration = new PlayerStatFloat(3);
@@ -84,6 +84,7 @@ public partial class PlayerState : Resource
         AbilitiesInLoop =
         [
             new PlayerAbilityResource(GlobalManager.Abilities[AbilityName.ToxicDart]),
+            new PlayerAbilityResource(GlobalManager.Abilities[AbilityName.Stomp]),
         ];
 
         // Emit initial values for UI that might subscribe late
@@ -159,7 +160,7 @@ public partial class PlayerState : Resource
         if (currentAbility == null)
         {
             // Enforce capacity: number of distinct abilities cannot exceed Level
-            if (AbilitiesInLoop.Count >= Level.Value + 2)
+            if (AbilitiesInLoop.Count >= Level.Value + 1)
             {
                 // Not enough capacity to add a new ability
                 GD.Print("Ability loop is full for current level. Level up to add more abilities.");
@@ -257,15 +258,22 @@ public partial class PlayerState : Resource
     {
         if (index < 0 || index >= AbilitiesInLoop.Count) return 0;
 
-        var a = AbilitiesInLoop[index];
-        int baseValue = a.AbilityResource.Price * a.Level;
+        var ability = AbilitiesInLoop[index];
+        var price = ability.AbilityResource.Price;
+        var sellValue = ability.Level switch
+        {
+            1 => ability.Copies * price,
+            2 => price * 4 + ability.Copies * price,
+            3 => price * 10, 
+        };
+        int baseValue = ability.AbilityResource.Price * ability.Level;
 
         // Common sells for full value always
-        if (a.AbilityResource.Rarity == AbilityRarity.Common)
+        if (ability.AbilityResource.Rarity == AbilityRarity.Common)
             return baseValue;
 
         // Non-common depreciation by level
-        float mult = a.Level switch
+        float mult = ability.Level switch
         {
             1 => 1f,          
             2 => 2f / 3f,

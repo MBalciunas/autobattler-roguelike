@@ -42,8 +42,8 @@ public partial class ToxicDart : Ability
     {
         return level switch
         {
-            1 => (damage: 3f, poisonStacks: 1),
-            2 => (damage: 6f, poisonStacks: 2),
+            1 => (damage: 5f, poisonStacks: 1),
+            2 => (damage: 9f, poisonStacks: 2),
             3 => (damage: 15f, poisonStacks: 3),
         };
     }

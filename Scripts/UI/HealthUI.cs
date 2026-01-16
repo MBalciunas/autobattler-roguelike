@@ -9,13 +9,14 @@ public partial class HealthUI : Control
     {
         Amount = GetNode<Label>("Amount");
         HealthBar = GetNode<TextureProgressBar>("Bar");
-        Amount.Text = GlobalManager.playerState.Health.Value.ToString(CultureInfo.InvariantCulture);
+        UpdateUI(GlobalManager.playerState.Health.Value);
         GlobalManager.playerState.Health.OnValueChanged += UpdateUI;
     }
 
     private void UpdateUI(float value)
     {
-        Amount.Text = $"{value:0.##}";
+        GD.Print(value);
+        Amount.Text = $"{value:0.#}";
         HealthBar.Value = value / GlobalManager.playerState.MaxHealth.Value * 100;
     }
 

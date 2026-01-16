@@ -38,8 +38,8 @@ public abstract partial class Enemy : Area2D
         currentMoveSpeed = moveSpeed;
 
         int level = GlobalManager.Level;
-        moveSpeed += Mathf.Pow(1.04f, level - 1);
-        maxHealth *= Mathf.Pow(1.18f, level - 1);
+        moveSpeed += Mathf.Pow(1.05f, level - 1);
+        maxHealth *= Mathf.Pow(1.15f, level - 1);
         health = maxHealth;
 
         attackTimer = new Timer();
@@ -132,7 +132,7 @@ public abstract partial class Enemy : Area2D
         }
     }
 
-    public void TakeDamage(float damage, ElementType elementType = ElementType.None, DamageType damageType = DamageType.Direct)
+    public float TakeDamage(float damage, ElementType elementType = ElementType.None, DamageType damageType = DamageType.Direct)
     {
         if (damageType == DamageType.Direct)
         {
@@ -162,6 +162,8 @@ public abstract partial class Enemy : Area2D
 
             CallDeferred("queue_free");
         }
+
+        return damage;
     }
 
     public void Knockback(float knockbackStrength, Vector2 direction)

@@ -19,14 +19,13 @@ public partial class Pounce : Ability
             await ToSignal(tween, Tween.SignalName.Finished);
 
             var damage = GetStatsForLevel(Level);
-            enemy.TakeDamage(damage);
-            GlobalManager.playerState.AddShield(damage / 5);
+            var damageDealt = enemy.TakeDamage(damage);
+            GlobalManager.playerState.AddShield(damageDealt / 5);
         }
     }
 
     private float GetStatsForLevel(int level)
     {
-        // Match Data/Abilities.json: damage 10/20/50; shield gained equals damage dealt
         return level switch
         {
             1 => 10f,
