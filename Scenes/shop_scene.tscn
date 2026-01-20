@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://buqru3joibnoe"]
+[gd_scene load_steps=19 format=3 uid="uid://buqru3joibnoe"]
 
 [ext_resource type="Script" uid="uid://cxrbwkbig6js8" path="res://Scripts/UI/ShopUI/ShopUI.cs" id="1_uxpe5"]
 [ext_resource type="Script" uid="uid://cougl0p6pxm6x" path="res://Scripts/UI/ShopUI/AbilityLoopShopUI.cs" id="2_6rmb7"]
@@ -17,6 +17,7 @@
 [ext_resource type="Texture2D" uid="uid://bwnatcfx2mdo2" path="res://icon.svg" id="13_mr61v"]
 [ext_resource type="Script" uid="uid://bp34jx25uatb0" path="res://Scripts/UI/ShopUI/TraitsUI.cs" id="15_5jnio"]
 [ext_resource type="PackedScene" uid="uid://vmx5kcxbdm4u" path="res://Scenes/UI/TraitUI.tscn" id="16_2n1fq"]
+[ext_resource type="Script" path="res://Scripts/UI/ShopUI/TraitInfoUI.cs" id="17_trait_info"]
 
 [node name="ShopScene" type="Control"]
 layout_mode = 3
@@ -259,6 +260,7 @@ anchors_preset = 0
 offset_left = 217.0
 offset_right = 257.0
 offset_bottom = 40.0
+script = ExtResource("17_trait_info")
 
 [node name="Title" type="Label" parent="InfoPanel/TraitInfo"]
 z_index = 1
@@ -417,7 +419,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 2
 
-[node name="TraitsUI" type="Control" parent="."]
+[node name="TraitsUI" type="Control" parent="." node_paths=PackedStringArray("infoPanel")]
 anchors_preset = 0
 offset_left = 1059.0
 offset_top = 397.0
@@ -425,6 +427,7 @@ offset_right = 1099.0
 offset_bottom = 437.0
 script = ExtResource("15_5jnio")
 traitUIScene = ExtResource("16_2n1fq")
+infoPanel = NodePath("../InfoPanel")
 
 [node name="TraitsContainer" type="VBoxContainer" parent="TraitsUI"]
 layout_mode = 0

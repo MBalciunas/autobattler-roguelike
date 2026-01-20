@@ -1,0 +1,92 @@
+{
+  "Tiger": {
+    "name": "Tiger",
+    "description": "Bleed/Crit",
+    "tiers": [
+      { "required": 3, "effect": "+15% crit chance, crits deal 2x damage" },
+      { "required": 6, "effect": "+25% crit chance, crits deal 2.5x damage. Applying bleed to bleeding enemy pops remaining bleed as instant damage." },
+      { "required": 9, "effect": "+35% crit chance, crits deal 3x damage. Bleed pop also triggers on crit." }
+    ]
+  },
+  "Crane": {
+    "name": "Crane",
+    "description": "Shield",
+    "tiers": [
+      { "required": 2, "effect": "+15% damage while shielded" },
+      { "required": 4, "effect": "+30% damage while shielded" },
+      { "required": 6, "effect": "+50% damage while shielded. Shield breaking explodes (damage = total damage absorbed)." },
+      { "required": 8, "effect": "+70% damage while shielded. Shield explosion also stuns enemies hit for 1s." }
+    ]
+  },
+  "Dragon": {
+    "name": "Dragon",
+    "description": "Stack & Consume",
+    "tiers": [
+      { "required": 3, "effect": "Dragon abilities grant +3% damage per enemy hit (stacks). Last ability in loop consumes stacks for bonus damage." },
+      { "required": 6, "effect": "+6% per enemy hit" },
+      { "required": 9, "effect": "+10% per enemy hit, also +1% crit chance per enemy hit" }
+    ]
+  },
+  "Serpent": {
+    "name": "Serpent",
+    "description": "Poison/Amp",
+    "tiers": [
+      { "required": 2, "effect": "Poisoned enemies take +20% damage from all sources" },
+      { "required": 4, "effect": "Poisoned enemies take +35% damage, poison duration +50%" },
+      { "required": 6, "effect": "Poison stacks, poisoned enemies take +50% damage from all sources" }
+    ]
+  },
+  "Ox": {
+    "name": "Ox",
+    "description": "Slow/Knockback",
+    "tiers": [
+      { "required": 3, "effect": "Slowed enemies take +30% damage" },
+      { "required": 6, "effect": "Slowed enemies take +60% damage, slowing already-slowed enemy stuns for 1s" },
+      { "required": 10, "effect": "Slowed enemies take +200% damage, stunned enemies explode on death (150 AoE)" }
+    ]
+  },
+  "Mantis": {
+    "name": "Mantis",
+    "description": "Sequence",
+    "tiers": [
+      { "required": 3, "effect": "3 same-trait abilities in a row -> next ability deals 2x damage" },
+      { "required": 6, "effect": "3 same-trait abilities in a row -> next ability deals 3x damage" }
+    ]
+  },
+  "Leopard": {
+    "name": "Leopard",
+    "description": "First & Last",
+    "tiers": [
+      { "required": 2, "effect": "First ability in loop always crits" },
+      { "required": 4, "effect": "Last ability in loop deals +50% damage" }
+    ]
+  },
+  "Bear": {
+    "name": "Bear",
+    "description": "HP Tank",
+    "tiers": [
+      { "required": 2, "effect": "+15% max HP" },
+      { "required": 4, "effect": "+30% max HP, abilities deal bonus damage equal to 3% of max HP" },
+      { "required": 6, "effect": "+50% max HP, abilities deal bonus damage equal to 5% of max HP" },
+      { "required": 8, "effect": "+75% max HP, abilities deal bonus damage equal to 8% of max HP, you take 20% less damage" }
+    ]
+  },
+  "Phoenix": {
+    "name": "Phoenix",
+    "description": "Burn",
+    "tiers": [
+      { "required": 2, "effect": "Burn damage +30%" },
+      { "required": 5, "effect": "Burn damage +60%, burning enemies take +20% damage from all sources" },
+      { "required": 8, "effect": "Burning enemies explode on death (damage = remaining burn), spreads burn to nearby, explosions can chain" }
+    ]
+  },
+  "Monkey": {
+    "name": "Monkey",
+    "description": "Fortune",
+    "tiers": [
+      { "required": 2, "effect": "+2 gold after round" },
+      { "required": 4, "effect": "Rerolls cost 1 less, +3 gold after round" },
+      { "required": 6, "effect": "Deal +1% damage per 2 gold owned" }
+    ]
+  }
+}

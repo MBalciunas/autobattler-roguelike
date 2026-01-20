@@ -30,7 +30,7 @@ public enum AbilityName
 
 public enum AbilityTrait
 {
-    Serpent, Dragon, Crane, Tiger, Ox, Bear, Mantis, Eagle, Monkey, Leopard
+    Serpent, Dragon, Crane, Tiger, Ox, Bear, Mantis, Phoenix, Monkey, Leopard
 }
 
 public enum ElementType

@@ -80,6 +80,7 @@ public partial class GlobalManager : Node
     }
 
     public static Godot.Collections.Dictionary<AbilityName, AbilityResource> Abilities = AbilityDatabase.Load();
+    public static Godot.Collections.Dictionary<AbilityTrait, TraitData> Traits = TraitDatabase.Load();
 
     private static AbilityRarity RollRarity()
     {

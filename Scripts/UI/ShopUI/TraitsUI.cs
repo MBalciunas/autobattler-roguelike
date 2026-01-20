@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using System.Linq;
 using Godot;
 using Godot.Collections;
@@ -5,7 +6,10 @@ using Godot.Collections;
 public partial class TraitsUI : Control
 {
     [Export] private PackedScene traitUIScene;
+    [Export] private InfoPanel infoPanel;
     private VBoxContainer traitsContainer;
+    private System.Collections.Generic.Dictionary<AbilityTrait, int> _traitCounts = new();
+
     public override void _Ready()
     {
         traitsContainer = GetNode<VBoxContainer>("TraitsContainer");
@@ -19,21 +23,39 @@ public partial class TraitsUI : Control
         {
             trait.QueueFree();
         }
-        
+
         var abilities = playerAbilities.Select(a => a.AbilityResource).ToList();
 
-        var traits = abilities.SelectMany(a => a.Traits)
+        _traitCounts = abilities.SelectMany(a => a.Traits)
             .GroupBy(t => t)
-            .ToDictionary(g => g.Key, g => g.Count())
-            .OrderByDescending(trait => trait.Value);
+            .ToDictionary(g => g.Key, g => g.Count());
 
-        foreach (var keyValuePair in traits)
+        var sortedTraits = _traitCounts.OrderByDescending(trait => trait.Value);
+
+        foreach (var keyValuePair in sortedTraits)
         {
-            var trait = traitUIScene.Instantiate<Control>();
-            trait.GetNode<Label>("TraitName").Text = keyValuePair.Key + " - " + keyValuePair.Value;
-            // trait.GetNode<Label>("TraitCount").Text = keyValuePair.Value.ToString();
-            traitsContainer.AddChild(trait);
+            var traitNode = traitUIScene.Instantiate<Control>();
+            traitNode.GetNode<Label>("TraitName").Text = keyValuePair.Key + " - " + keyValuePair.Value;
+            traitsContainer.AddChild(traitNode);
+
+            SetupTraitHover(traitNode, keyValuePair.Key, keyValuePair.Value);
         }
+    }
+
+    private void SetupTraitHover(Control traitNode, AbilityTrait trait, int count)
+    {
+        traitNode.MouseEntered += () => OnTraitMouseEntered(trait, count);
+        traitNode.MouseExited += OnTraitMouseExited;
+    }
+
+    private void OnTraitMouseEntered(AbilityTrait trait, int count)
+    {
+        infoPanel?.ShowTrait(trait, count);
+    }
+
+    private void OnTraitMouseExited()
+    {
+        infoPanel?.Clear();
     }
 
     public override void _ExitTree()
