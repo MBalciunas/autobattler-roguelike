@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://buqru3joibnoe"]
+[gd_scene load_steps=18 format=3 uid="uid://buqru3joibnoe"]
 
 [ext_resource type="Script" uid="uid://cxrbwkbig6js8" path="res://Scripts/UI/ShopUI/ShopUI.cs" id="1_uxpe5"]
 [ext_resource type="Script" uid="uid://cougl0p6pxm6x" path="res://Scripts/UI/ShopUI/AbilityLoopShopUI.cs" id="2_6rmb7"]
@@ -11,9 +11,12 @@
 [ext_resource type="Script" uid="uid://d3k1h4ar8ixgm" path="res://Scripts/UI/LevelXPUI.cs" id="4_lxpu"]
 [ext_resource type="Script" uid="uid://4t7xnfm3oflt" path="res://Scripts/UI/ShopUI/BuyXPButton.cs" id="5_buyxp"]
 [ext_resource type="Script" uid="uid://c811h8v4yw7rl" path="res://Scripts/UI/ShopUI/InfoPanel.cs" id="11_6w775"]
+[ext_resource type="Script" uid="uid://bm5xygysdjf07" path="res://Scripts/UI/ShopUI/AbilityInfoUI.cs" id="12_4i3mv"]
 [ext_resource type="Script" uid="uid://d0psghf6l6wf6" path="res://Scripts/UI/PlayerStatsUI.cs" id="12_jynki"]
 [ext_resource type="Script" uid="uid://d34awa1ql3k5b" path="res://Scripts/UI/ShopUI/AbilitySellUI.cs" id="13_6k5of"]
 [ext_resource type="Texture2D" uid="uid://bwnatcfx2mdo2" path="res://icon.svg" id="13_mr61v"]
+[ext_resource type="Script" uid="uid://bp34jx25uatb0" path="res://Scripts/UI/ShopUI/TraitsUI.cs" id="15_5jnio"]
+[ext_resource type="PackedScene" uid="uid://vmx5kcxbdm4u" path="res://Scenes/UI/TraitUI.tscn" id="16_2n1fq"]
 
 [node name="ShopScene" type="Control"]
 layout_mode = 3
@@ -136,12 +139,13 @@ script = ExtResource("3_6rmb7")
 [node name="InfoPanel" type="Control" parent="."]
 anchors_preset = 0
 offset_left = 1060.0
-offset_top = 352.0
+offset_top = 389.0
 offset_right = 1742.0
-offset_bottom = 875.0
+offset_bottom = 912.0
 script = ExtResource("11_6w775")
 
 [node name="Icon" type="TextureRect" parent="InfoPanel"]
+visible = false
 z_index = 1
 layout_mode = 0
 offset_left = 16.0
@@ -151,94 +155,192 @@ offset_bottom = 200.0
 expand_mode = 1
 stretch_mode = 3
 
-[node name="Title" type="Label" parent="InfoPanel"]
+[node name="AbilityInfoUI" type="Control" parent="InfoPanel"]
+visible = false
+anchors_preset = 0
+offset_left = 217.0
+offset_right = 257.0
+offset_bottom = 40.0
+script = ExtResource("12_4i3mv")
+
+[node name="Title" type="Label" parent="InfoPanel/AbilityInfoUI"]
 z_index = 1
 layout_mode = 0
-offset_left = 220.0
-offset_top = 16.0
-offset_right = 660.0
-offset_bottom = 61.0
+offset_left = 14.0
+offset_top = 12.0
+offset_right = 454.0
+offset_bottom = 57.0
 theme_override_font_sizes/font_size = 32
 text = "Hover an item to see details"
 
-[node name="Rarity" type="Label" parent="InfoPanel"]
+[node name="Rarity" type="Label" parent="InfoPanel/AbilityInfoUI"]
 z_index = 1
 layout_mode = 0
-offset_left = 220.0
-offset_top = 60.0
-offset_right = 500.0
-offset_bottom = 90.0
+offset_left = 19.0
+offset_top = 73.0
+offset_right = 299.0
+offset_bottom = 103.0
 text = "Rarity: -"
 
-[node name="Price" type="Label" parent="InfoPanel"]
+[node name="Price" type="Label" parent="InfoPanel/AbilityInfoUI"]
 z_index = 1
 layout_mode = 0
-offset_left = 520.0
-offset_top = 60.0
-offset_right = 700.0
-offset_bottom = 90.0
+offset_left = 169.0
+offset_top = 73.0
+offset_right = 349.0
+offset_bottom = 103.0
 text = "Price: -"
 
-[node name="Traits" type="Label" parent="InfoPanel"]
+[node name="Traits" type="Label" parent="InfoPanel/AbilityInfoUI"]
 z_index = 1
 layout_mode = 0
-offset_left = 220.0
-offset_top = 96.0
-offset_right = 700.0
-offset_bottom = 126.0
+offset_left = 273.0
+offset_top = 74.0
+offset_right = 753.0
+offset_bottom = 104.0
 text = "Traits: -"
 
-[node name="Description" type="Label" parent="InfoPanel"]
+[node name="Description" type="Label" parent="InfoPanel/AbilityInfoUI"]
 z_index = 1
 layout_mode = 0
-offset_left = 16.0
-offset_top = 216.0
-offset_right = 666.0
-offset_bottom = 298.0
+offset_left = 8.0
+offset_top = 135.0
+offset_right = 449.0
+offset_bottom = 217.0
 autowrap_mode = 2
 clip_text = true
 
-[node name="Level1Effect" type="Label" parent="InfoPanel"]
+[node name="Level1Effect" type="Label" parent="InfoPanel/AbilityInfoUI"]
 z_index = 1
 layout_mode = 0
-offset_left = 16.0
-offset_top = 309.0
-offset_right = 666.0
-offset_bottom = 359.0
+offset_left = 13.0
+offset_top = 213.0
+offset_right = 449.0
+offset_bottom = 263.0
 text = "level1"
 vertical_alignment = 1
 autowrap_mode = 2
 clip_text = true
 
-[node name="Level2Effect" type="Label" parent="InfoPanel"]
+[node name="Level2Effect" type="Label" parent="InfoPanel/AbilityInfoUI"]
 z_index = 1
 layout_mode = 0
-offset_left = 16.0
-offset_top = 374.0
-offset_right = 666.0
-offset_bottom = 424.0
+offset_left = 15.0
+offset_top = 278.0
+offset_right = 449.0
+offset_bottom = 328.0
 text = "level2"
 vertical_alignment = 1
 autowrap_mode = 2
 clip_text = true
 
-[node name="Level3Effect" type="Label" parent="InfoPanel"]
+[node name="Level3Effect" type="Label" parent="InfoPanel/AbilityInfoUI"]
 z_index = 1
 layout_mode = 0
 offset_left = 16.0
-offset_top = 443.0
-offset_right = 666.0
-offset_bottom = 493.0
+offset_top = 347.0
+offset_right = 449.0
+offset_bottom = 397.0
 text = "level3"
 vertical_alignment = 1
 autowrap_mode = 2
 clip_text = true
 
-[node name="Background" type="ColorRect" parent="InfoPanel"]
+[node name="Background" type="ColorRect" parent="InfoPanel/AbilityInfoUI"]
 layout_mode = 0
-offset_right = 682.0
-offset_bottom = 523.0
+offset_left = -1.0
+offset_right = 465.0
+offset_bottom = 401.0
 color = Color(0.1457363, 0.20321012, 0.23238409, 1)
+
+[node name="TraitInfo" type="Control" parent="InfoPanel"]
+visible = false
+anchors_preset = 0
+offset_left = 217.0
+offset_right = 257.0
+offset_bottom = 40.0
+
+[node name="Title" type="Label" parent="InfoPanel/TraitInfo"]
+z_index = 1
+layout_mode = 0
+offset_left = 14.0
+offset_top = 12.0
+offset_right = 454.0
+offset_bottom = 57.0
+theme_override_font_sizes/font_size = 32
+text = "Trait Name"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Description" type="Label" parent="InfoPanel/TraitInfo"]
+z_index = 1
+layout_mode = 0
+offset_left = 17.0
+offset_top = 69.0
+offset_right = 458.0
+offset_bottom = 205.0
+text = "This is a description of the trait. This is a description of the trait. This is a description of the trait. This is a description of the trait. This is a description of the trait. This is a description of the trait. This is a description of the trait. This is a description of the trait. "
+autowrap_mode = 2
+clip_text = true
+
+[node name="Background" type="ColorRect" parent="InfoPanel/TraitInfo"]
+layout_mode = 0
+offset_left = -1.0
+offset_right = 465.0
+offset_bottom = 401.0
+color = Color(0.1457363, 0.20321012, 0.23238409, 1)
+
+[node name="Effects" type="VBoxContainer" parent="InfoPanel/TraitInfo"]
+layout_mode = 0
+offset_left = 14.0
+offset_top = 205.0
+offset_right = 464.0
+offset_bottom = 255.0
+
+[node name="Tier1" type="Label" parent="InfoPanel/TraitInfo/Effects"]
+z_index = 1
+custom_minimum_size = Vector2(400, 30)
+layout_mode = 2
+text = "(2) : Effect "
+vertical_alignment = 1
+autowrap_mode = 2
+clip_text = true
+
+[node name="Tier2" type="Label" parent="InfoPanel/TraitInfo/Effects"]
+z_index = 1
+custom_minimum_size = Vector2(400, 30)
+layout_mode = 2
+text = "(2) : Effect "
+vertical_alignment = 1
+autowrap_mode = 2
+clip_text = true
+
+[node name="Tier3" type="Label" parent="InfoPanel/TraitInfo/Effects"]
+z_index = 1
+custom_minimum_size = Vector2(400, 30)
+layout_mode = 2
+text = "(2) : Effect "
+vertical_alignment = 1
+autowrap_mode = 2
+clip_text = true
+
+[node name="Tier4" type="Label" parent="InfoPanel/TraitInfo/Effects"]
+z_index = 1
+custom_minimum_size = Vector2(400, 30)
+layout_mode = 2
+text = "(2) : Effect "
+vertical_alignment = 1
+autowrap_mode = 2
+clip_text = true
+
+[node name="Tier5" type="Label" parent="InfoPanel/TraitInfo/Effects"]
+z_index = 1
+custom_minimum_size = Vector2(400, 30)
+layout_mode = 2
+text = "(2) : Effect "
+vertical_alignment = 1
+autowrap_mode = 2
+clip_text = true
 
 [node name="Stats" type="Label" parent="."]
 layout_mode = 0
@@ -314,3 +416,30 @@ text = "Sell Ability"
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 2
+
+[node name="TraitsUI" type="Control" parent="."]
+anchors_preset = 0
+offset_left = 1059.0
+offset_top = 397.0
+offset_right = 1099.0
+offset_bottom = 437.0
+script = ExtResource("15_5jnio")
+traitUIScene = ExtResource("16_2n1fq")
+
+[node name="TraitsContainer" type="VBoxContainer" parent="TraitsUI"]
+layout_mode = 0
+offset_left = -62.0
+offset_top = 87.0
+offset_right = -22.0
+offset_bottom = 127.0
+
+[node name="TraitUI" parent="TraitsUI/TraitsContainer" instance=ExtResource("16_2n1fq")]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="TraitsUI"]
+layout_mode = 0
+offset_right = 178.0
+offset_bottom = 42.0
+theme_override_font_sizes/font_size = 30
+text = "Active Traits
+------------------"

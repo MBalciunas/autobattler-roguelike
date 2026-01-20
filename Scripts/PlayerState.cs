@@ -28,7 +28,7 @@ public partial class PlayerState : Resource
     public PlayerStatInt CurrentXP { get; private set; }
 
     // XP requirements table keyed by target level (e.g., 2 => XP needed from L1->L2)
-    private static readonly System.Collections.Generic.Dictionary<int, int> XpTable = new System.Collections.Generic.Dictionary<int, int>
+    private static readonly System.Collections.Generic.Dictionary<int, int> XpTable = new()
     {
         { 2, 4 },
         { 3, 10 },
@@ -63,7 +63,7 @@ public partial class PlayerState : Resource
         Health = new PlayerStatFloat(MaxHealth.Value).OnMin(_ => GameManager.Instance.RestartGame());
         Shield = new PlayerStatFloat(0);
         ShieldDuration = new PlayerStatInt(0);
-        Gold = new PlayerStatInt(0);
+        Gold = new PlayerStatInt(110);
         Damage = new PlayerStatFloat(0);
         BleedDamage = new PlayerStatFloat(4);
         BleedDuration = new PlayerStatFloat(3);

@@ -135,7 +135,7 @@ public partial class GlobalManager : Node
 
     public static int CalculateInterest() => Mathf.Min(playerState.Gold.Value / 5, 10);
 
-    public static int CalculateGoldAfterRound() => 5 + Level / 5 * 3;
+    public static int CalculateGoldAfterRound() => 5 + Level / 5;
 
     public static int CalculateXpGain() => 4 + (Level - 1) / 5;
 

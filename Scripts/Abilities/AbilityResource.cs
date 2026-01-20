@@ -1,14 +1,13 @@
 using Godot;
-using System;
 using Godot.Collections;
 
 public partial class AbilityResource : Resource
 {
-    [Export] public String Name;
-    [Export] public String Description;
-    [Export] public String Level1Effect;
-    [Export] public String Level2Effect;
-    [Export] public String Level3Effect;
+    [Export] public string Name;
+    [Export] public string Description;
+    [Export] public string Level1Effect;
+    [Export] public string Level2Effect;
+    [Export] public string Level3Effect;
     [Export] public AbilityRarity Rarity;
     [Export] public int Price;
     [Export] public Texture2D Icon;

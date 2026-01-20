@@ -1,0 +1,26 @@
+[gd_scene load_steps=2 format=3 uid="uid://vmx5kcxbdm4u"]
+
+[ext_resource type="Texture2D" uid="uid://bwnatcfx2mdo2" path="res://icon.svg" id="1_qrx07"]
+
+[node name="TraitUI" type="Control"]
+custom_minimum_size = Vector2(0, 70)
+layout_mode = 3
+anchors_preset = 0
+
+[node name="TextureRect" type="TextureRect" parent="."]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 0
+offset_right = 54.0
+offset_bottom = 54.0
+texture = ExtResource("1_qrx07")
+expand_mode = 1
+
+[node name="TraitName" type="Label" parent="."]
+layout_mode = 0
+offset_left = 65.0
+offset_top = 6.0
+offset_right = 234.0
+offset_bottom = 48.0
+theme_override_font_sizes/font_size = 25
+text = "Dragon"
+vertical_alignment = 1
