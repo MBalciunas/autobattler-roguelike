@@ -20,9 +20,9 @@ public partial class BaseMeleeEnemy : Enemy
     {
         if (area is Player player)
         {
-            player.TakeDamage(damage);
             var direction = (GlobalPosition - player.GlobalPosition).Normalized();
             Knockback(100f, direction);
+            player.TakeDamage(damage);
         }
     }
 }

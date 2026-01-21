@@ -41,7 +41,7 @@ public partial class ToxicPoolEffect : Area2D
             var tween = GetTree().CreateTween();
             tween.TweenProperty(this, "modulate", new Color(0, 0, 0, 0), 0.3);
             await ToSignal(tween, Tween.SignalName.Finished);
-            QueueFree();
+            CallDeferred("queue_free");
         }
     }
     

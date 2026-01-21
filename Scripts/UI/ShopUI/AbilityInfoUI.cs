@@ -41,9 +41,9 @@ public partial class AbilityInfoUI : Control
         _rarity.Text = $"Rarity: {ability.Rarity}";
         _price.Text = $"Price: {ability.Price}$";
         _description.Text = ability.Description;
-        level1Effect.Text = "*   | " + ability.Level1Effect;
-        level2Effect.Text = "**  | " + ability.Level2Effect;
-        level3Effect.Text = "*** | " + ability.Level3Effect;
+        level1Effect.Text = "*   | " + ability.GetLevelDescription(1);
+        level2Effect.Text = "**  | " + ability.GetLevelDescription(2);
+        level3Effect.Text = "*** | " + ability.GetLevelDescription(3);
 
         if (ability.Traits != null && ability.Traits.Count > 0)
         {

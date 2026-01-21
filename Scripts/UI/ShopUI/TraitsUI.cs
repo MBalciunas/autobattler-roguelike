@@ -1,4 +1,3 @@
-using System.Collections.Generic;
 using System.Linq;
 using Godot;
 using Godot.Collections;
@@ -21,7 +20,7 @@ public partial class TraitsUI : Control
     {
         foreach (var trait in traitsContainer.GetChildren())
         {
-            trait.QueueFree();
+            trait.CallDeferred("queue_free");
         }
 
         var abilities = playerAbilities.Select(a => a.AbilityResource).ToList();

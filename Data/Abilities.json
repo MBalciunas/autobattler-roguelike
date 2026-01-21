@@ -1,152 +1,182 @@
 {
   "ToxicDart": {
-	"name": "Toxic Dart",
-	"description": "Projectile that deals damage and applies poison over time. Shoots closest unpoisoned enemy. Applies poison.",
-	"level1": "1 dart, 3 damage. 1 poison stack",
-	"level2": "2 darts, 6 damage. 2 poison stacks",
-	"level3": "3 darts, 15 damage. 3 poison stacks",
-	"rarity": "Common",
-	"price": 2,
-	"traits": ["Serpent", "Crane"]
+    "name": "Toxic Dart",
+    "description": "Projectile that deals damage and applies poison over time. Shoots closest unpoisoned enemy.",
+    "rarity": "Common",
+    "price": 2,
+    "traits": ["Serpent", "Crane"],
+    "stats": {
+      "1": { "damage": 5, "poisonStacks": 1, "projectileCount": 1 },
+      "2": { "damage": 9, "poisonStacks": 2, "projectileCount": 2 },
+      "3": { "damage": 15, "poisonStacks": 3, "projectileCount": 3 }
+    }
   },
   "ShadowStrike": {
-	"name": "Shadow Strike",
-	"description": "Teleport behind furthest enemy and deal damage",
-	"level1": "5",
-	"level2": "8",
-	"level3": "20",
-	"rarity": "Common",
-	"price": 2,
-	"traits": ["Tiger", "Serpent"]
+    "name": "Shadow Strike",
+    "description": "Teleport behind furthest enemy and deal damage.",
+    "rarity": "Common",
+    "price": 2,
+    "traits": ["Tiger", "Serpent"],
+    "stats": {
+      "1": { "damage": 5 },
+      "2": { "damage": 8 },
+      "3": { "damage": 20 }
+    }
   },
   "Cleave": {
-	"name": "Cleave",
-	"description": "Cleaves nearby enemies and applies bleed. Applies bleed.",
-	"level1": "1 damage. 1 bleed stack",
-	"level2": "3 damage. 2 bleed stacks",
-	"level3": "10 damage. 3 bleed stacks",
-	"rarity": "Common",
-	"price": 2,
-	"traits": ["Tiger", "Dragon"]
+    "name": "Cleave",
+    "description": "Cleaves nearby enemies and applies bleed.",
+    "rarity": "Common",
+    "price": 2,
+    "traits": ["Tiger", "Dragon"],
+    "stats": {
+      "1": { "damage": 2, "bleedStacks": 1 },
+      "2": { "damage": 4, "bleedStacks": 2 },
+      "3": { "damage": 10, "bleedStacks": 3 }
+    }
   },
   "Stomp": {
-	"name": "Stomp",
-	"description": "Stomps the ground, dealing damage to nearby enemies and knocking them back",
-	"level1": "2 damage, small knockback",
-	"level2": "5 damage, medium knockback",
-	"level3": "15 damage, strong knockback",
-	"rarity": "Common",
-	"price": 2,
-	"traits": ["Ox", "Dragon"]
+    "name": "Stomp",
+    "description": "Stomps the ground, dealing damage to nearby enemies and knocking them back.",
+    "rarity": "Common",
+    "price": 2,
+    "traits": ["Ox", "Dragon"],
+    "stats": {
+      "1": { "damage": 2, "knockbackStrength": 100, "knockbackRadius": 300 },
+      "2": { "damage": 5, "knockbackStrength": 150, "knockbackRadius": 400 },
+      "3": { "damage": 10, "knockbackStrength": 200, "knockbackRadius": 500 }
+    }
   },
   "SteelPlume": {
-	"name": "Steel Plume",
-	"description": "Shoot piercing projectile to closest enemy.",
-	"level1": "2 damage. 20% slow for 3 seconds.",
-	"level2": "7 damage. 30% slow for 4 seconds.",
-	"level3": "15 damage. 40% slow for 5 seconds.",
-	"rarity": "Common",
-	"price": 2,
-	"traits": ["Crane", "Ox"]
+    "name": "Steel Plume",
+    "description": "Shoot piercing projectile to closest enemy. Slows on hit.",
+    "rarity": "Common",
+    "price": 2,
+    "traits": ["Crane", "Ox"],
+    "stats": {
+      "1": { "damage": 3, "slow": 0.20, "slowDuration": 3 },
+      "2": { "damage": 7, "slow": 0.30, "slowDuration": 4 },
+      "3": { "damage": 15, "slow": 0.40, "slowDuration": 5 }
+    }
   },
   "VenomFang": {
-	"name": "Venom Fang",
-	"description": "Strike 3 close enemies. Apply poison and bleed.",
-	"level1": "3 damage. 1 bleed and poison stack",
-	"level2": "9 damage. 2 bleed and poison stacks",
-	"level3": "25 damage. 3 bleed and poison stacks",
-	"rarity": "Uncommon",
-	"price": 4,
-	"traits": ["Serpent", "Tiger"]
+    "name": "Venom Fang",
+    "description": "Strike 3 close enemies. Apply poison and bleed.",
+    "rarity": "Uncommon",
+    "price": 4,
+    "traits": ["Serpent", "Tiger"],
+    "stats": {
+      "1": { "damage": 3, "bleedStacks": 1, "poisonStacks": 1 },
+      "2": { "damage": 9, "bleedStacks": 2, "poisonStacks": 2 },
+      "3": { "damage": 25, "bleedStacks": 3, "poisonStacks": 3 }
+    }
   },
   "IronWing": {
-	"name": "Iron Wing",
-	"description": "Strike enemies in the cone, target closest enemy. Gain shield for each enemy hit.",
-	"level1": "4 damage. 1 shield.",
-	"level2": "10 damage. 2 shield.",
-	"level3": "20 damage. 5 shield.",
-	"rarity": "Uncommon",
-	"price": 4,
-	"traits": ["Dragon", "Crane"]
+    "name": "Iron Wing",
+    "description": "Strike enemies in a cone. Gain shield for each enemy hit.",
+    "rarity": "Uncommon",
+    "price": 4,
+    "traits": ["Dragon", "Crane"],
+    "stats": {
+      "1": { "damage": 4, "shield": 1 },
+      "2": { "damage": 10, "shield": 2 },
+      "3": { "damage": 20, "shield": 5 }
+    }
   },
   "DragonBreath": {
-	"name": "Dragon Breath",
-	"description": "Hit enemies in the wide cone, deal increased damaged if target is poisoned.",
-	"level1": "5 damage. 10 if poisoned.",
-	"level2": "10 damage. 20 if poisoned.",
-	"level3": "25 damage. 50 if poisoned.",
-	"rarity": "Uncommon",
-	"price": 4,
-	"traits": ["Dragon", "Serpent"]
+    "name": "Dragon Breath",
+    "description": "Hit enemies in a wide cone. Deal increased damage if target is poisoned.",
+    "rarity": "Uncommon",
+    "price": 4,
+    "traits": ["Dragon", "Serpent"],
+    "stats": {
+      "1": { "damage": 5, "poisonedDamage": 10 },
+      "2": { "damage": 10, "poisonedDamage": 20 },
+      "3": { "damage": 25, "poisonedDamage": 50 }
+    }
   },
   "Tremor": {
-	"name": "Tremor",
-	"description": "Hit enemies in line toward closest enemy. Medium range. Damage, slow, apply bleed.",
-	"level1": "3 damage. 30% slow 3 seconds. 1 bleed stack",
-	"level2": "7 damage. 40% slow 4 seconds. 2 bleed stacks",
-	"level3": "15 damage. 60% slow 6 seconds. 3 bleed stacks",
-	"rarity": "Uncommon",
-	"price": 4,
-	"traits": ["Ox", "Tiger"]
+    "name": "Tremor",
+    "description": "Hit enemies in line toward closest enemy. Damage, slow, and apply bleed.",
+    "rarity": "Uncommon",
+    "price": 4,
+    "traits": ["Ox", "Tiger"],
+    "stats": {
+      "1": { "damage": 3, "bleedStacks": 1, "slow": 0.30, "slowDuration": 3 },
+      "2": { "damage": 7, "bleedStacks": 2, "slow": 0.40, "slowDuration": 4 },
+      "3": { "damage": 15, "bleedStacks": 3, "slow": 0.60, "slowDuration": 6 }
+    }
   },
   "PhoenixDive": {
-	"name": "Phoenix Dive",
-	"description": "Jump to the furthest enemy location, damage and knock enemies.",
-	"level1": "3 damage.",
-	"level2": "8 damage",
-	"level3": "16 damage",
-	"rarity": "Uncommon",
-	"price": 4,
-	"traits": ["Tiger", "Crane"]
+    "name": "Phoenix Dive",
+    "description": "Jump to the furthest enemy location, damage and knock back enemies.",
+    "rarity": "Uncommon",
+    "price": 4,
+    "traits": ["Tiger", "Crane"],
+    "stats": {
+      "1": { "damage": 3, "knockbackStrength": 200, "knockbackRadius": 300 },
+      "2": { "damage": 8, "knockbackStrength": 300, "knockbackRadius": 400 },
+      "3": { "damage": 16, "knockbackStrength": 500, "knockbackRadius": 500 }
+    }
   },
   "Pounce": {
-	"name": "Pounce",
-	"description": "Dash to closest enemy, deal high damage and get 20% damage done as shield.",
-	"level1": "10 damage.",
-	"level2": "20 damage",
-	"level3": "50 damage",
-	"rarity": "Rare",
-	"price": 6,
-	"traits": ["Tiger", "Crane"]
+    "name": "Pounce",
+    "description": "Dash to closest enemy, deal high damage and get 20% damage done as shield.",
+    "rarity": "Rare",
+    "price": 6,
+    "traits": ["Tiger", "Crane"],
+    "stats": {
+      "1": { "damage": 10 },
+      "2": { "damage": 20 },
+      "3": { "damage": 50 }
+    }
   },
   "CrimsonSpike": {
-	"name": "Crimson Spike",
-	"description": "Shoot projectile towards the enemy with lowest health. Applies bleed",
-	"level1": "2 bleed stacks",
-	"level2": "4 bleed stacks",
-	"level3": "8 bleed stacks",
-	"rarity": "Rare",
-	"price": 6,
-	"traits": ["Tiger", "Crane"]
+    "name": "Crimson Spike",
+    "description": "Shoot projectile towards the enemy with lowest health. Applies bleed.",
+    "rarity": "Rare",
+    "price": 6,
+    "traits": ["Tiger", "Crane"],
+    "stats": {
+      "1": { "bleedStacks": 2 },
+      "2": { "bleedStacks": 4 },
+      "3": { "bleedStacks": 8 }
+    }
   },
   "SerpentDance": {
-	"name": "Serpent Dance",
-	"description": "Quickly strikes enemies in medium range 10 times. Inflict Poison. Apply shield for each unique enemy hit.",
-	"level1": "5 damage. 2 poison stack. 1 Shield.",
-	"level2": "10 damage. 3 poison stacks. 2 Shield.",
-	"level3": "20 damage. 5 poison stacks. 5 Shield.",
-	"rarity": "Rare",
-	"price": 6,
-	"traits": ["Serpent", "Crane"]
+    "name": "Serpent Dance",
+    "description": "Quickly strikes enemies in medium range 10 times. Inflict poison. Apply shield for each unique enemy hit.",
+    "rarity": "Rare",
+    "price": 6,
+    "traits": ["Serpent", "Crane"],
+    "stats": {
+      "1": { "damage": 5, "poisonStacks": 2, "shieldPerEnemy": 1 },
+      "2": { "damage": 10, "poisonStacks": 3, "shieldPerEnemy": 2 },
+      "3": { "damage": 20, "poisonStacks": 5, "shieldPerEnemy": 5 }
+    }
   },
   "DragonTail": {
-	"name": "Dragon Tail",
-	"description": "Strikes in a straight line towards closest enemy in long range. Deal damage to all enemies hit. Grants a shield.",
-	"level1": "5 damage. 5 shield.",
-	"level2": "12 damage. 10 shield.",
-	"level3": "30 damage. 20 shield.",
-	"rarity": "Rare",
-	"price": 6,
-	"traits": ["Dragon", "Crane"]
+    "name": "Dragon Tail",
+    "description": "Strikes in a straight line towards closest enemy in long range. Grants a shield.",
+    "rarity": "Rare",
+    "price": 6,
+    "traits": ["Dragon", "Crane"],
+    "stats": {
+      "1": { "damage": 5, "shield": 5 },
+      "2": { "damage": 12, "shield": 10 },
+      "3": { "damage": 30, "shield": 20 }
+    }
   },
   "ToxicPool": {
-	"name": "Toxic Pool",
-	"description": "Spawns pool under the closest enemy that deals periodic damage, slows and applies poison.",
-	"level1": "4 damage per second. 35% slow. 1 poison stack. Duration 3 seconds",
-	"level2": "10 damage per second. 45% slow. 2 poison stacks. Duration 3 seconds",
-	"level3": "20 damage per second. 60% slow. 4 poison stacks. Duration 3 seconds",
-	"rarity": "Rare",
-	"price": 6,
-	"traits": ["Serpent", "Ox"]
+    "name": "Toxic Pool",
+    "description": "Spawns pool under the closest enemy that deals periodic damage, slows and applies poison.",
+    "rarity": "Rare",
+    "price": 6,
+    "traits": ["Serpent", "Ox"],
+    "stats": {
+      "1": { "damage": 4, "poisonStacks": 1, "slow": 0.35, "duration": 3 },
+      "2": { "damage": 10, "poisonStacks": 2, "slow": 0.45, "duration": 3 },
+      "3": { "damage": 20, "poisonStacks": 4, "slow": 0.60, "duration": 3 }
+    }
   }
 }

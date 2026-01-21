@@ -35,7 +35,7 @@ public partial class AbilityLoopShopUI : Control
     {
         foreach (var ability in GetChildren())
         {
-            ability.QueueFree();
+            ability.CallDeferred("queue_free");
         }
         
         var radius = 160f;

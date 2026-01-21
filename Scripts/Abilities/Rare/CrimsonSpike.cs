@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 using Godot;
 
@@ -16,23 +15,13 @@ public partial class CrimsonSpike : Ability
         {
             var enemy = enemies[^1];
 
+            var stats = GetStats();
             var crimsonSpike = projectileScene.Instantiate<CrimsonSpikeProjectile>();
-            crimsonSpike.Init(GetStatsForLevel(Level));
+            crimsonSpike.Init(stats.bleedStacks);
             crimsonSpike.GlobalPosition = GlobalPosition;
             var direction = (enemy.GlobalPosition - GlobalPosition).Normalized();
             crimsonSpike.Rotation = direction.Angle();
             GetTree().Root.GetNode("MainLevel").AddChild(crimsonSpike);
         }
-    }
-
-    private int GetStatsForLevel(int level)
-    {
-        return level switch
-        {
-            1 => 2,
-            2 => 4,
-            3 => 8,
-            _ => throw new ArgumentOutOfRangeException(nameof(level), level, null)
-        };
     }
 }

@@ -10,6 +10,6 @@ public partial class VenomFangEffect : Node2D
         tween.TweenProperty(this, "modulate", new Color(0, 0, 0, 0), 0.5);
 
         await ToSignal(tween, Tween.SignalName.Finished);
-        QueueFree();
+        CallDeferred("queue_free");
     }
 }

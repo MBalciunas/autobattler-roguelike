@@ -1,4 +1,3 @@
-using System;
 using System.Linq;
 using Godot;
 
@@ -13,8 +12,9 @@ public partial class DragonBreath : Ability
 
     protected override void ExecuteAbility()
     {
+        var stats = GetStats();
         var effect = dragonBreathEffectScene.Instantiate<DragonBreathEffect>();
-        effect.Init(GetStatsForLevel(Level));
+        effect.Init((stats.damage, stats.poisonedDamage));
         effect.GlobalPosition = GlobalPosition + Vector2.Left * 20;
 
         var enemy = GlobalManager.GetEnemiesSortedByClosest().FirstOrDefault();
@@ -26,19 +26,5 @@ public partial class DragonBreath : Ability
             effect.Rotation = direction.Angle();
         }
         GetTree().Root.GetNode("MainLevel").AddChild(effect);
-
-    }
-
-    private (float damage, float poisonedDamage)
-        GetStatsForLevel(int level)
-    {
-        // Match Data/Abilities.json: base damage 5/10/25; if poisoned 10/20/50
-        return level switch
-        {
-            1 => (damage: 5f, poisonedDamage: 10f),
-            2 => (damage: 10f, poisonedDamage: 20f),
-            3 => (damage: 25f, poisonedDamage: 50f),
-            _ => throw new ArgumentOutOfRangeException(nameof(level), level, null)
-        };
     }
 }

@@ -74,7 +74,7 @@ public partial class DragonTailEffect : Area2D
         var tween = GetTree().CreateTween();
         tween.TweenProperty(this, "modulate", new Color(0, 0, 0, 0), 0.5f);
         await ToSignal(tween, Tween.SignalName.Finished);
-        QueueFree();
+        CallDeferred("queue_free");
     }
 
     public void Init(float damage)

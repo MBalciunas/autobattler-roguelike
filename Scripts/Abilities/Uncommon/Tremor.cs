@@ -1,6 +1,4 @@
-using System;
 using System.Linq;
-using AutoBattlerRoguelike.Scripts.Abilities.Common;
 using Godot;
 
 namespace AutoBattlerRoguelike.Scripts.Abilities.Uncommon;
@@ -16,8 +14,9 @@ public partial class Tremor : Ability
     {
         var enemy = GlobalManager.GetEnemiesSortedByClosest().FirstOrDefault();
 
+        var stats = GetStats();
         var effect = tremorEffectScene.Instantiate<TremorEffect>();
-        effect.Init(GetStatsForLevel(Level));
+        effect.Init((stats.damage, stats.bleedStacks, stats.slow, stats.slowDuration));
         effect.GlobalPosition = GlobalPosition + Vector2.Left * 20;
         if (enemy != null)
         {
@@ -27,17 +26,5 @@ public partial class Tremor : Ability
         }
 
         GetTree().Root.GetNode("MainLevel").AddChild(effect);
-    }
-
-
-    private (float damage, int bleedStacks, float slow, float slowDuration) GetStatsForLevel(int level)
-    {
-        return level switch
-        {
-            1 => (damage: 3f, bleedStacks: 1, slow: 0.3f,  slowDuration: 3),
-            2 => (damage: 7f, bleedStacks: 2, slow: 0.4f,  slowDuration: 4),
-            3 => (damage: 15f, bleedStacks: 3, slow: 0.6f,  slowDuration: 6),
-            _ => throw new ArgumentOutOfRangeException(nameof(level), level, null)
-        };
     }
 }

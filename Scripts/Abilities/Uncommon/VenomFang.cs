@@ -1,4 +1,3 @@
-using System;
 using System.Linq;
 using Godot;
 
@@ -16,7 +15,7 @@ public partial class VenomFang : Ability
     {
         var closest3Enemies = GlobalManager.GetEnemiesSortedByClosest().Take(3).ToList();
 
-        var stats = GetStatsForLevel(Level);
+        var stats = GetStats();
         foreach (var enemy in closest3Enemies)
         {
             var effect = venomFangEffectScene.Instantiate<VenomFangEffect>();
@@ -28,20 +27,8 @@ public partial class VenomFang : Ability
                 GetTree().Root.GetNode("MainLevel").AddChild(effect);
                 enemy.TakeDamage(stats.damage);
                 enemy.AddActiveDot(DamageOverTime.GetPoison(stats.poisonStacks));
-                enemy.AddActiveDot(DamageOverTime.GetPoison(stats.bleedStacks));
+                enemy.AddActiveDot(DamageOverTime.GetBleed(stats.bleedStacks));
             }
         }
-    }
-
-    private (float damage, int bleedStacks, int poisonStacks)
-        GetStatsForLevel(int level)
-    {
-        return level switch
-        {
-            1 => (damage: 3f, bleedStacks: 1, poisonStacks: 1),
-            2 => (damage: 9f, bleedStacks: 1, poisonStacks: 1),
-            3 => (damage: 25f, bleedStacks: 1, poisonStacks: 1),
-            _ => throw new ArgumentOutOfRangeException(nameof(level), level, null)
-        };
     }
 }

@@ -10,6 +10,6 @@ public partial class SerpentDanceEffect : Node2D
         tween.TweenProperty(this, "modulate", new Color(0, 0, 0, 0), 0.2);
 
         await ToSignal(tween, Tween.SignalName.Finished);
-        QueueFree();
+        CallDeferred("queue_free");
     }
 }

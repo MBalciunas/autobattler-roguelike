@@ -20,7 +20,7 @@ public partial class TremorEffect : Area2D
 
         if (distanceTraveled > range)
         {
-            QueueFree();
+            CallDeferred("queue_free");
         }
     }
 

@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 
 namespace AutoBattlerRoguelike.Scripts.Abilities.Common;
@@ -15,19 +14,7 @@ public partial class ShadowStrike : Ability
 
             // Teleport behind the furthest enemy (opposite of approach direction)
             GlobalManager.Player.GlobalPosition = enemy.GlobalPosition - direction * 120;
-            enemy.TakeDamage(GetDamageForLevel(Level));
+            enemy.TakeDamage(GetStats().damage);
         }
-    }
-
-
-    private float GetDamageForLevel(int level)
-    {
-        return level switch
-        {
-            1 => 5,
-            2 => 8,
-            3 => 20,
-            _ => throw new ArgumentOutOfRangeException(nameof(level), level, null)
-        };
     }
 }

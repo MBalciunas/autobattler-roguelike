@@ -1,3 +1,6 @@
+using System.Collections.Generic;
+using System.Text;
+using AutoBattlerRoguelike.Scripts.Abilities;
 using Godot;
 using Godot.Collections;
 
@@ -5,15 +8,47 @@ public partial class AbilityResource : Resource
 {
     [Export] public string Name;
     [Export] public string Description;
-    [Export] public string Level1Effect;
-    [Export] public string Level2Effect;
-    [Export] public string Level3Effect;
     [Export] public AbilityRarity Rarity;
     [Export] public int Price;
     [Export] public Texture2D Icon;
     [Export] public PackedScene AbilityScene;
     [Export] public AbilityName AbilityName;
     [Export] public Array<AbilityTrait> Traits;
+
+    public System.Collections.Generic.Dictionary<string, AbilityLevelStats> Stats { get; set; } = new();
+    public System.Collections.Generic.Dictionary<string, string> LevelBonuses { get; set; } = new();
+
+    public AbilityLevelStats GetStats(int level)
+    {
+        return Stats.TryGetValue(level.ToString(), out var stats) ? stats : new AbilityLevelStats();
+    }
+
+    public string GetLevelDescription(int level)
+    {
+        var stats = GetStats(level);
+        var parts = new List<string>();
+
+        if (stats.damage > 0) parts.Add($"{stats.damage} dmg");
+        if (stats.bleedStacks > 0) parts.Add($"{stats.bleedStacks} bleed");
+        if (stats.poisonStacks > 0) parts.Add($"{stats.poisonStacks} poison");
+        if (stats.shield > 0) parts.Add($"{stats.shield} shield");
+        if (stats.shieldPerEnemy > 0) parts.Add($"{stats.shieldPerEnemy} shield/enemy");
+        if (stats.slow > 0) parts.Add($"{(int)(stats.slow * 100)}% slow");
+        if (stats.slowDuration > 0) parts.Add($"{stats.slowDuration}s");
+        if (stats.duration > 0 && stats.slow == 0) parts.Add($"{stats.duration}s duration");
+        if (stats.knockbackStrength > 0) parts.Add("knockback");
+        if (stats.poisonedDamage > 0) parts.Add($"{stats.poisonedDamage} if poisoned");
+        if (stats.projectileCount > 1) parts.Add($"{stats.projectileCount} projectiles");
+
+        var desc = string.Join(", ", parts);
+
+        if (LevelBonuses.TryGetValue(level.ToString(), out var bonus))
+        {
+            desc += (desc.Length > 0 ? ". " : "") + bonus;
+        }
+
+        return desc;
+    }
 }
 
 public enum AbilityRarity

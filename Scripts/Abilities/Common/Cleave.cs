@@ -15,8 +15,9 @@ public partial class Cleave : Ability
     {
         var enemy = GlobalManager.GetEnemiesSortedByClosest().FirstOrDefault();
 
+        var stats = GetStats();
         cleaveEffect = cleaveEffectScene.Instantiate<CleaveEffect>();
-        cleaveEffect.Init(GetStatsForLevel(Level));
+        cleaveEffect.Init((stats.damage, stats.bleedStacks));
         cleaveEffect.GlobalPosition = GlobalPosition + Vector2.Left * 20;
         if (enemy != null)
         {
@@ -34,18 +35,8 @@ public partial class Cleave : Ability
     private void TweenOnFinished()
     {
         if (cleaveEffect == null) return;
-        cleaveEffect.QueueFree();
+        cleaveEffect.CallDeferred("queue_free");
         cleaveEffect = null;
         tween.Dispose();
-    }
-
-    private (float damage, int bleedStacks) GetStatsForLevel(int level)
-    {
-        return level switch
-        {
-            1 => (damage: 2f, bleedStacks: 1),
-            2 => (damage: 4f, bleedStacks: 2),
-            3 => (damage: 10f, bleedStacks: 3),
-        };
     }
 }

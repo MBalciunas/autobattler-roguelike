@@ -7,5 +7,6 @@
   </PropertyGroup>
   <ItemGroup>
     <Content Include="Data\Abilities.json" />
+    <Content Include="Data\Traits.json" />
   </ItemGroup>
 </Project>

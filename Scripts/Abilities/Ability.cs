@@ -1,8 +1,10 @@
+using AutoBattlerRoguelike.Scripts.Abilities;
 using Godot;
 
 public abstract partial class Ability : Node2D
 {
     public int Level = 1;
+    public AbilityResource Resource { get; set; }
 
     public async void Execute()
     {
@@ -13,4 +15,6 @@ public abstract partial class Ability : Node2D
 
     protected abstract void ExecuteAbility();
     [Signal] public delegate void FinishedEventHandler(Ability ability);
+
+    protected AbilityLevelStats GetStats() => Resource.GetStats(Level);
 }
