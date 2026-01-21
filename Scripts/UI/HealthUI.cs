@@ -15,7 +15,6 @@ public partial class HealthUI : Control
 
     private void UpdateUI(float value)
     {
-        GD.Print(value);
         Amount.Text = $"{value:0.#}";
         HealthBar.Value = value / GlobalManager.playerState.MaxHealth.Value * 100;
     }

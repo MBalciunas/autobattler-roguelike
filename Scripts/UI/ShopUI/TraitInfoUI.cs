@@ -24,7 +24,7 @@ public partial class TraitInfoUI : Control
 
     public void ShowTrait(AbilityTrait trait, int currentCount)
     {
-        var traitData = TraitDatabase.GetTrait(trait);
+        var traitData = GlobalManager.Traits[trait];
         if (traitData == null)
         {
             Clear();

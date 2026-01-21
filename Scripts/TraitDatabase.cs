@@ -10,11 +10,10 @@ using System.Text.Json;
 
 public static class TraitDatabase
 {
-    public static Godot.Collections.Dictionary<AbilityTrait, TraitData> AllTraits { get; private set; }
 
     public static Godot.Collections.Dictionary<AbilityTrait, TraitData> Load()
     {
-        AllTraits = new Godot.Collections.Dictionary<AbilityTrait, TraitData>();
+        var allTraits = new Godot.Collections.Dictionary<AbilityTrait, TraitData>();
 
         using var file = FileAccess.Open("res://Data/Traits.json", FileAccess.ModeFlags.Read);
         var jsonText = file.GetAsText();
@@ -43,7 +42,7 @@ public static class TraitDatabase
                 });
             }
 
-            AllTraits[traitEnum] = new TraitData
+            allTraits[traitEnum] = new TraitData
             {
                 Name = data.name,
                 Description = data.description,
@@ -51,11 +50,6 @@ public static class TraitDatabase
             };
         }
 
-        return AllTraits;
-    }
-
-    public static TraitData GetTrait(AbilityTrait trait)
-    {
-        return AllTraits.TryGetValue(trait, out var data) ? data : null;
+        return allTraits;
     }
 }

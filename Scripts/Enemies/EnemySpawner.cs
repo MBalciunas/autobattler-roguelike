@@ -4,12 +4,15 @@ public partial class EnemySpawner : Node
 {
     [Export] private PackedScene enemyScene;
     
-    private int currentWave = 0;
-    private int enemiesAlive = 0;
+    public int currentWave = 0;
+    public int enemiesAlive = 0;
     
     private float buffer = 50f;
     private float bottomUiHeight = 150f;
     private Vector2 screenSize;
+    
+    [Signal]
+    public delegate void OnWaveNumberChangedEventHandler(int currentWave, int totalWaves);
 
     public override void _Ready()
     {
@@ -36,6 +39,7 @@ public partial class EnemySpawner : Node
     private void StartWave()
     {
         currentWave++;
+        EmitSignal(SignalName.OnWaveNumberChanged, currentWave, GetTotalWaves());
         SpawnWave();
     }
 
