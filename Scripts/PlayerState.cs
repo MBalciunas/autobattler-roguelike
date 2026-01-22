@@ -87,7 +87,7 @@ public partial class PlayerState : Resource
 
         AbilitiesInLoop =
         [
-            new PlayerAbilityResource(GlobalManager.Abilities[AbilityName.EmberSpit]),
+            new PlayerAbilityResource(GlobalManager.Abilities[AbilityName.QuickJab]),
         ];
 
         // Emit initial values for UI that might subscribe late

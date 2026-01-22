@@ -71,6 +71,18 @@
 	  "3": { "damage": 8, "burnStacks": 3, "explosionRadius": 200 }
 	}
   },
+  "QuickJab": {
+	"name": "Quick Jab",
+	"description": "Lightning-fast punch that extends forward, damaging all enemies in its path. Chance to get gold if enemy is killed by QUick Jab.",
+	"rarity": "Common",
+	"price": 2,
+	"traits": ["Mantis", "Monkey"],
+	"stats": {
+	  "1": { "damage": 3, "goldOnKillChance": 0.1 },
+	  "2": { "damage": 6, "goldOnKillChance": 0.15},
+	  "3": { "damage": 10, "goldOnKillChance": 0.2 }
+	}
+  },
   "VenomFang": {
 	"name": "Venom Fang",
 	"description": "Strike 3 close enemies. Apply poison and bleed.",

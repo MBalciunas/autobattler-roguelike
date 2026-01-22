@@ -41,6 +41,7 @@ public partial class AbilityResource : Resource
         if (stats.explosionRadius > 0) parts.Add($"{stats.explosionRadius} radius");
         if (stats.poisonedDamage > 0) parts.Add($"{stats.poisonedDamage} if poisoned");
         if (stats.projectileCount > 1) parts.Add($"{stats.projectileCount} projectiles");
+        if (stats.goldOnKillChance > 0) parts.Add($"{(int)(stats.goldOnKillChance * 100)}% +1 gold on kill");
 
         var desc = string.Join(", ", parts);
 
@@ -60,7 +61,7 @@ public enum AbilityRarity
 
 public enum AbilityName
 {
-    ToxicDart, ShadowStrike, Cleave, Stomp, SteelPlume, EmberSpit, // Common
+    ToxicDart, ShadowStrike, Cleave, Stomp, SteelPlume, EmberSpit, QuickJab, // Common
     VenomFang, IronWing, DragonBreath, Tremor, PhoenixDive, // Uncommon
     CrimsonSpike, Pounce, SerpentDance, DragonTail, ToxicPool // Rare
 }

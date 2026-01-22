@@ -16,4 +16,5 @@ public class AbilityLevelStats
     public float explosionRadius { get; set; }
     public float poisonedDamage { get; set; }
     public int projectileCount { get; set; }
+    public float goldOnKillChance { get; set; }
 }
