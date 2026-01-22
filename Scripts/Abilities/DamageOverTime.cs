@@ -27,13 +27,24 @@ public class DamageOverTime(float damage, float duration, ElementType elementTyp
         );
     }
 
+    public static DamageOverTime GetBurn(int stacks)
+    {
+        return new DamageOverTime(
+            GlobalManager.playerState.BurnDamage.Value,
+            GlobalManager.playerState.BurnDuration.Value,
+            ElementType.Fire,
+            stacks
+        );
+    }
+
     public void ResetDuration()
     {
         durationLeft = elementType switch
         {
             ElementType.Poison => GlobalManager.playerState.PoisonDuration.Value,
             ElementType.Bleed => GlobalManager.playerState.BleedDuration.Value,
-            ElementType.Fire => durationLeft
+            ElementType.Fire => GlobalManager.playerState.BurnDuration.Value,
+            _ => durationLeft
         };
     }
 }

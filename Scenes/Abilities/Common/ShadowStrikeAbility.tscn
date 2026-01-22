@@ -1,6 +1,8 @@
-[gd_scene load_steps=2 format=3 uid="uid://cj1dswlpe6s6o"]
+[gd_scene load_steps=3 format=3 uid="uid://cj1dswlpe6s6o"]
 
 [ext_resource type="Script" uid="uid://d8yw1do6pk70" path="res://Scripts/Abilities/Common/ShadowStrike.cs" id="1_rilvt"]
+[ext_resource type="PackedScene" uid="uid://shadow_strike_proj" path="res://Scenes/Abilities/Common/ShadowStrikeProjectile.tscn" id="2_proj"]
 
 [node name="ShadowStrike" type="Node2D"]
 script = ExtResource("1_rilvt")
+projectileScene = ExtResource("2_proj")

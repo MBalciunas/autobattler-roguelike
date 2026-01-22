@@ -31,12 +31,14 @@ public partial class AbilityResource : Resource
         if (stats.damage > 0) parts.Add($"{stats.damage} dmg");
         if (stats.bleedStacks > 0) parts.Add($"{stats.bleedStacks} bleed");
         if (stats.poisonStacks > 0) parts.Add($"{stats.poisonStacks} poison");
+        if (stats.burnStacks > 0) parts.Add($"{stats.burnStacks} burn");
         if (stats.shield > 0) parts.Add($"{stats.shield} shield");
         if (stats.shieldPerEnemy > 0) parts.Add($"{stats.shieldPerEnemy} shield/enemy");
         if (stats.slow > 0) parts.Add($"{(int)(stats.slow * 100)}% slow");
         if (stats.slowDuration > 0) parts.Add($"{stats.slowDuration}s");
         if (stats.duration > 0 && stats.slow == 0) parts.Add($"{stats.duration}s duration");
         if (stats.knockbackStrength > 0) parts.Add("knockback");
+        if (stats.explosionRadius > 0) parts.Add($"{stats.explosionRadius} radius");
         if (stats.poisonedDamage > 0) parts.Add($"{stats.poisonedDamage} if poisoned");
         if (stats.projectileCount > 1) parts.Add($"{stats.projectileCount} projectiles");
 
@@ -58,7 +60,7 @@ public enum AbilityRarity
 
 public enum AbilityName
 {
-    ToxicDart, ShadowStrike, Cleave, Stomp, SteelPlume, // Common
+    ToxicDart, ShadowStrike, Cleave, Stomp, SteelPlume, EmberSpit, // Common
     VenomFang, IronWing, DragonBreath, Tremor, PhoenixDive, // Uncommon
     CrimsonSpike, Pounce, SerpentDance, DragonTail, ToxicPool // Rare
 }

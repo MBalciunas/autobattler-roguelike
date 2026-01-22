@@ -1,182 +1,194 @@
 {
   "ToxicDart": {
-    "name": "Toxic Dart",
-    "description": "Projectile that deals damage and applies poison over time. Shoots closest unpoisoned enemy.",
-    "rarity": "Common",
-    "price": 2,
-    "traits": ["Serpent", "Crane"],
-    "stats": {
-      "1": { "damage": 5, "poisonStacks": 1, "projectileCount": 1 },
-      "2": { "damage": 9, "poisonStacks": 2, "projectileCount": 2 },
-      "3": { "damage": 15, "poisonStacks": 3, "projectileCount": 3 }
-    }
+	"name": "Toxic Dart",
+	"description": "Projectile that deals damage and applies poison over time. Shoots closest unpoisoned enemy.",
+	"rarity": "Common",
+	"price": 2,
+	"traits": ["Serpent", "Crane"],
+	"stats": {
+	  "1": { "damage": 5, "poisonStacks": 1, "projectileCount": 1 },
+	  "2": { "damage": 9, "poisonStacks": 2, "projectileCount": 2 },
+	  "3": { "damage": 15, "poisonStacks": 3, "projectileCount": 3 }
+	}
   },
   "ShadowStrike": {
-    "name": "Shadow Strike",
-    "description": "Teleport behind furthest enemy and deal damage.",
-    "rarity": "Common",
-    "price": 2,
-    "traits": ["Tiger", "Serpent"],
-    "stats": {
-      "1": { "damage": 5 },
-      "2": { "damage": 8 },
-      "3": { "damage": 20 }
-    }
+	"name": "Shadow Strike",
+	"description": "Dash away from closest enemy and shoot a slowing projectile.",
+	"rarity": "Common",
+	"price": 2,
+	"traits": ["Tiger", "Serpent"],
+	"stats": {
+	  "1": { "damage": 5, "slow": 0.80, "slowDuration": 2 },
+	  "2": { "damage": 10, "slow": 0.40, "slowDuration": 3 },
+	  "3": { "damage": 20, "slow": 0.60, "slowDuration": 4 }
+	}
   },
   "Cleave": {
-    "name": "Cleave",
-    "description": "Cleaves nearby enemies and applies bleed.",
-    "rarity": "Common",
-    "price": 2,
-    "traits": ["Tiger", "Dragon"],
-    "stats": {
-      "1": { "damage": 2, "bleedStacks": 1 },
-      "2": { "damage": 4, "bleedStacks": 2 },
-      "3": { "damage": 10, "bleedStacks": 3 }
-    }
+	"name": "Cleave",
+	"description": "Cleaves nearby enemies and applies bleed.",
+	"rarity": "Common",
+	"price": 2,
+	"traits": ["Tiger", "Dragon"],
+	"stats": {
+	  "1": { "damage": 2, "bleedStacks": 1 },
+	  "2": { "damage": 4, "bleedStacks": 2 },
+	  "3": { "damage": 10, "bleedStacks": 3 }
+	}
   },
   "Stomp": {
-    "name": "Stomp",
-    "description": "Stomps the ground, dealing damage to nearby enemies and knocking them back.",
-    "rarity": "Common",
-    "price": 2,
-    "traits": ["Ox", "Dragon"],
-    "stats": {
-      "1": { "damage": 2, "knockbackStrength": 100, "knockbackRadius": 300 },
-      "2": { "damage": 5, "knockbackStrength": 150, "knockbackRadius": 400 },
-      "3": { "damage": 10, "knockbackStrength": 200, "knockbackRadius": 500 }
-    }
+	"name": "Stomp",
+	"description": "Stomps the ground, dealing damage to nearby enemies and knocking them back.",
+	"rarity": "Common",
+	"price": 2,
+	"traits": ["Ox", "Dragon"],
+	"stats": {
+	  "1": { "damage": 2, "knockbackStrength": 100, "knockbackRadius": 300 },
+	  "2": { "damage": 5, "knockbackStrength": 150, "knockbackRadius": 400 },
+	  "3": { "damage": 10, "knockbackStrength": 200, "knockbackRadius": 500 }
+	}
   },
   "SteelPlume": {
-    "name": "Steel Plume",
-    "description": "Shoot piercing projectile to closest enemy. Slows on hit.",
-    "rarity": "Common",
-    "price": 2,
-    "traits": ["Crane", "Ox"],
-    "stats": {
-      "1": { "damage": 3, "slow": 0.20, "slowDuration": 3 },
-      "2": { "damage": 7, "slow": 0.30, "slowDuration": 4 },
-      "3": { "damage": 15, "slow": 0.40, "slowDuration": 5 }
-    }
+	"name": "Steel Plume",
+	"description": "Shoot piercing projectile to closest enemy. Slows on hit.",
+	"rarity": "Common",
+	"price": 2,
+	"traits": ["Crane", "Ox"],
+	"stats": {
+	  "1": { "damage": 3, "slow": 0.20, "slowDuration": 3 },
+	  "2": { "damage": 7, "slow": 0.30, "slowDuration": 4 },
+	  "3": { "damage": 15, "slow": 0.40, "slowDuration": 5 }
+	}
+  },
+  "EmberSpit": {
+	"name": "Ember Spit",
+	"description": "Shoot a fiery projectile at nearest enemy. Explodes on impact, burning enemies in the area.",
+	"rarity": "Common",
+	"price": 2,
+	"traits": ["Dragon", "Phoenix"],
+	"stats": {
+	  "1": { "damage": 3, "burnStacks": 1, "explosionRadius": 100 },
+	  "2": { "damage": 5, "burnStacks": 2, "explosionRadius": 150 },
+	  "3": { "damage": 8, "burnStacks": 3, "explosionRadius": 200 }
+	}
   },
   "VenomFang": {
-    "name": "Venom Fang",
-    "description": "Strike 3 close enemies. Apply poison and bleed.",
-    "rarity": "Uncommon",
-    "price": 4,
-    "traits": ["Serpent", "Tiger"],
-    "stats": {
-      "1": { "damage": 3, "bleedStacks": 1, "poisonStacks": 1 },
-      "2": { "damage": 9, "bleedStacks": 2, "poisonStacks": 2 },
-      "3": { "damage": 25, "bleedStacks": 3, "poisonStacks": 3 }
-    }
+	"name": "Venom Fang",
+	"description": "Strike 3 close enemies. Apply poison and bleed.",
+	"rarity": "Uncommon",
+	"price": 4,
+	"traits": ["Serpent", "Tiger"],
+	"stats": {
+	  "1": { "damage": 3, "bleedStacks": 1, "poisonStacks": 1 },
+	  "2": { "damage": 9, "bleedStacks": 2, "poisonStacks": 2 },
+	  "3": { "damage": 25, "bleedStacks": 3, "poisonStacks": 3 }
+	}
   },
   "IronWing": {
-    "name": "Iron Wing",
-    "description": "Strike enemies in a cone. Gain shield for each enemy hit.",
-    "rarity": "Uncommon",
-    "price": 4,
-    "traits": ["Dragon", "Crane"],
-    "stats": {
-      "1": { "damage": 4, "shield": 1 },
-      "2": { "damage": 10, "shield": 2 },
-      "3": { "damage": 20, "shield": 5 }
-    }
+	"name": "Iron Wing",
+	"description": "Strike enemies in a cone. Gain shield for each enemy hit.",
+	"rarity": "Uncommon",
+	"price": 4,
+	"traits": ["Dragon", "Crane"],
+	"stats": {
+	  "1": { "damage": 4, "shield": 1 },
+	  "2": { "damage": 10, "shield": 2 },
+	  "3": { "damage": 20, "shield": 5 }
+	}
   },
   "DragonBreath": {
-    "name": "Dragon Breath",
-    "description": "Hit enemies in a wide cone. Deal increased damage if target is poisoned.",
-    "rarity": "Uncommon",
-    "price": 4,
-    "traits": ["Dragon", "Serpent"],
-    "stats": {
-      "1": { "damage": 5, "poisonedDamage": 10 },
-      "2": { "damage": 10, "poisonedDamage": 20 },
-      "3": { "damage": 25, "poisonedDamage": 50 }
-    }
+	"name": "Dragon Breath",
+	"description": "Hit enemies in a wide cone. Deal increased damage if target is poisoned.",
+	"rarity": "Uncommon",
+	"price": 4,
+	"traits": ["Dragon", "Serpent"],
+	"stats": {
+	  "1": { "damage": 5, "poisonedDamage": 10 },
+	  "2": { "damage": 10, "poisonedDamage": 20 },
+	  "3": { "damage": 25, "poisonedDamage": 50 }
+	}
   },
   "Tremor": {
-    "name": "Tremor",
-    "description": "Hit enemies in line toward closest enemy. Damage, slow, and apply bleed.",
-    "rarity": "Uncommon",
-    "price": 4,
-    "traits": ["Ox", "Tiger"],
-    "stats": {
-      "1": { "damage": 3, "bleedStacks": 1, "slow": 0.30, "slowDuration": 3 },
-      "2": { "damage": 7, "bleedStacks": 2, "slow": 0.40, "slowDuration": 4 },
-      "3": { "damage": 15, "bleedStacks": 3, "slow": 0.60, "slowDuration": 6 }
-    }
+	"name": "Tremor",
+	"description": "Hit enemies in line toward closest enemy. Damage, slow, and apply bleed.",
+	"rarity": "Uncommon",
+	"price": 4,
+	"traits": ["Ox", "Tiger"],
+	"stats": {
+	  "1": { "damage": 3, "bleedStacks": 1, "slow": 0.30, "slowDuration": 3 },
+	  "2": { "damage": 7, "bleedStacks": 2, "slow": 0.40, "slowDuration": 4 },
+	  "3": { "damage": 15, "bleedStacks": 3, "slow": 0.60, "slowDuration": 6 }
+	}
   },
   "PhoenixDive": {
-    "name": "Phoenix Dive",
-    "description": "Jump to the furthest enemy location, damage and knock back enemies.",
-    "rarity": "Uncommon",
-    "price": 4,
-    "traits": ["Tiger", "Crane"],
-    "stats": {
-      "1": { "damage": 3, "knockbackStrength": 200, "knockbackRadius": 300 },
-      "2": { "damage": 8, "knockbackStrength": 300, "knockbackRadius": 400 },
-      "3": { "damage": 16, "knockbackStrength": 500, "knockbackRadius": 500 }
-    }
+	"name": "Phoenix Dive",
+	"description": "Jump to the furthest enemy location, damage and knock back enemies.",
+	"rarity": "Uncommon",
+	"price": 4,
+	"traits": ["Tiger", "Crane"],
+	"stats": {
+	  "1": { "damage": 3, "knockbackStrength": 200, "knockbackRadius": 300 },
+	  "2": { "damage": 8, "knockbackStrength": 300, "knockbackRadius": 400 },
+	  "3": { "damage": 16, "knockbackStrength": 500, "knockbackRadius": 500 }
+	}
   },
   "Pounce": {
-    "name": "Pounce",
-    "description": "Dash to closest enemy, deal high damage and get 20% damage done as shield.",
-    "rarity": "Rare",
-    "price": 6,
-    "traits": ["Tiger", "Crane"],
-    "stats": {
-      "1": { "damage": 10 },
-      "2": { "damage": 20 },
-      "3": { "damage": 50 }
-    }
+	"name": "Pounce",
+	"description": "Dash to closest enemy, deal high damage and get 20% damage done as shield.",
+	"rarity": "Rare",
+	"price": 6,
+	"traits": ["Tiger", "Crane"],
+	"stats": {
+	  "1": { "damage": 10 },
+	  "2": { "damage": 20 },
+	  "3": { "damage": 50 }
+	}
   },
   "CrimsonSpike": {
-    "name": "Crimson Spike",
-    "description": "Shoot projectile towards the enemy with lowest health. Applies bleed.",
-    "rarity": "Rare",
-    "price": 6,
-    "traits": ["Tiger", "Crane"],
-    "stats": {
-      "1": { "bleedStacks": 2 },
-      "2": { "bleedStacks": 4 },
-      "3": { "bleedStacks": 8 }
-    }
+	"name": "Crimson Spike",
+	"description": "Shoot projectile towards the enemy with lowest health. Applies bleed.",
+	"rarity": "Rare",
+	"price": 6,
+	"traits": ["Tiger", "Crane"],
+	"stats": {
+	  "1": { "bleedStacks": 2 },
+	  "2": { "bleedStacks": 4 },
+	  "3": { "bleedStacks": 8 }
+	}
   },
   "SerpentDance": {
-    "name": "Serpent Dance",
-    "description": "Quickly strikes enemies in medium range 10 times. Inflict poison. Apply shield for each unique enemy hit.",
-    "rarity": "Rare",
-    "price": 6,
-    "traits": ["Serpent", "Crane"],
-    "stats": {
-      "1": { "damage": 5, "poisonStacks": 2, "shieldPerEnemy": 1 },
-      "2": { "damage": 10, "poisonStacks": 3, "shieldPerEnemy": 2 },
-      "3": { "damage": 20, "poisonStacks": 5, "shieldPerEnemy": 5 }
-    }
+	"name": "Serpent Dance",
+	"description": "Quickly strikes enemies in medium range 10 times. Inflict poison. Apply shield for each unique enemy hit.",
+	"rarity": "Rare",
+	"price": 6,
+	"traits": ["Serpent", "Crane"],
+	"stats": {
+	  "1": { "damage": 5, "poisonStacks": 2, "shieldPerEnemy": 1 },
+	  "2": { "damage": 10, "poisonStacks": 3, "shieldPerEnemy": 2 },
+	  "3": { "damage": 20, "poisonStacks": 5, "shieldPerEnemy": 5 }
+	}
   },
   "DragonTail": {
-    "name": "Dragon Tail",
-    "description": "Strikes in a straight line towards closest enemy in long range. Grants a shield.",
-    "rarity": "Rare",
-    "price": 6,
-    "traits": ["Dragon", "Crane"],
-    "stats": {
-      "1": { "damage": 5, "shield": 5 },
-      "2": { "damage": 12, "shield": 10 },
-      "3": { "damage": 30, "shield": 20 }
-    }
+	"name": "Dragon Tail",
+	"description": "Strikes in a straight line towards closest enemy in long range. Grants a shield.",
+	"rarity": "Rare",
+	"price": 6,
+	"traits": ["Dragon", "Crane"],
+	"stats": {
+	  "1": { "damage": 5, "shield": 5 },
+	  "2": { "damage": 12, "shield": 10 },
+	  "3": { "damage": 30, "shield": 20 }
+	}
   },
   "ToxicPool": {
-    "name": "Toxic Pool",
-    "description": "Spawns pool under the closest enemy that deals periodic damage, slows and applies poison.",
-    "rarity": "Rare",
-    "price": 6,
-    "traits": ["Serpent", "Ox"],
-    "stats": {
-      "1": { "damage": 4, "poisonStacks": 1, "slow": 0.35, "duration": 3 },
-      "2": { "damage": 10, "poisonStacks": 2, "slow": 0.45, "duration": 3 },
-      "3": { "damage": 20, "poisonStacks": 4, "slow": 0.60, "duration": 3 }
-    }
+	"name": "Toxic Pool",
+	"description": "Spawns pool under the closest enemy that deals periodic damage, slows and applies poison.",
+	"rarity": "Rare",
+	"price": 6,
+	"traits": ["Serpent", "Ox"],
+	"stats": {
+	  "1": { "damage": 4, "poisonStacks": 1, "slow": 0.35, "duration": 3 },
+	  "2": { "damage": 10, "poisonStacks": 2, "slow": 0.45, "duration": 3 },
+	  "3": { "damage": 20, "poisonStacks": 4, "slow": 0.60, "duration": 3 }
+	}
   }
 }
