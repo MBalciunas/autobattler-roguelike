@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://b2c4xet3ulgy"]
+
+[ext_resource type="Script" path="res://Scripts/Abilities/Uncommon/StalkingPounce.cs" id="1_stalkingpounce"]
+
+[node name="StalkingPounceAbility" type="Node2D"]
+script = ExtResource("1_stalkingpounce")

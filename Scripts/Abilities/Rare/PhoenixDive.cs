@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Godot;
 
-namespace AutoBattlerRoguelike.Scripts.Abilities.Uncommon;
+namespace AutoBattlerRoguelike.Scripts.Abilities.Rare;
 
 public partial class PhoenixDive : Ability
 {

@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://civ6udai2ydx6"]
 
-[ext_resource type="Script" uid="uid://mgfwsv338ucf" path="res://Scripts/Abilities/Uncommon/PhoenixDive.cs" id="1_af2wv"]
+[ext_resource type="Script" uid="uid://bn7nr56dso2au" path="res://Scripts/Abilities/Rare/PhoenixDive.cs" id="1_af2wv"]
 [ext_resource type="Texture2D" uid="uid://dpmdjijj1ermm" path="res://Art/Stomp.svg" id="2_j4kac"]
 
 [node name="PhoenixDive" type="Node2D"]

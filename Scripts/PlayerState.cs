@@ -25,6 +25,9 @@ public partial class PlayerState : Resource
     public PlayerStatFloat Lifesteal { get; private set; }
     public PlayerStatInt Gold { get; private set; }
 
+    // Bonus damage for next ability (set by StalkingPounce)
+    public float NextAbilityDamageBonus { get; set; }
+
     // Progression
     public PlayerStatInt Level { get; private set; }
     public PlayerStatInt CurrentXP { get; private set; }
@@ -87,7 +90,10 @@ public partial class PlayerState : Resource
 
         AbilitiesInLoop =
         [
-            new PlayerAbilityResource(GlobalManager.Abilities[AbilityName.HeavySlam]),
+            new PlayerAbilityResource(GlobalManager.Abilities[AbilityName.IronFang]),
+            new PlayerAbilityResource(GlobalManager.Abilities[AbilityName.Pounce]),
+            new PlayerAbilityResource(GlobalManager.Abilities[AbilityName.StalkingPounce]),
+            new PlayerAbilityResource(GlobalManager.Abilities[AbilityName.InfernoKick]),
         ];
 
         // Emit initial values for UI that might subscribe late

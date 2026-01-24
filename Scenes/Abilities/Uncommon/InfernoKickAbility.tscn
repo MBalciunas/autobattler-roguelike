@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://d4e5n801l0d4n"]
+
+[ext_resource type="Script" path="res://Scripts/Abilities/Uncommon/InfernoKick.cs" id="1_infernokick"]
+[ext_resource type="PackedScene" uid="uid://c5s4n7z0l9c3m" path="res://Scenes/Abilities/Uncommon/InfernoKickEffect.tscn" id="2_effect"]
+
+[node name="InfernoKickAbility" type="Node2D"]
+script = ExtResource("1_infernokick")
+infernoKickEffectScene = ExtResource("2_effect")

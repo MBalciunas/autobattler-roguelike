@@ -237,6 +237,11 @@ public abstract partial class Enemy : Area2D
         return activeDots.Any(d => d.elementType == ElementType.Poison);
     }
 
+    public bool IsBurning()
+    {
+        return activeDots.Any(d => d.elementType == ElementType.Fire);
+    }
+
     public void AddSlow(float slow, float slowDuration)
     {
         currentMoveSpeed = moveSpeed * (1 - slow);

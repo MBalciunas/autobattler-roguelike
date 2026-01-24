@@ -6,12 +6,12 @@ public partial class TraitsUI : Control
 {
     [Export] private PackedScene traitUIScene;
     [Export] private InfoPanel infoPanel;
-    private VBoxContainer traitsContainer;
+    private GridContainer traitsContainer;
     private System.Collections.Generic.Dictionary<AbilityTrait, int> _traitCounts = new();
 
     public override void _Ready()
     {
-        traitsContainer = GetNode<VBoxContainer>("TraitsContainer");
+        traitsContainer = GetNode<GridContainer>("TraitsContainer");
         UpdateTraitsUI(GlobalManager.playerState.AbilitiesInLoop);
         GlobalManager.playerState.OnAbilitiesChanged += UpdateTraitsUI;
     }

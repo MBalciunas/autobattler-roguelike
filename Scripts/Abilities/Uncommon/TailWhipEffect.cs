@@ -3,24 +3,20 @@ using Godot;
 
 namespace AutoBattlerRoguelike.Scripts.Abilities.Uncommon;
 
-public partial class DragonBreathEffect : Area2D
+public partial class TailWhipEffect : Area2D
 {
     private float damage;
-    private float burningDamage;
-    private readonly HashSet<Enemy> enemiesHit = [];
+    private float poisonedDamage;
+    private readonly HashSet<Enemy> enemiesHit = new();
 
-    private const float SnapshotWindow = 0.1f; // seconds
-    private const float SnapshotInterval = 0.02f; // seconds
-
-
-    private int count;
+    private const float SnapshotWindow = 0.1f;
+    private const float SnapshotInterval = 0.02f;
 
     public override async void _Ready()
     {
         Monitoring = true;
         Monitorable = true;
 
-        // sample overlaps for a short window
         float elapsed = 0f;
         while (elapsed < SnapshotWindow)
         {
@@ -28,7 +24,7 @@ public partial class DragonBreathEffect : Area2D
             {
                 if (a is Enemy e && enemiesHit.Add(e))
                 {
-                    var damageAmount = e.IsBurning() ? burningDamage : damage;
+                    var damageAmount = e.IsPoisoned() ? poisonedDamage : damage;
                     e.TakeDamage(damageAmount);
                 }
             }
@@ -48,20 +44,17 @@ public partial class DragonBreathEffect : Area2D
         var pts = poly.Polygon;
         if (pts == null || pts.Length < 3) return;
 
-        // CollisionPolygon2D points are in the polygon node's local space.
-        // Convert each point into THIS node's local space before drawing.
         var drawPts = new Vector2[pts.Length];
         for (int i = 0; i < pts.Length; i++)
             drawPts[i] = ToLocal(poly.ToGlobal(pts[i]));
 
-        DrawColoredPolygon(drawPts, new Color(1, 0, 0, 0.25f));
+        DrawColoredPolygon(drawPts, new Color(0.5f, 0, 0.5f, 0.25f));
 
-        // Outline
         for (int i = 0; i < drawPts.Length; i++)
         {
             var a = drawPts[i];
             var b = drawPts[(i + 1) % drawPts.Length];
-            DrawLine(a, b, new Color(1, 0, 0, 0.9f), 2f);
+            DrawLine(a, b, new Color(0.5f, 0, 0.5f, 0.9f), 2f);
         }
     }
 
@@ -69,7 +62,6 @@ public partial class DragonBreathEffect : Area2D
     {
         QueueRedraw();
     }
-
 
     private async void FadeAndFree()
     {
@@ -79,9 +71,9 @@ public partial class DragonBreathEffect : Area2D
         CallDeferred("queue_free");
     }
 
-    public void Init((float damage, float burningDamage) stats)
+    public void Init((float damage, float poisonedDamage) stats)
     {
         damage = stats.damage;
-        burningDamage = stats.burningDamage;
+        poisonedDamage = stats.poisonedDamage;
     }
 }

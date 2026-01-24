@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://d3c4m7y01ab8a"]
+
+[ext_resource type="Script" path="res://Scripts/Abilities/Uncommon/IronFang.cs" id="1_ironfang"]
+[ext_resource type="PackedScene" uid="uid://c4r3m6y9k8b2n" path="res://Scenes/Abilities/Uncommon/IronFangWall.tscn" id="2_wall"]
+
+[node name="IronFangAbility" type="Node2D"]
+script = ExtResource("1_ironfang")
+ironFangWallScene = ExtResource("2_wall")

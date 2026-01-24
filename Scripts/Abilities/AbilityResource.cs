@@ -40,6 +40,8 @@ public partial class AbilityResource : Resource
         if (stats.knockbackStrength > 0) parts.Add("knockback");
         if (stats.explosionRadius > 0) parts.Add($"{stats.explosionRadius} radius");
         if (stats.poisonedDamage > 0) parts.Add($"{stats.poisonedDamage} if poisoned");
+        if (stats.burningDamage > 0) parts.Add($"{stats.burningDamage} if burning");
+        if (stats.nextAbilityDamageBonus > 0) parts.Add($"+{(int)(stats.nextAbilityDamageBonus * 100)}% next ability");
         if (stats.projectileCount > 1) parts.Add($"{stats.projectileCount} projectiles");
         if (stats.goldOnKillChance > 0) parts.Add($"{(int)(stats.goldOnKillChance * 100)}% +1 gold on kill");
         if (stats.ricochets > 0) parts.Add($"{stats.ricochets} ricochets");
@@ -62,9 +64,12 @@ public enum AbilityRarity
 
 public enum AbilityName
 {
-    ToxicDart, ShadowStrike, Cleave, Stomp, FieryCharge, EmberSpit, QuickJab, CoinToss, HeavySlam, Peck, // Common
-    VenomFang, IronWing, DragonBreath, Tremor, PhoenixDive, // Uncommon
-    CrimsonSpike, Pounce, SerpentDance, DragonTail, ToxicPool // Rare
+    // Common (10)
+    ToxicDart, ShadowStrike, Cleave, Stomp, FieryCharge, EmberSpit, QuickJab, CoinToss, HeavySlam, Peck,
+    // Uncommon (10)
+    VenomFang, IronWing, DragonBreath, Tremor, Pounce, Flurry, IronFang, InfernoKick, TailWhip, StalkingPounce,
+    // Rare (5)
+    CrimsonSpike, SerpentDance, DragonTail, ToxicPool, PhoenixDive
 }
 
 public enum AbilityTrait

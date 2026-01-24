@@ -20,9 +20,11 @@ public partial class ShadowStrike : Ability
             var targetPos = GlobalManager.Player.GlobalPosition + dashDirection * dashDistance;
             targetPos = ClampToBounds(targetPos);
 
+            GlobalManager.Player.isInvulnerable = true;
             var tween = GetTree().CreateTween();
             tween.TweenProperty(GlobalManager.Player, "global_position", targetPos, 0.15);
             await ToSignal(tween, Tween.SignalName.Finished);
+            GlobalManager.Player.isInvulnerable = false;
 
             var stats = GetStats();
             directionToEnemy = (enemy.GlobalPosition - GlobalPosition).Normalized();

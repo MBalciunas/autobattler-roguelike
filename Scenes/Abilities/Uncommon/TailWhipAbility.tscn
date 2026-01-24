@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://1b37ds2tkfx"]
+
+[ext_resource type="Script" path="res://Scripts/Abilities/Uncommon/TailWhip.cs" id="1_tailwhip"]
+[ext_resource type="PackedScene" uid="uid://c6t5o8a1m0e5o" path="res://Scenes/Abilities/Uncommon/TailWhipEffect.tscn" id="2_effect"]
+
+[node name="TailWhipAbility" type="Node2D"]
+script = ExtResource("1_tailwhip")
+tailWhipEffectScene = ExtResource("2_effect")

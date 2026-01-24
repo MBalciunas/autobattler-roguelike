@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://c4r3m60ak8b2n"]
+
+[ext_resource type="Script" path="res://Scripts/Abilities/Uncommon/IronFangWall.cs" id="1_wall"]
+[ext_resource type="Texture2D" uid="uid://bwnatcfx2mdo2" path="res://icon.svg" id="2_icon"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wall"]
+size = Vector2(40, 250)
+
+[node name="IronFangWall" type="Area2D"]
+script = ExtResource("1_wall")
+
+[node name="Icon" type="Sprite2D" parent="."]
+modulate = Color(0.5, 0.5, 0.6, 1)
+scale = Vector2(0.35, 2.0)
+texture = ExtResource("2_icon")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_wall")
+
+[connection signal="area_entered" from="." to="." method="OnAreaEntered"]

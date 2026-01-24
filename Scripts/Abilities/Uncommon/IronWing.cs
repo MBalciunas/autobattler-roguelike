@@ -15,7 +15,7 @@ public partial class IronWing : Ability
     {
         var stats = GetStats();
         var effect = ironWingEffectScene.Instantiate<IronWingEffect>();
-        effect.Init((stats.damage, stats.shield));
+        effect.Init((stats.damage, stats.shieldPerEnemy));
         effect.GlobalPosition = GlobalPosition + Vector2.Left * 20;
 
         var enemy = GlobalManager.GetEnemiesSortedByClosest().FirstOrDefault();

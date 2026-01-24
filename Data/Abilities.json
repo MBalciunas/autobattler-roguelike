@@ -136,23 +136,23 @@
 	"description": "Strike enemies in a cone. Gain shield for each enemy hit.",
 	"rarity": "Uncommon",
 	"price": 4,
-	"traits": ["Dragon", "Crane"],
+	"traits": ["Crane", "Ox"],
 	"stats": {
-	  "1": { "damage": 4, "shield": 1 },
-	  "2": { "damage": 10, "shield": 2 },
-	  "3": { "damage": 20, "shield": 5 }
+	  "1": { "damage": 4, "shieldPerEnemy": 1 },
+	  "2": { "damage": 10, "shieldPerEnemy": 2 },
+	  "3": { "damage": 20, "shieldPerEnemy": 5 }
 	}
   },
   "DragonBreath": {
 	"name": "Dragon Breath",
-	"description": "Hit enemies in a wide cone. Deal increased damage if target is poisoned.",
+	"description": "Hit enemies in a wide cone. Deal increased damage if target is burning.",
 	"rarity": "Uncommon",
 	"price": 4,
-	"traits": ["Dragon", "Serpent"],
+	"traits": ["Dragon", "Phoenix"],
 	"stats": {
-	  "1": { "damage": 5, "poisonedDamage": 10 },
-	  "2": { "damage": 10, "poisonedDamage": 20 },
-	  "3": { "damage": 25, "poisonedDamage": 50 }
+	  "1": { "damage": 5, "burningDamage": 10 },
+	  "2": { "damage": 10, "burningDamage": 20 },
+	  "3": { "damage": 25, "burningDamage": 50 }
 	}
   },
   "Tremor": {
@@ -160,7 +160,7 @@
 	"description": "Hit enemies in line toward closest enemy. Damage, slow, and apply bleed.",
 	"rarity": "Uncommon",
 	"price": 4,
-	"traits": ["Ox", "Tiger"],
+	"traits": ["Ox", "Bear"],
 	"stats": {
 	  "1": { "damage": 3, "bleedStacks": 1, "slow": 0.30, "slowDuration": 3 },
 	  "2": { "damage": 7, "bleedStacks": 2, "slow": 0.40, "slowDuration": 4 },
@@ -170,9 +170,9 @@
   "PhoenixDive": {
 	"name": "Phoenix Dive",
 	"description": "Jump to the furthest enemy location, damage and knock back enemies.",
-	"rarity": "Uncommon",
-	"price": 4,
-	"traits": ["Tiger", "Crane"],
+	"rarity": "Rare",
+	"price": 6,
+	"traits": ["Phoenix", "Crane"],
 	"stats": {
 	  "1": { "damage": 3, "knockbackStrength": 200, "knockbackRadius": 300 },
 	  "2": { "damage": 8, "knockbackStrength": 300, "knockbackRadius": 400 },
@@ -181,14 +181,14 @@
   },
   "Pounce": {
 	"name": "Pounce",
-	"description": "Dash to closest enemy, deal high damage and get 20% damage done as shield.",
-	"rarity": "Rare",
-	"price": 6,
+	"description": "Ricochet through enemies applying bleed, then jump away to safety.",
+	"rarity": "Uncommon",
+	"price": 4,
 	"traits": ["Tiger", "Crane"],
 	"stats": {
-	  "1": { "damage": 10 },
-	  "2": { "damage": 20 },
-	  "3": { "damage": 50 }
+	  "1": { "damage": 5, "bleedStacks": 1, "ricochets": 2 },
+	  "2": { "damage": 10, "bleedStacks": 2, "ricochets": 3 },
+	  "3": { "damage": 20, "bleedStacks": 3, "ricochets": 4 }
 	}
   },
   "CrimsonSpike": {
@@ -237,6 +237,66 @@
 	  "1": { "damage": 4, "poisonStacks": 1, "slow": 0.35, "duration": 3 },
 	  "2": { "damage": 10, "poisonStacks": 2, "slow": 0.45, "duration": 3 },
 	  "3": { "damage": 20, "poisonStacks": 4, "slow": 0.60, "duration": 3 }
+	}
+  },
+  "Flurry": {
+	"name": "Flurry",
+	"description": "Shoot projectiles rapidly to different closest enemies.",
+	"rarity": "Uncommon",
+	"price": 4,
+	"traits": ["Mantis", "Leopard"],
+	"stats": {
+	  "1": { "projectileCount": 6, "damage": 3 },
+	  "2": { "projectileCount": 8, "damage": 5 },
+	  "3": { "projectileCount": 10, "damage": 8 }
+	}
+  },
+  "IronFang": {
+	"name": "Iron Fang",
+	"description": "Two walls smash together, pushing and crushing enemies at the center.",
+	"rarity": "Uncommon",
+	"price": 4,
+	"traits": ["Monkey", "Bear"],
+	"stats": {
+	  "1": { "damage": 5, "width": 100 },
+	  "2": { "damage": 10, "width": 125 },
+	  "3": { "damage": 18, "width": 150 }
+	}
+  },
+  "InfernoKick": {
+	"name": "Inferno Kick",
+	"description": "Strike enemies in cone, applies burn.",
+	"rarity": "Uncommon",
+	"price": 4,
+	"traits": ["Phoenix", "Mantis"],
+	"stats": {
+	  "1": { "damage": 4, "burnStacks": 1 },
+	  "2": { "damage": 8, "burnStacks": 2 },
+	  "3": { "damage": 14, "burnStacks": 3 }
+	}
+  },
+  "TailWhip": {
+	"name": "Tail Whip",
+	"description": "Hit enemies in cone, bonus damage if poisoned.",
+	"rarity": "Uncommon",
+	"price": 4,
+	"traits": ["Dragon", "Serpent"],
+	"stats": {
+	  "1": { "damage": 5, "poisonedDamage": 10 },
+	  "2": { "damage": 10, "poisonedDamage": 20 },
+	  "3": { "damage": 25, "poisonedDamage": 50 }
+	}
+  },
+  "StalkingPounce": {
+	"name": "Stalking Pounce",
+	"description": "Jump behind furthest enemy, next ability deals bonus damage.",
+	"rarity": "Uncommon",
+	"price": 4,
+	"traits": ["Leopard", "Tiger"],
+	"stats": {
+	  "1": { "nextAbilityDamageBonus": 0.30 },
+	  "2": { "nextAbilityDamageBonus": 0.50 },
+	  "3": { "nextAbilityDamageBonus": 0.75 }
 	}
   }
 }

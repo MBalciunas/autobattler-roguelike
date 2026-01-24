@@ -15,6 +15,8 @@ public class AbilityLevelStats
     public float knockbackRadius { get; set; }
     public float explosionRadius { get; set; }
     public float poisonedDamage { get; set; }
+    public float burningDamage { get; set; }
+    public float nextAbilityDamageBonus { get; set; }
     public int projectileCount { get; set; }
     public float goldOnKillChance { get; set; }
     public int ricochets { get; set; }

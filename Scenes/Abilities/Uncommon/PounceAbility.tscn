@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://dnaithc2r2j4"]
 
-[ext_resource type="Script" uid="uid://btwvywuxgu2ii" path="res://Scripts/Abilities/Uncommon/Pounce.cs" id="1_8vds4"]
+[ext_resource type="Script" uid="uid://ere8ycthegrf" path="res://Scripts/Abilities/Uncommon/Pounce.cs" id="1_8vds4"]
 
 [node name="PounceAbility" type="Node2D"]
 script = ExtResource("1_8vds4")

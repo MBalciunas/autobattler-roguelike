@@ -34,11 +34,15 @@ public partial class FieryCharge : Ability
         isCharging = true;
         lastFirePos = startPos;
         SpawnFireAt(startPos);
+        GlobalManager.Player.isInvulnerable = true;
 
         // Dash to target
         var tween = GetTree().CreateTween();
         tween.TweenProperty(GlobalManager.Player, "global_position", targetPos, 0.4f);
-        tween.TweenCallback(Callable.From(() => isCharging = false));
+        tween.TweenCallback(Callable.From(() => {
+            isCharging = false;
+            GlobalManager.Player.isInvulnerable = false;
+        }));
     }
 
     public override void _Process(double delta)

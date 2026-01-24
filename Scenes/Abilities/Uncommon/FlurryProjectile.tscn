@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://c3q2m5y8k7a1n"]
+
+[ext_resource type="Script" path="res://Scripts/Abilities/Uncommon/FlurryProjectile.cs" id="1_flurry"]
+[ext_resource type="Texture2D" uid="uid://bwnatcfx2mdo2" path="res://icon.svg" id="2_icon"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_flurry"]
+radius = 5.0
+height = 32.0
+
+[node name="FlurryProjectile" type="Area2D"]
+script = ExtResource("1_flurry")
+
+[node name="Icon" type="Sprite2D" parent="."]
+modulate = Color(0.8, 0.6, 0.2, 1)
+scale = Vector2(0.25, 0.08)
+texture = ExtResource("2_icon")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_flurry")
+
+[connection signal="area_entered" from="." to="." method="OnAreaEntered"]
