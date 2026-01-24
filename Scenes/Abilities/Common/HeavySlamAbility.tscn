@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://heavy_slam_ability"]
+
+[ext_resource type="Script" path="res://Scripts/Abilities/Common/HeavySlam.cs" id="1_script"]
+[ext_resource type="PackedScene" uid="uid://heavy_slam_effect" path="res://Scenes/Abilities/Common/HeavySlamEffect.tscn" id="2_effect"]
+
+[node name="HeavySlam" type="Node2D"]
+script = ExtResource("1_script")
+effectScene = ExtResource("2_effect")

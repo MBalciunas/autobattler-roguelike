@@ -8,7 +8,7 @@
 [ext_resource type="Script" uid="uid://bbiobc88e7a2j" path="res://Scripts/UI/ShopUI/NextLevelButton.cs" id="3_6rmb7"]
 [ext_resource type="PackedScene" uid="uid://b60ipvscmxadc" path="res://Scenes/UI/shop_ability_in_loop_ui.tscn" id="3_jwdga"]
 [ext_resource type="Script" uid="uid://dpsya6s4l4yfl" path="res://Scripts/UI/ShopUI/ShopReroll.cs" id="3_nkmxo"]
-[ext_resource type="Script" uid="uid://d3k1h4ar8ixgm" path="res://Scripts/UI/LevelXPUI.cs" id="4_lxpu"]
+[ext_resource type="Script" uid="uid://duu5p7us6dv2w" path="res://Scripts/UI/LevelXPUI.cs" id="4_lxpu"]
 [ext_resource type="Script" uid="uid://4t7xnfm3oflt" path="res://Scripts/UI/ShopUI/BuyXPButton.cs" id="5_buyxp"]
 [ext_resource type="Script" uid="uid://c811h8v4yw7rl" path="res://Scripts/UI/ShopUI/InfoPanel.cs" id="11_6w775"]
 [ext_resource type="Script" uid="uid://bm5xygysdjf07" path="res://Scripts/UI/ShopUI/AbilityInfoUI.cs" id="12_4i3mv"]
@@ -17,7 +17,7 @@
 [ext_resource type="Texture2D" uid="uid://bwnatcfx2mdo2" path="res://icon.svg" id="13_mr61v"]
 [ext_resource type="Script" uid="uid://bp34jx25uatb0" path="res://Scripts/UI/ShopUI/TraitsUI.cs" id="15_5jnio"]
 [ext_resource type="PackedScene" uid="uid://vmx5kcxbdm4u" path="res://Scenes/UI/TraitUI.tscn" id="16_2n1fq"]
-[ext_resource type="Script" path="res://Scripts/UI/ShopUI/TraitInfoUI.cs" id="17_trait_info"]
+[ext_resource type="Script" uid="uid://30d2ylgl3to8" path="res://Scripts/UI/ShopUI/TraitInfoUI.cs" id="17_trait_info"]
 
 [node name="ShopScene" type="Control"]
 layout_mode = 3
@@ -419,7 +419,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 2
 
-[node name="TraitsUI" type="Control" parent="." node_paths=PackedStringArray("infoPanel")]
+[node name="TraitsUI" type="Control" parent="."]
 anchors_preset = 0
 offset_left = 1059.0
 offset_top = 397.0
@@ -427,14 +427,14 @@ offset_right = 1099.0
 offset_bottom = 437.0
 script = ExtResource("15_5jnio")
 traitUIScene = ExtResource("16_2n1fq")
-infoPanel = NodePath("../InfoPanel")
 
-[node name="TraitsContainer" type="VBoxContainer" parent="TraitsUI"]
+[node name="TraitsContainer" type="GridContainer" parent="TraitsUI"]
 layout_mode = 0
 offset_left = -62.0
 offset_top = 87.0
 offset_right = -22.0
-offset_bottom = 127.0
+offset_bottom = 157.0
+columns = 3
 
 [node name="TraitUI" parent="TraitsUI/TraitsContainer" instance=ExtResource("16_2n1fq")]
 layout_mode = 2

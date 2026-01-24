@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://fiery_charge_ability"]
+
+[ext_resource type="Script" path="res://Scripts/Abilities/Common/FieryCharge.cs" id="1_script"]
+[ext_resource type="PackedScene" uid="uid://fire_ground_effect" path="res://Scenes/Abilities/Common/FireGroundEffect.tscn" id="2_fire_ground"]
+
+[node name="FieryCharge" type="Node2D"]
+script = ExtResource("1_script")
+fireGroundScene = ExtResource("2_fire_ground")

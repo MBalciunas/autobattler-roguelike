@@ -1,23 +1,21 @@
-[gd_scene load_steps=4 format=3 uid="uid://w6oylba8jg57"]
+[gd_scene load_steps=4 format=3 uid="uid://peck_projectile"]
 
-[ext_resource type="Script" uid="uid://bd3ffjeg55fdy" path="res://Scripts/Abilities/Common/QuickJabEffect.cs" id="1_script"]
+[ext_resource type="Script" path="res://Scripts/Abilities/Common/PeckProjectile.cs" id="1_script"]
 [ext_resource type="Texture2D" uid="uid://bwnatcfx2mdo2" path="res://icon.svg" id="2_icon"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_1"]
-radius = 20.0
-height = 150.0
+radius = 8.0
+height = 32.0
 
-[node name="QuickJabEffect" type="Area2D"]
+[node name="PeckProjectile" type="Area2D"]
 script = ExtResource("1_script")
 
 [node name="Icon" type="Sprite2D" parent="."]
-modulate = Color(0.9, 0.8, 0.6, 1)
-position = Vector2(76.8, 1.2000008)
-scale = Vector2(1.2, 0.3)
+modulate = Color(0.8, 0.8, 0.9, 1)
+scale = Vector2(0.25, 0.15)
 texture = ExtResource("2_icon")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(76.8, 1.2000008)
 rotation = 1.5707964
 shape = SubResource("CapsuleShape2D_1")
 

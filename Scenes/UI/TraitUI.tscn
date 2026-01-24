@@ -3,10 +3,9 @@
 [ext_resource type="Texture2D" uid="uid://bwnatcfx2mdo2" path="res://icon.svg" id="1_qrx07"]
 
 [node name="TraitUI" type="Control"]
-custom_minimum_size = Vector2(0, 70)
+custom_minimum_size = Vector2(200, 70)
 layout_mode = 3
 anchors_preset = 0
-mouse_filter = 0
 
 [node name="TextureRect" type="TextureRect" parent="."]
 modulate = Color(0, 0, 0, 1)

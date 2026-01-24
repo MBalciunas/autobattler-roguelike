@@ -192,9 +192,14 @@ public partial class GlobalManager : Node
 
     public static List<Enemy> GetEnemiesSortedByClosest()
     {
+        return GetEnemiesSortedByClosest(Player.GlobalPosition);
+    }
+
+    public static List<Enemy> GetEnemiesSortedByClosest(Vector2 fromPosition)
+    {
         return Player.GetTree().GetNodesInGroup("Enemies")
             .Cast<Enemy>()
-            .OrderBy(e => e.GlobalPosition.DistanceTo(Player.GlobalPosition))
+            .OrderBy(e => e.GlobalPosition.DistanceTo(fromPosition))
             .ToList();
     }
 }

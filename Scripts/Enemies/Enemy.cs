@@ -19,11 +19,13 @@ public abstract partial class Enemy : Area2D
     public Node2D poisonedEffect;
     private Area2D separationArea;
     public Node2D bleedingEffect;
+    public Node2D burningEffect;
     private List<DamageOverTime> activeDots = new();
     protected Player player;
     private Timer attackTimer;
     private Timer dotsTimer;
     private Timer slowTimer;
+    private Timer knockbackStunTimer;
     private bool isMoving = true;
 
     [Signal]
@@ -34,6 +36,7 @@ public abstract partial class Enemy : Area2D
     {
         bleedingEffect = GetNode<Node2D>("BleedingEffect");
         poisonedEffect = GetNode<Node2D>("PoisonedEffect");
+        burningEffect = GetNode<Node2D>("BurningEffect");
         healthBar =  GetNode<TextureProgressBar>("HealthBar");
         currentMoveSpeed = moveSpeed;
 
@@ -53,6 +56,10 @@ public abstract partial class Enemy : Area2D
         AddChild(slowTimer);
         slowTimer.OneShot = true;
         slowTimer.Timeout += RemoveSlow;
+        knockbackStunTimer = new Timer();
+        AddChild(knockbackStunTimer);
+        knockbackStunTimer.OneShot = true;
+        knockbackStunTimer.Timeout += EnableMovement;
         AddChild(attackTimer);
         attackTimer.WaitTime = attackCooldown;
         attackTimer.OneShot = true;
@@ -125,10 +132,15 @@ public abstract partial class Enemy : Area2D
         {
             poisonedEffect.Hide();
         }
-        
+
         if (activeDots.All(dot => dot.elementType != ElementType.Bleed))
         {
             bleedingEffect.Hide();
+        }
+
+        if (activeDots.All(dot => dot.elementType != ElementType.Fire))
+        {
+            burningEffect.Hide();
         }
     }
 
@@ -169,11 +181,18 @@ public abstract partial class Enemy : Area2D
     public void Knockback(float knockbackStrength, Vector2 direction)
     {
         isMoving = false;
+
         var tween = GetTree().CreateTween();
         var targetPosition = GlobalPosition + direction * knockbackStrength;
 
-        tween.TweenProperty(this, "global_position", targetPosition, 0.7f).SetEase(Tween.EaseType.Out);
-        tween.Finished += EnableMovement;
+        tween.TweenProperty(this, "global_position", targetPosition, 0.4f).SetEase(Tween.EaseType.Out);
+        tween.TweenCallback(Callable.From(StartKnockbackStun));
+    }
+
+    private void StartKnockbackStun()
+    {
+        knockbackStunTimer.WaitTime = 0.5f;
+        knockbackStunTimer.Start();
     }
 
     private void EnableMovement()
@@ -201,10 +220,15 @@ public abstract partial class Enemy : Area2D
         {
             poisonedEffect.Show();
         }
-        
+
         if (activeDots.Any(dot => dot.elementType == ElementType.Bleed))
         {
             bleedingEffect.Show();
+        }
+
+        if (activeDots.Any(dot => dot.elementType == ElementType.Fire))
+        {
+            burningEffect.Show();
         }
     }
 

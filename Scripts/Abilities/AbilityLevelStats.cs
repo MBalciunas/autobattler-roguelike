@@ -17,4 +17,7 @@ public class AbilityLevelStats
     public float poisonedDamage { get; set; }
     public int projectileCount { get; set; }
     public float goldOnKillChance { get; set; }
+    public int ricochets { get; set; }
+    public float width { get; set; }
+    public float range { get; set; }
 }

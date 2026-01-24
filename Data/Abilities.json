@@ -4,7 +4,7 @@
 	"description": "Projectile that deals damage and applies poison over time. Shoots closest unpoisoned enemy.",
 	"rarity": "Common",
 	"price": 2,
-	"traits": ["Serpent", "Crane"],
+	"traits": ["Serpent", "Mantis"],
 	"stats": {
 	  "1": { "damage": 5, "poisonStacks": 1, "projectileCount": 1 },
 	  "2": { "damage": 9, "poisonStacks": 2, "projectileCount": 2 },
@@ -16,7 +16,7 @@
 	"description": "Dash away from closest enemy and shoot a slowing projectile.",
 	"rarity": "Common",
 	"price": 2,
-	"traits": ["Tiger", "Serpent"],
+	"traits": ["Tiger", "Leopard"],
 	"stats": {
 	  "1": { "damage": 5, "slow": 0.80, "slowDuration": 2 },
 	  "2": { "damage": 10, "slow": 0.40, "slowDuration": 3 },
@@ -28,7 +28,7 @@
 	"description": "Cleaves nearby enemies and applies bleed.",
 	"rarity": "Common",
 	"price": 2,
-	"traits": ["Tiger", "Dragon"],
+	"traits": ["Tiger", "Bear"],
 	"stats": {
 	  "1": { "damage": 2, "bleedStacks": 1 },
 	  "2": { "damage": 4, "bleedStacks": 2 },
@@ -47,16 +47,16 @@
 	  "3": { "damage": 10, "knockbackStrength": 200, "knockbackRadius": 500 }
 	}
   },
-  "SteelPlume": {
-	"name": "Steel Plume",
-	"description": "Shoot piercing projectile to closest enemy. Slows on hit.",
+  "FieryCharge": {
+	"name": "Fiery Charge",
+	"description": "Dash toward closest enemy, leaving fire ground along the path that burns enemies.",
 	"rarity": "Common",
 	"price": 2,
-	"traits": ["Crane", "Ox"],
+	"traits": ["Phoenix", "Crane"],
 	"stats": {
-	  "1": { "damage": 3, "slow": 0.20, "slowDuration": 3 },
-	  "2": { "damage": 7, "slow": 0.30, "slowDuration": 4 },
-	  "3": { "damage": 15, "slow": 0.40, "slowDuration": 5 }
+	  "1": { "damage": 3, "burnStacks": 1, "duration": 2 },
+	  "2": { "damage": 6, "burnStacks": 1, "duration": 3, "shield": 2 },
+	  "3": { "damage": 10, "burnStacks": 2, "duration": 4, "shield": 4 }
 	}
   },
   "EmberSpit": {
@@ -73,14 +73,50 @@
   },
   "QuickJab": {
 	"name": "Quick Jab",
-	"description": "Lightning-fast punch that extends forward, damaging all enemies in its path. Chance to get gold if enemy is killed by QUick Jab.",
+	"description": "Fast punch extending forward, damages all enemies in its path. Width increases with level.",
 	"rarity": "Common",
 	"price": 2,
 	"traits": ["Mantis", "Monkey"],
 	"stats": {
-	  "1": { "damage": 3, "goldOnKillChance": 0.1 },
-	  "2": { "damage": 6, "goldOnKillChance": 0.15},
-	  "3": { "damage": 10, "goldOnKillChance": 0.2 }
+	  "1": { "damage": 3, "width": 40 },
+	  "2": { "damage": 6, "width": 60 },
+	  "3": { "damage": 10, "width": 80 }
+	}
+  },
+  "CoinToss": {
+	"name": "Coin Toss",
+	"description": "Toss a coin at a random enemy. Applies poison on hit. Higher levels ricochet to additional enemies.",
+	"rarity": "Common",
+	"price": 2,
+	"traits": ["Monkey", "Serpent"],
+	"stats": {
+	  "1": { "damage": 4, "poisonStacks": 1 },
+	  "2": { "damage": 8, "poisonStacks": 1, "ricochets": 2 },
+	  "3": { "damage": 12, "poisonStacks": 2, "ricochets": 4 }
+	}
+  },
+  "HeavySlam": {
+	"name": "Heavy Slam",
+	"description": "Slam in a line toward closest enemy, damages and knocks enemies to the sides.",
+	"rarity": "Common",
+	"price": 2,
+	"traits": ["Bear", "Ox"],
+	"stats": {
+	  "1": { "damage": 4, "knockbackStrength": 150, "range": 300 },
+	  "2": { "damage": 8, "knockbackStrength": 220, "range": 400 },
+	  "3": { "damage": 14, "knockbackStrength": 300, "range": 500 }
+	}
+  },
+  "Peck": {
+	"name": "Peck",
+	"description": "Projectile to closest enemy, gain shield on hit.",
+	"rarity": "Common",
+	"price": 2,
+	"traits": ["Crane", "Leopard"],
+	"stats": {
+	  "1": { "damage": 3, "projectileCount": 1, "shield": 2 },
+	  "2": { "damage": 6, "projectileCount": 2, "shield": 4 },
+	  "3": { "damage": 10, "projectileCount": 3, "shield": 7 }
 	}
   },
   "VenomFang": {

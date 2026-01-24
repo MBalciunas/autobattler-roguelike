@@ -1,9 +1,9 @@
 using Godot;
 
-public partial class PlayerAbilityResource(AbilityResource ability) : GodotObject
+public partial class PlayerAbilityResource(AbilityResource ability, int level = 1) : GodotObject
 {
     public AbilityResource AbilityResource { get; set; } = ability;
-    public int Level { get; set; } = 1;
+    public int Level { get; set; } = level;
     public int Copies { get; set; } = 0;
 
     public void AddCopy()
